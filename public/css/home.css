@@ -1,0 +1,434 @@
+/*** Home Page ***/
+.top-banner-section{margin-top: 21px;}
+.top-banner-section .slider-banner swiper-container { width: 100%; height: 100%; }
+.top-banner-section .slider-banner swiper-slide { text-align: center; font-size: 18px; background: var(--bg-hot-topic); display: flex; justify-content: center; align-items: center;border-radius: 20px;}
+.top-banner-section .slider-banner swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover;}
+.top-banner-section .slider-banner{height: 310px;border-radius: 20px;background: var(--bg-hot-topic);padding: 0;}
+.top-banner-section .slider-banner.col-8{flex: 0 0 65.666667%;max-width: 65.666667%;}
+.top-banner-section .banner-right.col-4{flex: 0 0 34.333333%;max-width: 34.333333%;padding-right: 0;}
+.top-banner-section .slider-banner swiper-slide p{position: absolute;bottom: 0;margin-bottom: 15px;left: 20px;color: var(--bg-color);width: 73%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.top-banner-section .banner-right .topic-info {display: flex;column-gap: 12px;margin-bottom: 10px;}
+.top-banner-section .banner-right .topic-info > div {height: 84px;border-radius: 20px;border: 1px solid var(--bg-color);width: 50%;position: relative;cursor: pointer;padding: 15px;}
+.top-banner-section .banner-right .topic-info > div.topic-redirect{background: #E4EAFB;}
+.top-banner-section .banner-right .topic-info > div.topic-redirect h2{color: #D3D6E8;}
+.top-banner-section .banner-right .topic-info > div.info-redirect{background: #FFE8D9;}
+.top-banner-section .banner-right .topic-info > div.info-redirect h2{color: #F5D9C3;}
+.top-banner-section .banner-right .topic-info > div h2{font-size: 30px;font-weight: bold;opacity: .45;text-align: center;position: absolute;left: 50%;top: 30px;transform: translate(-50%, -50%);z-index: 1;}
+.top-banner-section .banner-right .topic-info > div.topic-redirect h3{color: #8F8BB9;font-weight: bold;font-size: 20px;position: relative;z-index: 2;margin-top: 10px;}
+.top-banner-section .banner-right .topic-info > div.info-redirect h3{color: #B39185;font-weight: bold;font-size: 20px;position: relative;z-index: 2;margin-top: 10px;}
+.top-banner-section .banner-right .topic-info > div.topic-redirect p{font-size: 12px;color: #AEA8B2;margin-bottom: 0;line-height: 12px;}
+.top-banner-section .banner-right .topic-info > div.info-redirect p{font-size: 12px;color: #B5998F;margin-bottom: 0;line-height: 12px;}
+.top-banner-section .banner-right .topic-info > div.topic-redirect svg{position: absolute;right: 0;top: -5px;z-index: 2;}
+.top-banner-section .banner-right .top-applications #topApp{display: none;}
+.top-banner-section .banner-right .top-applications{background: #D9F8D9;border-radius: 20px;border: 1px solid var(--bg-color);width: 100%;height: 216px;padding: 15px 0 10px 10px;}
+.top-banner-section .banner-right .top-applications .tab{background: rgba(255, 255, 255, 0.4);border-radius: 14px;height: 27px;width: fit-content;margin-bottom: 15px;}
+.top-banner-section .banner-right .top-applications .tab button{border: none;outline: none;border-radius: 14px;background: transparent;padding: 0 19px;font-size: 14px;cursor: pointer;color: #999999;height: 100%;}
+.top-banner-section .banner-right .top-applications .tab .active{background: #5BFF86;color: #003300;}
+.top-banner-section .banner-right .top-applications swiper-slide {border-radius: 30px;border: 1px solid var(--bg-color);padding: 15px 11px 16px 11px;cursor: pointer;}
+.top-banner-section .banner-right .top-applications swiper-slide img{width: 89px;height: 89px;margin-bottom: 8px;}
+.top-banner-section .banner-right .top-applications swiper-slide p{font-size: 12px;color: #366E50;margin-bottom: 0;text-align: center;overflow: hidden;white-space: nowrap;}
+.top-banner-section .banner-right .top-applications swiper-slide .crownWrap{position: absolute;top: 0;left: -5px;}
+.top-banner-section .banner-right .top-applications swiper-slide .crownWrap img{margin-bottom: 0;width: 40px;height: 40px;}
+.top-banner-section .banner-right .top-applications swiper-slide .crownWrap p{font-size: 14px;font-weight: bold;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%) rotate(-45deg);}
+.top-banner-section .banner-right .top-applications swiper-slide:nth-child(1) .crownWrap p{color: #CC3300;}
+.top-banner-section .banner-right .top-applications swiper-slide:nth-child(2) .crownWrap p{color: #2603F4;}
+.top-banner-section .banner-right .top-applications swiper-slide:nth-child(3) .crownWrap p{color: #A11281;}
+.top-banner-section .banner-right .top-applications swiper-slide:nth-child(4) .crownWrap p{color: #717070;}
+
+.recommend-section{margin-top: 33px;}
+.recommend-section .titleWrap{display: flex;column-gap: 9px;margin-bottom: 19px;}
+.recommend-section .titleWrap h2{font-size: 24px;}
+.recommend-section .titleWrap img{width: 26px;height: 34px;}
+.recommend-section swiper-slide img{width: 115px;height: 115px;margin-bottom: 5px;}
+.recommend-section swiper-slide p.gamename{font-size: 14px;color: #000000;margin-bottom: 5px;text-align: center;overflow: hidden;white-space: nowrap;}
+.recommend-section swiper-slide p.updatedTime{font-size: 12px;color: #9A9A9A;margin-bottom: 0;text-align: center;}
+.swiper-button-next, .swiper-button-prev{top: 0;}
+.recommend-section .rating{display: none;}
+
+.new-update-section{margin-top: 28px;}
+.new-update-section .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.new-update-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 23px;}
+.new-update-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.new-update-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.new-update-section .new-update-game-list{display: flex;column-gap: 19px;}
+.new-update-section .new-update-game-list .new-update-game-wrap{display: flex;flex-direction: column;}
+.new-update-section .new-update-game-list .new-update-game-wrap .banner-image{width: 386px;height: 216px;margin-bottom: 15px;}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap{display: flex;column-gap: 10px;}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap > img{width: 70px;height: 70px;}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail{display: flex;flex-direction: column;}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail .dateUpdate{margin: 4px 0 9px 0;}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail h4{font-size: 16px;margin-bottom: 0;color: var(--text-black);}
+.new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail p{font-size: 12px;color: var(--text-gray);}
+
+.game-category-list {margin-top: 30px;}
+.game-category-list .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.game-category-list .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 17px;}
+.game-category-list .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.game-category-list .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.game-category-list .category-tab .catTabContent{display:none;column-gap: 45px;row-gap: 38px;flex-wrap: wrap;}
+.game-category-list .category-tab .catTabContent#tuijian{display: flex;}
+.game-category-list .category-tab .tab{display: flex;column-gap: 10px;margin-bottom: 30px;}
+.game-category-list .category-tab .tab .tablinks{border: 1px solid #e4e6e9;outline: none;border-radius: 17px;background: var(--bg-color);padding: 9px 15px;font-size: 14px;color: #a6a6a6;cursor: pointer;line-height: 14px;box-sizing: border-box;}
+.game-category-list .category-tab .tab .tablinks.active{background: #3CA8FF;color: #ffffff;}
+.game-category-list .category-tab .catTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;}
+.game-category-list .category-tab .catTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;}
+.game-category-list .category-tab .catTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.game-category-list .category-tab .catTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;}
+
+.topic-share-section{margin-top: 38px;}
+.topic-share-section .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.topic-share-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 21px;}
+.topic-share-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.topic-share-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.topic-share-section .topic-share-list{display: flex;column-gap: 8px;}
+.topic-share-section .topic-share-list .topic-share-img-wrap{position: relative;cursor: pointer;}
+.topic-share-section .topic-share-list .topic-share-img-wrap img{width: 230px;height: 300px;}
+.topic-share-section .topic-share-list .topic-share-img-wrap .topicNumber {position: absolute;font-size: 12px;color: #ffffff;border: 1px solid #ffffff;border-radius: 12px;width: 42px;height: 25px;display: flex;justify-content: center;align-items: center;top: 15px;left: 15px;}
+.topic-share-section .topic-share-list .topic-share-img-wrap .topicTitle{position: absolute;font-size: 20px;color: #ffffff;width: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;bottom: 36px;left: 14px;}
+.topic-share-section .topic-share-list .topic-share-img-wrap .topicDate{position: absolute;font-size: 14px;color: #ffffff;bottom: 12px;left: 14px;}
+.topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type{flex-grow: 1;}
+.topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type img{width: 100%;}
+.topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type .topicTitle {width: calc(100% - 14px);}
+
+.hot-game-rank {margin-top: 35px;}
+.hot-game-rank .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.hot-game-rank .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 21px;}
+.hot-game-rank .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.hot-game-rank .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.hot-game-rank .hot-game-rank-tab .tab{margin-bottom: 24px;display: flex;column-gap: 0;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks{outline: none;background: transparent;font-size: 16px;color: var(--text-gray);padding: 0 21px;border: none;position: relative;cursor: pointer;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks::before{content: "";width: 2px;height: 24px;color: #cccccc;background: #cccccc;display: block;position: absolute;left: 0;transform: rotate(25deg);}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks::after{content: "";width: 2px;height: 24px;color: #cccccc;background: #cccccc;display: block;position: absolute;right: 0;transform: rotate(25deg);top: 0;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.active{color: #f8a350;font-weight: bold;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.active::before, .hot-game-rank .hot-game-rank-tab .tab .tablinks.active::after{color: #F8A350;background: #F8A350;opacity: .3;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks:nth-child(2)::before, .hot-game-rank .hot-game-rank-tab .tab .tablinks:nth-child(2)::after{display: none;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.active:nth-child(2) + .tablinks:nth-child(3)::before { color: #F8A350;background: #F8A350;opacity: .3; }
+.hot-game-rank .hot-game-rank-tab .tab .tablinks:nth-child(1)::after{display: none;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.active:nth-child(1)::after{display: block;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.active:nth-child(2)::before{display: block;}
+.hot-game-rank .hot-game-rank-tab .tab .tablinks.firstHotGameTab::after {display: block;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent{ display: none; flex-flow: column wrap; height: 250px; align-content: flex-start;column-gap: 46px;row-gap: 20px;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap{ flex: 0 0 auto; width: 30%; height: max-content;display: flex;align-items: center;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent#remenmianfei{display: flex;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap{display: flex;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameNumber{color: #666666;font-size: 16px;padding-left: 10px;margin-right: 22px;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap > img{width: 70px;height: 70px;margin-right: 10px;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameName{font-size: 16px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameCategory{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 12px;color: var(--text-gray);}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .viewNowButton{margin-left: auto;width: 72px;height: 28px;display: flex;justify-content: center;align-items: center;cursor: pointer;font-size: 12px;color: var(--text-gray);border-radius: 14px;background: #f9f9f9;max-width: 72px;flex: 0 0 72px;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .viewNowButton:hover{background: rgba(0, 145, 255, 0.1);color: #0091FF;}
+
+.useful-application-section {margin-top: 40px;}
+.useful-application-section .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.useful-application-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 17px;}
+.useful-application-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.useful-application-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.useful-application-section .useful-application-tab .usefulAppTabContent{display: none;column-gap: 45px;row-gap: 38px;flex-wrap: wrap;}
+.useful-application-section .useful-application-tab .usefulAppTabContent#tuijian1{display: flex;}
+.useful-application-section .useful-application-tab .tab{display: flex;column-gap: 10px;margin-bottom: 30px;}
+.useful-application-section .useful-application-tab .tab .tablinks{border: 1px solid #e4e6e9;outline: none;border-radius: 17px;background: var(--bg-color);padding: 9px 15px;font-size: 14px;color: #a6a6a6;cursor: pointer;line-height: 14px;box-sizing: border-box;}
+.useful-application-section .useful-application-tab .tab .tablinks.active{background: #3CA8FF;color: #ffffff;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;}
+
+.application-mix-section{margin-top: 40px;}
+.application-mix-section h2{font-size: 24px;margin-bottom: 21px;}
+.application-mix-section .application-mix-list{display: flex;column-gap: 8px;}
+.application-mix-section .application-mix-list .application-mix-img-wrap{position: relative;cursor: pointer;}
+.application-mix-section .application-mix-list .application-mix-img-wrap img{width: 230px;height: 300px;}
+.application-mix-section .application-mix-list .application-mix-img-wrap .topicNumber {position: absolute;font-size: 12px;color: #ffffff;border: 1px solid #ffffff;border-radius: 12px;width: 42px;height: 25px;display: flex;justify-content: center;align-items: center;top: 15px;left: 15px;}
+.application-mix-section .application-mix-list .application-mix-img-wrap .topicTitle{position: absolute;font-size: 20px;color: #ffffff;width: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;bottom: 36px;left: 14px;}
+.application-mix-section .application-mix-list .application-mix-img-wrap .topicDate{position: absolute;font-size: 14px;color: #ffffff;bottom: 12px;left: 14px;}
+.application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type{flex-grow: 1;}
+.application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type img{width: 100%;}
+.application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type .topicTitle {width: calc(100% - 14px);}
+
+.hot-app-rank {margin-top: 35px;}
+.hot-app-rank .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.hot-app-rank .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 21px;}
+.hot-app-rank .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.hot-app-rank .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.hot-app-rank .hot-app-rank-tab .tab{margin-bottom: 24px;display: flex;column-gap: 0;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks{outline: none;background: transparent;font-size: 16px;color: var(--text-gray);padding: 0 21px;border: none;position: relative;cursor: pointer;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks::before{content: "";width: 2px;height: 24px;color: #cccccc;background: #cccccc;display: block;position: absolute;left: 0;transform: rotate(25deg);}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks::after{content: "";width: 2px;height: 24px;color: #cccccc;background: #cccccc;display: block;position: absolute;right: 0;transform: rotate(25deg);top: 0;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.active{color: #f8a350;font-weight: bold;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.active::before, .hot-app-rank .hot-app-rank-tab .tab .tablinks.active::after{color: #F8A350;background: #F8A350;opacity: .3;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks:nth-child(2)::before, .hot-app-rank .hot-app-rank-tab .tab .tablinks:nth-child(2)::after{display: none;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.active:nth-child(2) + .tablinks:nth-child(3)::before { color: #F8A350;background: #F8A350;opacity: .3; }
+.hot-app-rank .hot-app-rank-tab .tab .tablinks:nth-child(1)::after{display: none;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.active:nth-child(1)::after{display: block;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.active:nth-child(2)::before{display: block;}
+.hot-app-rank .hot-app-rank-tab .tab .tablinks.firstHotAppTab::after {display: block;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent{ display: none; flex-flow: column wrap; height: 250px; align-content: flex-start;column-gap: 46px;row-gap: 20px;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap{ flex: 0 0 auto; width: 30%; height: max-content;display: flex;align-items: center;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent#remenmianfei1{display: flex;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap{display: flex;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameNumber{color: #666666;font-size: 16px;padding-left: 10px;margin-right: 22px;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap > img{width: 70px;height: 70px;margin-right: 10px;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameName{font-size: 16px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameCategory{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 12px;color: var(--text-gray);}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .viewNowButton{margin-left: auto;width: 72px;height: 28px;display: flex;justify-content: center;align-items: center;cursor: pointer;font-size: 12px;color: var(--text-gray);border-radius: 14px;background: #f9f9f9;max-width: 72px;flex: 0 0 72px;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .viewNowButton:hover{background: rgba(0, 145, 255, 0.1);color: #0091FF;}
+
+.news-section {margin-top: 30px;}
+.news-section .titleWrap h2{font-size: 24px;margin-bottom: 0;}
+.news-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.news-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.news-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.news-section .newsWrap{display: flex;justify-content: space-between;}
+.news-section .newsWrapMobile{display: none;}
+.news-section .newsWrap .news-left .news-top-left {background: rgba(255, 241, 253, 0.5);border-radius: 20px;height: 235px;padding: 20px 14px 19px 20px;box-sizing: border-box;display: flex;column-gap: 15px;margin-bottom: 20px;}
+.news-section .newsWrap .news-left.col-7{padding: 0;max-width: 725px;flex: 0 0 725px;}
+.news-section .newsWrap .news-right.col-5{max-width: 454px;flex: 0 0 454px;}
+.news-section .newsWrap .news-right {background: rgba(255, 241, 253, 0.5);border-radius: 20px;height: 100%;padding: 20px 20px 24px 15px;}
+.news-section .newsWrap .news-left .news-top-left .imgWrap{position: relative;}
+.news-section .newsWrap .news-left .news-top-left .imgWrap .hotIconWrap{position: absolute;top: 0;left: 0;}
+.news-section .newsWrap .news-left .news-top-left .imgWrap .hotIconWrap > img{width: 57px;height: 27px;}
+.news-section .newsWrap .news-left .news-top-left .imgWrap .hotIconWrap > p{font-size: 12px;font-weight: bold;color: var(--bg-color);position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.news-section .newsWrap .news-left .news-top-left .imgWrap .newsImage{width: 340px;height: fit-content;}
+.news-section .newsWrap .news-left .news-top-left .imgWrap .postDate{font-size: 12px;color: var(--bg-color);position: absolute;right: 9px;bottom: 9px;}
+.news-section .newsWrap .news-left .news-top-left .newsDetail .newsTitle{font-size: 16px;font-weight: bold;color: var(--text-black);margin-bottom: 15px;line-height: 23.5px;}
+.news-section .newsWrap .news-left .news-top-left .newsDetail .newsContent{font-size: 14px;color: #666666;line-height: 24px;}
+.news-section .newsWrap .news-left .news-bottom-left{display: flex;column-gap: 20px;}
+.news-section .newsWrap .news-left .news-bottom-left > div {width: 50%;position: relative;background: #e7ffef;border-radius: 20px;padding-bottom: 22px;}
+.news-section .newsWrap .news-left .news-bottom-left > div .imgWrap{margin-bottom: 15px;}
+.news-section .newsWrap .news-left .news-bottom-left > div .imgWrap img{width: 352px;height: 197px;}
+.news-section .newsWrap .news-left .news-bottom-left > div .imgWrap p{font-size: 12px;color: var(--bg-color);position: absolute;right: 9px;bottom: 9px;}
+.news-section .newsWrap .news-left .news-bottom-left > div h3{margin-bottom: 0;font-size: 16px;color: var(--text-black);padding: 0 16px;}
+.news-section .newsWrap .news-right .imgWrap{position: relative;width: 413px;height: fit-content;margin-left: 5px;margin-bottom: 20px;}
+.news-section .newsWrap .news-right .imgWrap .newIconWrap{position: absolute;top: 0;left: 0;}
+.news-section .newsWrap .news-right .imgWrap .newIconWrap > img{width: 57px;height: 27px;}
+.news-section .newsWrap .news-right .imgWrap .newIconWrap > p{font-size: 12px;color: var(--bg-color);position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-weight: bold;}
+.news-section .newsWrap .news-right .imgWrap .postTitle{font-size: 16px;color: var(--bg-color);position: absolute;left: 20px;bottom: 9px;width: calc(100% - 20px);}
+.news-section .newsWrap .news-right .newsList{display: flex;flex-direction: column;row-gap: 18px;}
+.news-section .newsWrap .news-right .newsList .newsDetailWrap{display: flex;column-gap: 15px;align-items: center;}
+.news-section .newsWrap .news-right .newsList .newsDetailWrap .newsNumber{font-size: 22px;font-weight: bold;color: var(--text-black);position: relative;}
+.news-section .newsWrap .news-right .newsList .newsDetailWrap .newsNumber::after{content: "";height: 12px;position: absolute;bottom: 2px;width: 100%;background: rgba(113, 159, 255, 0.3);left: 0;}
+.news-section .newsWrap .news-right .newsList .newsDetailWrap .newsDetailTitle{font-size: 14px;color: #333333;width: 89%;}
+
+@media (max-width: 1024px) {
+    .top-banner-section{margin-top: 0;}
+    .top-banner-section .slider-banner.col-8{flex: 0 0 100%;max-width: 100%;padding-bottom: 2px;}
+    .top-banner-section .slider-banner{height: auto;border-radius: 0;}
+    .top-banner-section .slider-banner swiper-slide{border-radius: 0;}
+    .top-banner-section .slider-banner swiper-slide p{font-size: 1.71rem;left: 1.42rem;margin-bottom: 1.07rem;}
+    .top-banner-section .banner-right.col-4{flex: 0 0 100%;max-width: 100%;background: linear-gradient(160deg, rgba(173, 235, 255, 1) 0%, rgba(199, 255, 218, 1) 50%, rgba(255, 255, 255, 1) 65%);padding-top: 2.85rem;padding-left: 2.14rem;padding-right: 2.14rem;background-repeat: no-repeat;background-position: top;}
+    .top-banner-section .banner-right .topic-info{column-gap: 1.42rem;margin-bottom: 1.42rem;}
+    .top-banner-section .banner-right .topic-info > div{height: 9.42rem;padding: 1.78rem;}
+    .top-banner-section .banner-right .topic-info > div.topic-redirect svg{width: 12.14rem;height: 4.14rem;}
+    .top-banner-section .banner-right .topic-info > div h2{font-size: 3.57rem;}
+    .top-banner-section .banner-right .topic-info > div.topic-redirect h3, .top-banner-section .banner-right .topic-info > div.info-redirect h3{font-size: 2.28rem;margin-top: 1.07rem;}
+    .top-banner-section .banner-right .topic-info > div.topic-redirect p, .top-banner-section .banner-right .topic-info > div.info-redirect p{font-size: 1.42rem;line-height: 1.42rem;}
+    .top-banner-section .banner-right .top-applications{height: auto;padding: 1.64rem 0 2.14rem 1.5rem;}
+    .top-banner-section .banner-right .top-applications .tab{height: 3.42rem;margin-bottom: 1.5rem;}
+    .top-banner-section .banner-right .top-applications .tab button{padding: 0 2.71rem;font-size: 1.71rem;}
+    .top-banner-section .banner-right .top-applications swiper-slide {padding: 1.5rem 1.5rem 2.5rem;}
+    .top-banner-section .banner-right .top-applications swiper-slide img{width: 100%;height: auto;margin-bottom: 0.92rem;}
+    .top-banner-section .banner-right .top-applications swiper-slide p{font-size: 1.28rem;}
+    .top-banner-section .banner-right .top-applications swiper-slide .crownWrap{left: 0;}
+    .top-banner-section .banner-right .top-applications swiper-slide .crownWrap img{margin-bottom: 0;width: 3.42rem;height: 3.42rem;}
+    .top-banner-section .banner-right .top-applications swiper-slide .crownWrap p{font-size: 1.28rem;}
+
+    .recommend-section{margin-top: 2.5rem;padding-left: 2rem;}
+    .recommend-section .titleWrap{column-gap: 0.60rem;margin-bottom: 1.74rem;}
+    .recommend-section .titleWrap h2{font-size: 2.42rem;}
+    .recommend-section .titleWrap img{width: 2.57rem;height: 3.35rem;}
+    .recommend-section swiper-slide img{width: 100%;height: auto;margin-bottom: 0.78rem;}
+    .recommend-section swiper-slide p.gamename{font-size: 1.57rem;margin-bottom: 0.rem;}
+    .recommend-section swiper-slide p.updatedTime{display: none;}
+    .recommend-section .swiper-button-next, .recommend-section .swiper-button-prev{display: none;}
+    .recommend-section .rating{display: flex;align-items: center;column-gap: 0.35rem;justify-content: center;}
+    .recommend-section .rating img{width: 1.5rem;height: auto;margin-bottom: 0;}
+    .recommend-section .rating p{color: #FA8B15;font-size: 1.5rem;}
+
+    .new-update-section{margin-top: 2.07rem;padding-left: 2.14rem;}
+    .new-update-section .titleWrap h2{font-size: 2.42rem;}
+    .new-update-section .titleWrap{margin-bottom: 1.85rem;}
+    .new-update-section .titleWrap p{font-size: 1.57rem;}
+    .new-update-section .titleWrap img{width: 1.64rem;height: 1rem;}
+    .new-update-section .new-update-game-list{column-gap: 1.35rem;overflow-x: scroll;padding-right: 2.14rem;}
+    .new-update-section .new-update-game-list::-webkit-scrollbar{height: 0;display: none;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .banner-image{width: 43.35rem;height: auto;margin-bottom: 1.42rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap{column-gap: 1.5rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap > img{width: 7.5rem;height: 7.5rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail .dateUpdate{margin: 0.21rem 0 0.57rem 0;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail h4{font-size: 1.71rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail p{font-size: 1.28rem;}
+
+    .game-category-list {margin-top: 3rem;padding: 0 2.14rem;overflow: hidden;}
+    .game-category-list .titleWrap h2{font-size: 2.42rem;}
+    .game-category-list .titleWrap{margin-bottom: 1.78rem;}
+    .game-category-list .titleWrap p{font-size: 1.57rem;}
+    .game-category-list .titleWrap img{width: 1.64rem;height: 1rem;}
+    .game-category-list .category-tab .catTabContent{column-gap: 2.57rem;row-gap: 2.57rem;grid-template-columns: repeat(4, 1fr);}
+    .game-category-list .category-tab .catTabContent#tuijian{display: grid;}
+    .game-category-list .category-tab .tab{display: none}
+    .game-category-list .category-tab .catTabContent .gameWrap > img{width: 100%;height: auto;margin-bottom: 0.78rem;}
+    .game-category-list .category-tab .catTabContent .gameWrap .gameName{font-size: 1.57rem;}
+    .game-category-list .category-tab .catTabContent .gameWrap .gameUpdate {display: none;}
+
+    .topic-share-section{margin-top: 2.71rem;padding-left: 2.14rem;}
+    .topic-share-section .titleWrap h2{font-size: 2.42rem;}
+    .topic-share-section .titleWrap{margin-bottom: 1.85rem;}
+    .topic-share-section .titleWrap p{font-size: 1.57rem;}
+    .topic-share-section .titleWrap img{width: 1.64rem;height: 1rem;}
+    .topic-share-section .topic-share-list{column-gap: 1.42rem;overflow-x: scroll;padding-right: 2.14rem;}
+    .topic-share-section .topic-share-list::-webkit-scrollbar{height: 0;display: none;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap img{width: 33.14rem;height: 20.42rem;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap .topicNumber {font-size: 1.14rem;width: 3.28rem;height: 2rem;top: 1.07rem;left: 1.07rem;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap .topicTitle{font-size: 1.57rem;bottom: 2.85rem;left: 1.07rem;width: calc(100% - 2.14rem);}
+    .topic-share-section .topic-share-list .topic-share-img-wrap .topicDate{font-size: 1.28rem;bottom: 0.85rem;left: 1.07rem;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type{flex-grow: unset;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type .topicTitle {width: calc(100% - 2.14rem);}
+    .topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type img{width: 33.14rem;height: 20.42rem;}
+
+    .hot-game-rank {margin-top: 3.07rem;padding-left: 2.14rem;}
+    .hot-game-rank .titleWrap h2{font-size: 2.42rem;}
+    .hot-game-rank .titleWrap{margin-bottom: 1.64rem;}
+    .hot-game-rank .titleWrap p{font-size: 1.57rem;}
+    .hot-game-rank .titleWrap img{width: 1.64rem;height: 1rem;}
+    .hot-game-rank .hot-game-rank-tab .tab{margin-bottom: 2.64rem;}
+    .hot-game-rank .hot-game-rank-tab .tab .tablinks{font-size: 1.71rem;padding: 0 1.5rem;}
+    .hot-game-rank .hot-game-rank-tab .tab .tablinks::before{width: 2px;height: 2rem;transform: translateY(-50%) rotate(25deg);top: 50%;}
+    .hot-game-rank .hot-game-rank-tab .tab .tablinks::after{width: 2px;height: 2rem;transform: translateY(-50%) rotate(25deg);top: 50%;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent{height: 39rem;column-gap: 1rem;row-gap: 3.57rem;overflow-x: scroll;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent::-webkit-scrollbar{height: 0;display: none;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap{width: 90%;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameNumber{font-size: 1.85rem;padding-left: 0;margin-right: 2.5rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap > img{width: 8.57rem;height: 8.57rem;margin-right: 2.14rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameName{font-size: 1.85rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameCategory{font-size: 1.42rem;margin-bottom: 0.78rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 1.42rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .viewNowButton{display: none;}
+
+    .useful-application-section {margin-top: 2.85rem;padding: 0 2.14rem;overflow: hidden;}
+    .useful-application-section .titleWrap h2{font-size: 2.42rem;}
+    .useful-application-section .titleWrap{margin-bottom: 1.78rem;}
+    .useful-application-section .titleWrap p{font-size: 1.57rem;}
+    .useful-application-section .titleWrap img{width: 1.64rem;height: 1rem;}
+    .useful-application-section .useful-application-tab .usefulAppTabContent{column-gap: 2.57rem;row-gap: 2.57rem;grid-template-columns: repeat(4, 1fr);}
+    .useful-application-section .useful-application-tab .usefulAppTabContent#tuijian1{display: grid;}
+    .useful-application-section .useful-application-tab .tab{display: none}
+    .useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap > img{width: 100%;height: auto;margin-bottom: 0.78rem;}
+    .useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameName{font-size: 1.57rem;}
+    .useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameUpdate {display: none;}
+
+    .application-mix-section{margin-top: 2.71rem;padding-left: 2.14rem;}
+    .application-mix-section h2{font-size: 2.42rem;margin-bottom: 1.85rem;}
+    .application-mix-section .application-mix-list{column-gap: 1.42rem;overflow-x: scroll;padding-right: 2.14rem;}
+    .application-mix-section .application-mix-list::-webkit-scrollbar{height: 0;display: none;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap img{width: 33.14rem;height: 20.42rem;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap .topicNumber {font-size: 1.14rem;width: 3.28rem;height: 2rem;top: 1.07rem;left: 1.07rem;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap .topicTitle{font-size: 1.57rem;bottom: 2.85rem;left: 1.07rem;width: calc(100% - 2.14rem);}
+    .application-mix-section .application-mix-list .application-mix-img-wrap .topicDate{font-size: 1.28rem;bottom: 0.85rem;left: 1.07rem;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type{flex-grow: unset;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type .topicTitle {width: calc(100% - 2.14rem);}
+    .application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type img{width: 33.14rem;height: 20.42rem;}
+
+    .hot-app-rank {margin-top: 3rem;padding-left: 2.14rem;}
+    .hot-app-rank .titleWrap h2{font-size: 2.42rem;}
+    .hot-app-rank .titleWrap{margin-bottom: 1.64rem;}
+    .hot-app-rank .titleWrap p{font-size: 1.57rem;}
+    .hot-app-rank .titleWrap img{width: 1.64rem;height: 1rem;}
+    .hot-app-rank .hot-app-rank-tab .tab{margin-bottom: 2.64rem;}
+    .hot-app-rank .hot-app-rank-tab .tab .tablinks{font-size: 1.71rem;padding: 0 1.5rem;}
+    .hot-app-rank .hot-app-rank-tab .tab .tablinks::before{width: 2px;height: 2rem;transform: translateY(-50%) rotate(25deg);top: 50%;}
+    .hot-app-rank .hot-app-rank-tab .tab .tablinks::after{width: 2px;height: 2rem;transform: translateY(-50%) rotate(25deg);top: 50%;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent{height: 39rem;column-gap: 1rem;row-gap: 3.57rem;overflow-x: scroll;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent::-webkit-scrollbar{height: 0;display: none;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap{width: 90%;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameNumber{font-size: 1.85rem;padding-left: 0;margin-right: 2.5rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap > img{width: 8.57rem;height: 8.57rem;margin-right: 2.14rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameName{font-size: 1.85rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameCategory{font-size: 1.42rem;margin-bottom: 0.78rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 1.42rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .viewNowButton{display: none;}
+
+    .news-section {margin-top: 3.07rem;padding: 0 2.14rem;}
+    .news-section .titleWrap h2{font-size: 2.42rem;}
+    .news-section .titleWrap{margin-bottom: 1.85rem;}
+    .news-section .titleWrap p{font-size: 1.57rem;}
+    .news-section .titleWrap img{width: 1.64rem;height: 1rem;}
+    .news-section .newsWrap{display: none;}
+    .news-section  .newsWrapMobile{display: flex;flex-direction: column;}
+    .news-section  .newsWrapMobile .newsMobileWrap{display: flex;column-gap: 2.14rem;padding: 1.42rem 0;border-bottom: 1px solid rgba(153, 153, 153, 0.15) ;}
+    .news-section  .newsWrapMobile .newsMobileWrap:first-child{padding-top: 0;}
+    .news-section  .newsWrapMobile .newsMobileWrap .imgWrap{position: relative;}
+    .news-section  .newsWrapMobile .newsMobileWrap .imgWrap > div {position: absolute;top: 0;left: 0;}
+    .news-section  .newsWrapMobile .newsMobileWrap .imgWrap > div img{width: 4.07rem;height: 1.92rem;}
+    .news-section  .newsWrapMobile .newsMobileWrap .imgWrap > div > p{font-size:1.14rem;color: var(--bg-color);position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-weight: bold;}
+    .news-section  .newsWrapMobile .newsMobileWrap .newsImage{width: 16.85rem;height: auto;}
+    .news-section  .newsWrapMobile .newsMobileWrap .detailWrap{display: flex;flex-direction: column;justify-content: space-between;}
+    .news-section  .newsWrapMobile .newsMobileWrap .detailWrap .title{color: var(--text-black);font-size: 1.71rem;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;line-clamp: 2;-webkit-line-clamp: 2;}
+    .news-section  .newsWrapMobile .newsMobileWrap .detailWrap .datePost{color: #9A9A9A;font-size: 1.28rem;}
+}
+
+@media (max-width: 575px) {
+    .new-update-section .new-update-game-list .new-update-game-wrap .banner-image{width: 32rem;}
+    .game-category-list .category-tab .catTabContent .gameWrap .gameName, .useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameName{font-size: 1.2rem;}
+    .game-category-list .category-tab .catTabContent, .useful-application-section .useful-application-tab .usefulAppTabContent{column-gap: 1rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap{width: 85%;}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .new-update-section .new-update-game-list .new-update-game-wrap .banner-image{width: 26rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap > img{width: 6rem;height: 6rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail h4{font-size: 1.5rem;}
+    .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap .new-update-small-detail p{font-size: 1rem;}
+
+    .game-category-list .category-tab .catTabContent, .useful-application-section .useful-application-tab .usefulAppTabContent{grid-template-columns: repeat(5, 1fr);column-gap: 1.5rem;row-gap: 1.5rem;}
+
+    .topic-share-section .topic-share-list .topic-share-img-wrap img{width: 230px;height: 300px;}
+    .topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type img{width: 486px;height: 300px;}
+
+    .application-mix-section .application-mix-list .application-mix-img-wrap img{width: 230px;height: 300px;}
+    .application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type img{width: 486px;height: 300px;}
+
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap > img{width: 6rem;height: 6rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameName{font-size: 1.4rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameCategory, .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 1.2rem;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap{width: 50%;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent{height: 27rem;}
+
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap > img{width: 6rem;height: 6rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameName{font-size: 1.4rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameCategory, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 1.2rem;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap{width: 50%;}
+    .hot-app-rank .hot-app-rank-tab .hotAppTabContent{height: 27rem;}
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .new-update-section .new-update-game-list{overflow-x: scroll;}
+    .new-update-section .new-update-game-list::-webkit-scrollbar{height: 0;display: none;}
+    
+    .useful-application-section .useful-application-tab .tab, .game-category-list .category-tab .tab{overflow-x: scroll;}
+    .useful-application-section .useful-application-tab .tab::-webkit-scrollbar, .game-category-list .category-tab .tab::-webkit-scrollbar{height: 0;display: none;}
+    .useful-application-section .useful-application-tab .tab .tablinks, .game-category-list .category-tab .tab .tablinks{white-space: nowrap;}
+
+    .topic-share-section .topic-share-list .topic-share-img-wrap:last-of-type img, .application-mix-section .application-mix-list .application-mix-img-wrap:first-of-type img{width: 486px;}
+    .topic-share-section .topic-share-list, .application-mix-section .application-mix-list{overflow-x: scroll;}
+    .topic-share-section .topic-share-list::-webkit-scrollbar, .application-mix-section .application-mix-list::-webkit-scrollbar{height: 0;display: none;}
+
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap > img, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap > img{width: 50px;height: 50px;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameName, .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameNumber, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameName, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameNumber{font-size: 14px;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameCategory, .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameUpdate, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameCategory, .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameUpdate{font-size: 11px;}
+    .hot-game-rank .hot-game-rank-tab .hotGameTabContent, .hot-app-rank .hot-app-rank-tab .hotAppTabContent{height: 230px;}
+
+    .news-section .newsWrap .news-left.col-7{max-width: 70%;flex: 0 0 70%;}
+    .news-section .newsWrap .news-right.col-5{max-width: 30%;flex: 0 0 30%;}
+    .news-section .newsWrap .news-left .news-top-left{height: auto;}
+    .news-section .newsWrap .news-left .news-bottom-left > div .imgWrap img{width: 100%;height: auto;}
+    .news-section .newsWrap .news-right .imgWrap{width: 100%;}
+    .news-section .newsWrap .news-right .imgWrap .newsImage{width: 100%;}
+    .news-section .newsWrap .news-right .imgWrap .newIconWrap > img{width: 46px;height: 21px;}
+    .news-section .newsWrap .news-right .imgWrap .newIconWrap > p{font-size: 10px;}
+    .news-section .newsWrap .news-right .imgWrap .newIconWrap{top: -3px;}
+    .news-section .newsWrap .news-right .imgWrap .postTitle{font-size: 14px;width: calc(100% - 40px);}
+
+
+}

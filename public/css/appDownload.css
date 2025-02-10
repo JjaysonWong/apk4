@@ -1,0 +1,414 @@
+.downloadPage .top-breadcrumb{padding-top: 16px;}
+
+.downloadPage .banner-download{margin-top: 17px;border-radius: 20px;background: linear-gradient(19deg, rgb(202 200 255 / 54%) 12%, #effbf7 94%);padding: 30px;display: flex;column-gap: 20px;align-items: center;}
+.downloadPage .banner-download .appImage{width: 150px;height: 150px;}
+.downloadPage .banner-download .detailWrap{display: flex;flex-direction: column;}
+.downloadPage .banner-download .detailWrap .name {font-size: 28px;color: var(--text-black);margin-bottom: 15px;overflow: hidden;white-space: nowrap;}
+.downloadPage .banner-download .detailWrap .detail{display: flex;column-gap: 27px;margin-bottom: 30px;}
+.downloadPage .banner-download .detailWrap .detail p{font-size: 14px;color: #666666;position: relative;line-height: 19px;}
+.downloadPage .banner-download .detailWrap .detail p::after{content: "";height: 100%;width: 2px;background: rgba(153, 153, 153, 0.35);;position: absolute;right: -13px;}
+.downloadPage .banner-download .detailWrap .detail p:last-of-type::after{display: none;}
+.downloadPage .banner-download .detailWrap .typeWrap{display: flex;column-gap: 10px;flex-wrap: wrap;row-gap: 10px;}
+.downloadPage .banner-download .detailWrap .typeWrap p{border: 1px solid rgba(51, 51, 51, 0.25);;height: 26px;font-size: 12px;color: #44464B;padding: 0 15px;text-align: center;border-radius: 6px;display: flex;align-items: center;justify-content: center;}
+.downloadPage .banner-download .downloadButtonWrap{margin-left: auto;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap{display: flex;column-gap: 34px;margin-bottom: 18px;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap > p{font-size: 30px;color: #333335;position: relative;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap > p::after {content: ""; height: 85%; width: 2px; background: rgba(153, 153, 153, 0.35); position: absolute; right: -17px; top: 50%; transform: translateY(-50%);}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap{display: flex;flex-direction: column;row-gap: 6px;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap p{font-size: 14px;color: var(--text-gray);}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars {display: flex;column-gap: 3px;height: 14px;align-items: center;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars .star{background: url(../images/download/star.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars .star-fill{background: url(../images/download/star-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars .star-half-fill{background: url(../images/download/star-half-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .banner-download .downloadButtonWrap .buttonWrap{display: flex;flex-direction: column;row-gap: 22px;}
+.downloadPage .banner-download .downloadButtonWrap .buttonWrap > div {display: flex;justify-content: center;align-items: center;column-gap: 10px;background: #22F2A7;border-radius: 10px;height: 48px;width: 240px;cursor: pointer;}
+.downloadPage .banner-download .downloadButtonWrap .buttonWrap > div > img{width: 18px;height: 18px;}
+.downloadPage .banner-download .downloadButtonWrap .buttonWrap > div > p {font-size: 18px;color: var(--bg-color);}
+.downloadPage .banner-download-mobile, .downloadPage .downloadButtonMobile{display: none;}
+
+.downloadPage .downloadInfo{margin-top: 30px;display: flex;column-gap: 20px;}
+.downloadPage .downloadInfo .content-left{max-width: 70%;flex: 0 0 70%;}
+.downloadPage .downloadInfo .content-left .screenshot-slider h2{font-size: 20px;color: var(--text-black);margin-bottom: 22px;}
+.downloadPage .downloadInfo .content-left .screenshot-slider{margin-bottom: 30px;}
+.downloadPage .downloadInfo .content-left .screenshot-slider swiper-slide img{width: 100%;}
+
+.downloadPage .app-info > h2{font-size: 20px;color: var(--text-black);margin-bottom: 12px;}
+.downloadPage .app-info > p{font-size: 16px;color: #333333;margin-bottom: 20px;}
+.downloadPage .app-info .update-info{margin-top: 27px;}
+.downloadPage .app-info .update-info .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 13px;}
+.downloadPage .app-info .update-info .titleWrap h2{font-size: 20px;color: var(--text-black);}
+.downloadPage .app-info .update-info .titleWrap p{cursor: pointer;color: #4AC38B;font-size: 14px;text-decoration: underline;}
+.downloadPage .app-info .update-info .appVersion{font-size: 14px;color: var(--text-gray);margin-bottom: 14px;}
+.downloadPage .app-info .update-info .appUpdateInfo{font-size: 16px;color: #333333;}
+.downloadPage .app-info .update-info .update-content > h2{font-size: 20px;color: var(--text-black);margin-bottom: 12px;}
+.downloadPage .app-info .update-info .update-content > p{font-size: 16px;color: #333333;margin-bottom: 20px;}
+.downloadPage .app-info .update-info .update-content{max-height: 0;overflow: hidden;}
+.downloadPage .app-info .update-info .update-content.open{max-height: 100%;}
+.downloadPage .app-info .update-info .update-content .collapse-btn{cursor: pointer;color: #4AC38B;font-size: 14px;text-decoration: underline;text-align: right;}
+
+.downloadPage .app-info .detail-info {margin-top: 36px;}
+.downloadPage .app-info .detail-info > h2{margin-bottom: 10px;font-size: 20px;color: var(--text-black);}
+.downloadPage .app-info .detail-info .detailWrap{border-radius: 20px;background: #FAFAFD;padding: 24px 15px 10px;display: grid;row-gap: 5px;grid-template-columns: repeat(3, 1fr);}
+.downloadPage .app-info .detail-info .detailWrap > div{display: flex;row-gap: 7px;flex-direction: column;}
+.downloadPage .app-info .detail-info .detailWrap > div h2{font-size: 14px;color: #7F7F7F;margin-bottom: 0;}
+.downloadPage .app-info .detail-info .detailWrap > div p{color: var(--text-black);font-size: 14px;height: 40px;}
+
+.downloadPage .app-info .related-history-version{margin-top: 26px;}
+.downloadPage .app-info .related-history-version > h2{font-size: 20px;color: var(--text-black);}
+.downloadPage .app-info .related-history-version .downloadList{display: flex;flex-direction: column;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap{display: flex;align-items: center;justify-content: space-between;padding: 10px 0 15px;border-bottom: 1px solid #E6E9ED;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap{display: flex;flex-direction: column;row-gap: 5px;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap > p{font-size: 14px;color: #333333;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory{display: flex;column-gap: 20px;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory p{font-size: 12px;color: var(--text-gray);}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton{display: flex;column-gap: 5px;justify-content: center;align-items: center;background: #22F2A7;border-radius: 10px;width: 102px;height: 28px;cursor: pointer;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton img{width: 12px;height: 12px;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton p{font-size: 12px;color: var(--bg-color);margin-top: -2px;}
+
+.downloadPage  .similar-app-list{margin-top: 35px;}
+.downloadPage  .similar-app-list .titleWrap h2{font-size: 20px;margin-bottom: 0;color: var(--text-black);}
+.downloadPage  .similar-app-list .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.downloadPage  .similar-app-list .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage  .similar-app-list .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage  .similar-app-list .appList{display: flex;column-gap: 33px;justify-content: center;}
+.downloadPage  .similar-app-list .appList .appWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.downloadPage  .similar-app-list .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;}
+.downloadPage  .similar-app-list .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: nowrap;}
+.downloadPage  .similar-app-list .appList .appWrap .dateUpdate{color: #9A9A9A;font-size: 12px;}
+.downloadPage .similar-app-list .mobileStarWrap{display: none;}
+
+.downloadPage .related-topic-mobile{display: none;}
+
+.downloadPage .related-info{margin-top: 27px;}
+.downloadPage .related-info .titleWrap h2{font-size: 20px;margin-bottom: 0;color: var(--text-black);}
+.downloadPage .related-info .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.downloadPage .related-info .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage .related-info .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage .related-info .infoList{display: grid;column-gap: 15px;grid-template-columns: repeat(3, 1fr);}
+.downloadPage .related-info .infoList .infoWrap{background: #F9F9F9;border-radius: 20px;padding-bottom: 20px;}
+.downloadPage .related-info .infoList .infoWrap .imgWrap{position: relative;}
+.downloadPage .related-info .infoList .infoWrap .imgWrap img{width: 269px;height: 150px;}
+.downloadPage .related-info .infoList .infoWrap .imgWrap .datePost{font-size: 12px;color: var(--bg-color);position: absolute;right: 10px;bottom: 10px;}
+.downloadPage .related-info .infoList .infoWrap .postTitle{font-size: 12px;color: var(--text-black);padding-left: 10px;padding-top: 10px;width: 90%;}
+.downloadPage .related-info .infoList .infoWrap .datePostMobile{display: none;}
+
+.downloadPage .good-app-recommend{margin-top: 26px;}
+.downloadPage .good-app-recommend .titleWrap h2{font-size: 20px;margin-bottom: 0;color: var(--text-black);}
+.downloadPage .good-app-recommend .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.downloadPage .good-app-recommend .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage .good-app-recommend .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage .good-app-recommend .appList{display: flex;column-gap: 33px;justify-content: center;}
+.downloadPage .good-app-recommend .appList .appWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.downloadPage .good-app-recommend .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;}
+.downloadPage .good-app-recommend .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: nowrap;}
+.downloadPage .good-app-recommend .appList .appWrap .dateUpdate{color: #9A9A9A;font-size: 12px;}
+.downloadPage .good-app-recommend .mobileStarWrap{display: none;}
+
+.downloadPage .reviewComment{margin-top: 30px;}
+.downloadPage .reviewComment .commentBoxMobile{display: none;}
+.downloadPage .reviewComment .ratingWrap .starWrap .stars .star{background: url(../images/download/star.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .ratingWrap .starWrap .stars .star-fill{background: url(../images/download/star-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .ratingWrap .starWrap .stars .star-half-fill{background: url(../images/download/star-half-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment > h2 {font-size: 20px;color: var(--text-black);}
+.downloadPage .reviewComment .reviewWrap{margin-top: 28px;display: flex;column-gap: 67px;}
+.downloadPage .reviewComment .titleWrapMobile{display: none;}
+.downloadPage .reviewComment .reviewWrap .ratingWrap{display: flex;flex-direction: column;align-items: center;position: relative;}
+.downloadPage .reviewComment .reviewWrap .ratingWrap::after{content: "";position: absolute;height: 100%;width: 2px;background: #EEEEEE;right: -33px;top: 0;}
+.downloadPage .reviewComment .reviewWrap .ratingWrap .rating-score{font-size: 60px;color: #28282C;line-height: 75px;}
+.downloadPage .reviewComment .reviewWrap .ratingWrap .starWrap .stars{display: flex;column-gap: 5px;margin-bottom: 18px;}
+.downloadPage .reviewComment .reviewWrap .ratingWrap > p{font-size: 14px;color: var(--text-gray);}
+.downloadPage .reviewComment .reviewWrap .rateBarWrap{display: flex;flex-direction: column;width: 100%;justify-content: space-between;}
+.downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap{display: flex;column-gap: 17px;align-items: center;}
+.downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap p{font-size: 14px;color: var(--text-gray);flex: 0 0 24px;max-width: 24px;}
+.downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap .rateBar{width: 100%;height: 8px;border-radius: 4px;background: #dfdfdf;}
+.downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap .rateBar .bar { height: 100%; background-color: #14dd94; width: 0; transition: width 0.4s ease;border-radius: 4px;}
+.downloadPage .reviewComment .comment-section{margin-top: 35px;}
+.downloadPage .reviewComment .comment-section .titleWrap{display: flex;justify-content: space-between;margin-bottom: 15px;align-items: center;}
+.downloadPage .reviewComment .comment-section .titleWrap h2{font-size: 16px;color: #333333;}
+.downloadPage .reviewComment .comment-section .titleWrap .commentSortBy{display: flex;column-gap: 33px;}
+.downloadPage .reviewComment .comment-section .titleWrap .commentSortBy p{font-size: 14px;color: #808080;transition: .3s all ease;position: relative;line-height: 14px;}
+.downloadPage .reviewComment .comment-section .titleWrap .commentSortBy p.active{color: #14DD94;transition: .3s all ease;}
+.downloadPage .reviewComment .comment-section .titleWrap .commentSortBy p::after{content: "";position: absolute;background: #E5E5E5;right: -16px;width: 1px;height: 100%;top: 0;}
+.downloadPage .reviewComment .comment-section .titleWrap .commentSortBy p:last-of-type:after{display: none;}
+.downloadPage .reviewComment .comment-section .inputWrap{position: relative;}
+.downloadPage .reviewComment .comment-section .inputWrap button{position: absolute;right: 0;width: 40px;font-size: 12px;opacity: 0;}
+.downloadPage .reviewComment .comment-section input.commentField{width: 100%;background: #F2F5F9;border-radius: 10px;padding: 0 60px 0 15px;height: 45px;line-height: 45px;font-size: 14px;color: var(--text-black);border: none;outline: none;}
+.downloadPage .reviewComment .comment-section input.commentField::placeholder{color: var(--text-gray);}
+.downloadPage .reviewComment .comment-section .commentList{margin-top: 30px;display: flex;row-gap: 20px;flex-direction: column;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap{display: none;column-gap: 13px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap:nth-child(-n+4) {display: flex;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap > .profileIcon{width: 40px;height: 40px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap{display: flex;flex-direction: column;width: 100%;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .commentName{font-size: 14px;color: #242424;margin-bottom: 4px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap{display: flex;column-gap: 6px;position: relative;align-items: center;margin-bottom: 13px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .rating-score{opacity: 0;position: absolute;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars{display: flex;column-gap: 3px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star{background: url(../images/download/star.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star-fill{background: url(../images/download/star-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star-half-fill{background: url(../images/download/star-half-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .commentDate{font-size: 12px;color: var(--text-gray);}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment{display: flex;justify-content: space-between;align-items: center;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment > p{font-size: 14px;color: #242424;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap{display: flex;column-gap: 2px;align-items: center;cursor: pointer;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap img{width: 14px;height: 13px;}
+.downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap p {font-size: 12px;color: var(--text-gray);}
+
+.downloadPage .reviewComment .comment-section .commentList .replyWrap{display: flex;column-gap: 12px;margin-top: 17px;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap > .profileIcon{width: 25px;height: 25px;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap{display: flex;flex-direction: column;width: 100%;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .replyName{font-size: 14px;color: #242424;margin-bottom: 4px;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap{display: flex;column-gap: 6px;position: relative;align-items: center;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .rating-score{opacity: 0;position: absolute;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars{display: flex;column-gap: 3px;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star{background: url(../images/download/star.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star-fill{background: url(../images/download/star-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star-half-fill{background: url(../images/download/star-half-fill.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .replyDate{font-size: 12px;color: var(--text-gray);}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply{display: flex;justify-content: space-between;align-items: center;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply > p{font-size: 14px;color: #242424;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap{display: flex;column-gap: 2px;align-items: center;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap img{width: 14px;height: 13px;}
+.downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap p {font-size: 12px;color: var(--text-gray);}
+.downloadPage .reviewComment .comment-section .loadAllButton{background: #F9F7FA;border-radius: 20px;height: 42px;width: 100%;cursor: pointer;color: var(--text-gray);font-size: 16px;display: flex;align-items: center;justify-content: center;margin-top: 30px;}
+
+.downloadPage .downloadInfo .content-right{max-width: 30%;flex: 0 0 30%;}
+.downloadPage .downloadInfo .content-right .related-topic{border-radius: 20px;background: #f9f9f9;padding: 10px 11px 15px 13px;}
+.downloadPage .downloadInfo .content-right .related-topic h2{font-size: 20px;color: var(--text-black);margin-bottom: 11px;}
+.downloadPage .downloadInfo .content-right .related-topic .imgWrap{position: relative;}
+.downloadPage .downloadInfo .content-right .related-topic .imgWrap img{width: 320px;height: 198px;}
+.downloadPage .downloadInfo .content-right .related-topic .imgWrap p{position: absolute;left: 11px;bottom: 10px;font-size: 16px;color: var(--bg-color);}
+
+.downloadPage .downloadInfo .content-right .hot-app{border-radius: 20px;background: #f9f9f9;padding: 18px 16px 29px 17px;margin-top: 20px;}
+.downloadPage .downloadInfo .content-right .hot-app .titleWrap h2{font-size: 20px;margin-bottom: 0;color: var(--text-black);}
+.downloadPage .downloadInfo .content-right .hot-app .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 17px;}
+.downloadPage .downloadInfo .content-right .hot-app .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage .downloadInfo .content-right .hot-app .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list{display: flex;flex-direction: column;row-gap: 20px;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap{display: flex;column-gap: 11px;align-items: center;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap > img {width: 70px;height: 70px;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap{display: flex;flex-direction: column;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .appName{font-size: 14px;color: var(--text-black);margin-bottom: 4px;overflow: hidden;white-space: nowrap;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .appType{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .dateUpdate{font-size: 12px;color: var(--text-gray);}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .viewNow{margin-left: auto;width: 72px;height: 28px;display: flex;justify-content: center;align-items: center;cursor: pointer;font-size: 12px;color: var(--text-gray);border-radius: 14px;background: #f9f9f9;border: 1px solid #e2e2e2;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .viewNow:hover{background: rgba(0, 145, 255, 0.1);color: #0091FF;border: none;}
+
+.downloadPage .downloadInfo .content-right .creator-other-game{border-radius: 20px;background: #f9f9f9;padding: 18px 16px 29px 17px;margin-top: 20px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .titleWrap h2{font-size: 20px;margin-bottom: 0;color: var(--text-black);}
+.downloadPage .downloadInfo .content-right .creator-other-game .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 17px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list{display: flex;flex-direction: column;row-gap: 20px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap{display: flex;column-gap: 11px;align-items: center;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap > img {width: 70px;height: 70px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .appDetailWrap{display: flex;flex-direction: column;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .appDetailWrap .appName{font-size: 14px;color: var(--text-black);margin-bottom: 4px;overflow: hidden;white-space: nowrap;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .appDetailWrap .appType{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .appDetailWrap .dateUpdate{font-size: 12px;color: var(--text-gray);}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .viewNow{margin-left: auto;width: 72px;height: 28px;display: flex;justify-content: center;align-items: center;cursor: pointer;font-size: 12px;color: var(--text-gray);border-radius: 14px;background: #f9f9f9;border: 1px solid #e2e2e2;}
+.downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .viewNow:hover{background: rgba(0, 145, 255, 0.1);color: #0091FF;border: none;}
+
+.downloadPage .downloadInfo .content-right .hot-topic-section{padding: 18px 15px 29px;border-radius: 20px;background: #f9f9f9;margin-top: 20px;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .titleWrap h2{font-size: 20px;margin-bottom: 0;font-weight: normal;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 19px;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .hot-topic-listing{display: grid;column-gap: 8px;row-gap: 10px;grid-template-columns: repeat(3, 1fr);}
+.downloadPage .downloadInfo .content-right .hot-topic-section .hot-topic-listing > div{border-radius: 6px;background: var(--bg-color);font-size: 14px;color: var(--text-gray);height: 40px;cursor: pointer;display: flex;align-items: center;justify-content: center;padding: 0 21.5px;}
+.downloadPage .downloadInfo .content-right .hot-topic-section .hot-topic-listing > div.active{background: rgba(0, 145, 255, 0.1);color: #0091FF;}
+
+@media (max-width: 1024px) {
+    .downloadPage .banner-download{display: none;}
+    .downloadPage .banner-download-mobile{display: flex;margin-top: 1.43rem;border-radius: 20px;background: linear-gradient(60deg, #EBEBFF, #E6EBFA, #F0FAF2);padding: 2.21rem 2.21rem 3.36rem;flex-direction: column;row-gap: 1.43rem;margin: 1.43rem 2.14rem 1.57rem;}
+    .downloadPage .downloadButtonMobile { display: flex;}
+    .downloadPage .banner-download-mobile .topWrap{display: flex;column-gap: 1.43rem;}
+    .downloadPage .banner-download-mobile .topWrap .appImage{width: 10.71rem;height: 10.71rem;}
+    .downloadPage .banner-download-mobile .topWrap .detailWrap{display: flex;flex-direction: column;row-gap: 1.07rem;}
+    .downloadPage .banner-download-mobile .topWrap .detailWrap .name{color: var(--text-black);font-size: 2.23rem;}
+    .downloadPage .banner-download-mobile .topWrap .detailWrap .dateUpdate{color: #666666;font-size: 1.71rem;}
+    .downloadPage .banner-download-mobile .bottomWrap{display: flex;align-items: center;justify-content: center;column-gap: 7.5rem;}
+    .downloadPage .banner-download-mobile .bottomWrap > div{display: flex;flex-direction: column;row-gap: 0.86rem;align-items: center;position: relative;}
+    .downloadPage .banner-download-mobile .bottomWrap .ratingWrapMobile .ratingScore{color: #FA8B15;font-size: 1.71rem;display: flex;align-items: center;}
+    .downloadPage .banner-download-mobile .bottomWrap .ratingWrapMobile .ratingScore img{width: 1.43rem;height: 1.29rem;margin-left: 0.43rem;}
+    .downloadPage .banner-download-mobile .bottomWrap .ratingWrapMobile p:last-of-type{color: #666666;font-size: 1.29rem;}
+    .downloadPage .banner-download-mobile .bottomWrap .downloadTimeWrap p:first-child{color: #333333;font-size: 1.71rem;}
+    .downloadPage .banner-download-mobile .bottomWrap .downloadTimeWrap p:last-child{color: #666666;font-size: 1.29rem;}
+    .downloadPage .banner-download-mobile .bottomWrap .ageLimitWrap img{width: 2.71rem;height: auto;}
+    .downloadPage .banner-download-mobile .bottomWrap .ageLimitWrap p{color: #666666;font-size: 1.29rem;}
+    .downloadPage .banner-download-mobile .bottomWrap > div::after{content: "";position: absolute;top: 50%;width: 2px;height: 75%;background: #d6d6ed;left: -3.75rem;transform: translateY(-50%);}
+    .downloadPage .banner-download-mobile .bottomWrap > div:first-of-type::after{display: none;}
+    .downloadPage .downloadButtonMobile{display: flex;justify-content: center;align-items: center;column-gap: 1rem;height: 4.86rem;width: calc(100% - 4.28rem);background: #22F2A7;border-radius: 10px;margin-left: 2.14rem;}
+    .downloadPage .downloadButtonMobile img{width: 2rem;height: 2rem;}
+    .downloadPage .downloadButtonMobile p{color: var(--bg-color);font-size: 2rem;}
+
+    .downloadPage .downloadInfo .content-right{display: none;}
+    .downloadPage .downloadInfo .content-left{max-width: 100%;flex: 0 0 100%;}
+    .downloadPage .downloadInfo{margin-top: 3.57rem;}
+    .downloadPage .downloadInfo .content-left .screenshot-slider h2{font-size: 2rem;margin-bottom: 1.29rem;}
+    .downloadPage .downloadInfo .content-left .screenshot-slider{margin-bottom: 5rem;margin-left: 2.14rem;margin-right: 2.14rem;}
+    .downloadPage .app-info{margin: 0 2.14rem;}
+    .downloadPage .app-info > h2, .downloadPage .app-info .update-info .update-content > h2{font-size: 2rem;margin-bottom: 2.14rem;}
+    .downloadPage .app-info > p, .downloadPage .app-info .update-info .update-content > p{font-size: 1.57rem;margin-bottom: 1.43rem;}
+    .downloadPage .app-info .update-info{margin-top: 2.86rem;}
+    .downloadPage .app-info .update-info .titleWrap{margin-bottom: 0.93rem;}
+    .downloadPage .app-info .update-info .titleWrap h2{font-size: 1.86rem;}
+    .downloadPage .app-info .update-info .titleWrap p, .downloadPage .app-info .update-info .update-content .collapse-btn{font-size: 1.29rem;}
+    .downloadPage .app-info .update-info .appVersion{font-size: 1.57rem;margin-bottom: 1rem;}
+    .downloadPage .app-info .update-info .appUpdateInfo{font-size: 1.57rem;}
+
+    .downloadPage .app-info .detail-info{margin-top: 3rem;}
+    .downloadPage .app-info .detail-info > h2{font-size: 2rem;margin-bottom: 1.57rem;}
+    .downloadPage .app-info .detail-info .detailWrap{padding: 2.43rem 1.43rem 3.14rem;row-gap: 2.86rem;grid-template-columns: repeat(1, 1fr);}
+    .downloadPage .app-info .detail-info .detailWrap > div{flex-direction: row;row-gap: 0;justify-content: space-between;}
+    .downloadPage .app-info .detail-info .detailWrap > div h2{font-size: 1.57rem;}
+    .downloadPage .app-info .detail-info .detailWrap > div p{height: unset;font-size: 1.57rem;}
+
+    .downloadPage .app-info .related-history-version{margin-top: 2.36rem;}
+    .downloadPage .app-info .related-history-version > h2{font-size: 2rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap{padding: 1.86rem 0;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap{row-gap: 1rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap > p{font-size: 1.57rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory{column-gap: 1.43rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory p{font-size: 1.29rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton{column-gap: 0.57rem;width: 12rem;height: 3.5rem;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton img{width: 1.43rem;height: auto;}
+    .downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton p{font-size: 1.43rem;}
+
+    .downloadPage .similar-app-list{margin-top: 2.5rem;margin-left: 2.14rem;}
+    .downloadPage .similar-app-list .titleWrap{margin-bottom: 2rem;padding-right: 2.14rem;}
+    .downloadPage .similar-app-list .titleWrap h2{font-size: 2rem;}
+    .downloadPage .similar-app-list .titleWrap p{font-size: 1.57rem;}
+    .downloadPage .similar-app-list .titleWrap img{width: 1.64rem;height: 1rem;}
+    .downloadPage .similar-app-list .appList{overflow-x: scroll;column-gap: 2.14rem;justify-content: flex-start;}
+    .downloadPage .similar-app-list .appList::-webkit-scrollbar{height: 0;display: none;}
+    .downloadPage .similar-app-list .appList .appWrap img{width: 10.36rem;height: auto;margin-bottom: 0.79rem;}
+    .downloadPage .similar-app-list .appList .appWrap .name{font-size: 1.57rem;margin-bottom: 0.86rem;}
+    .downloadPage .similar-app-list .appList .appWrap .dateUpdate{display: none;}
+    .downloadPage .similar-app-list .mobileStarWrap{display: flex;justify-content: center;align-items: center;column-gap: 0.36rem;}
+    .downloadPage .similar-app-list .mobileStarWrap img{width: 1.21rem!important;height: 100%;margin-bottom: 0!important;}
+    .downloadPage .similar-app-list .mobileStarWrap p{font-size: 1.29rem;color: #FA8B15;}
+
+    .downloadPage .related-topic-mobile{display: block;margin-top: 2.36rem;margin-left: 2.14rem;margin-right: 2.14rem;border-radius: 20px;}
+    .downloadPage .related-topic-mobile .titleWrap{margin-bottom: 1.93rem;display: flex;justify-content: space-between;align-items: center;}
+    .downloadPage .related-topic-mobile .titleWrap h2{font-size: 2rem;color: var(--text-black);}
+    .downloadPage .related-topic-mobile .titleWrap p{font-size: 1.57rem;color: #719fff;}
+    .downloadPage .related-topic-mobile .titleWrap img{width: 1.64rem;height: 1rem;filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);}
+    .downloadPage .related-topic-mobile .topicWrap{border-radius: 20px;background: #f9f9f9;}
+    .downloadPage .related-topic-mobile .imgWrap{position: relative;}
+    .downloadPage .related-topic-mobile .imgWrap img{width: 100%;height: auto;}
+    .downloadPage .related-topic-mobile .imgWrap p{position: absolute;font-size: 1.29rem;color: var(--bg-color);right: 1.86rem;bottom: 1.86rem;}
+    .downloadPage .related-topic-mobile .topicTitle{margin-top: 1.43rem;padding-left: 1.43rem;color: var(--text-black);font-size: 1.43rem;}
+    .downloadPage .related-topic-mobile .arrowWrap{margin-top: 1.14rem;display: flex;justify-content: space-between;align-items: center;padding: 0 1.43rem 2.36rem;}
+    .downloadPage .related-topic-mobile .arrowWrap p.amountGame{color: var(--text-gray);font-size: 1.43rem;}
+    .downloadPage .related-topic-mobile .arrowWrap p.amountGame span{color: #f48319;}
+    .downloadPage .related-topic-mobile .arrowWrap img{width: 2rem;height: 100%;}
+
+    .downloadPage .related-info{margin: 2.86rem 2.14rem 0;}
+    .downloadPage .similar-app-list .titleWrap{margin-bottom: 0.71rem;}
+    .downloadPage .similar-app-list .titleWrap h2{font-size: 2rem;}
+    .downloadPage .similar-app-list .titleWrap p{font-size: 1.57rem;}
+    .downloadPage .similar-app-list .titleWrap img{width: 1.64rem;height: 1rem;}
+    .downloadPage .related-info .infoList{display: grid;column-gap: 0;grid-template-columns: repeat(1, 1fr);}
+    .downloadPage .related-info .infoList .infoWrap{background: transparent;border-radius: 0;padding: 1.43rem 0;display: flex;column-gap: 2.14rem;border-bottom: 1px solid #E6E9ED;}
+    .downloadPage .related-info .infoList .infoWrap .imgWrap img{width: 16.86rem;height: 100%;border-radius: 10px;}
+    .downloadPage .related-info .infoList .infoWrap .imgWrap .datePost{display: none;}
+    .downloadPage .related-info .infoList .infoWrap .postTitle{font-size: 1.71rem;padding-left: 0;padding-top: 0;width: 100%;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;line-clamp: 2;-webkit-line-clamp: 2;}
+    .downloadPage .related-info .infoList .infoWrap .datePostMobile{display: block;font-size: 1.27rem;color: #9A9A9A;}
+    .downloadPage .related-info .infoList .infoWrap .leftWrap{display: flex;flex-direction: column;justify-content: space-between;}
+
+    .downloadPage .good-app-recommend{margin-top: 2.5rem;margin-left: 2.14rem;}
+    .downloadPage .good-app-recommend .titleWrap{margin-bottom: 2rem;padding-right: 2.14rem;}
+    .downloadPage .good-app-recommend .titleWrap h2{font-size: 2rem;}
+    .downloadPage .good-app-recommend .titleWrap p{font-size: 1.57rem;}
+    .downloadPage .good-app-recommend .titleWrap img{width: 1.64rem;height: 1rem;}
+    .downloadPage .good-app-recommend .appList{overflow-x: scroll;column-gap: 2.14rem;justify-content: flex-start;}
+    .downloadPage .good-app-recommend .appList::-webkit-scrollbar{height: 0;display: none;}
+    .downloadPage .good-app-recommend .appList .appWrap img{width: 10.36rem;height: auto;margin-bottom: 0.79rem;}
+    .downloadPage .good-app-recommend .appList .appWrap .name{font-size: 1.57rem;margin-bottom: 0.86rem;}
+    .downloadPage .good-app-recommend .appList .appWrap .dateUpdate{display: none;}
+    .downloadPage .good-app-recommend  .mobileStarWrap{display: flex;justify-content: center;align-items: center;column-gap: 0.36rem;}
+    .downloadPage .good-app-recommend  .mobileStarWrap img{width: 1.21rem!important;height: 100%;margin-bottom: 0!important;}
+    .downloadPage .good-app-recommend  .mobileStarWrap p{font-size: 1.29rem;color: #FA8B15;}
+
+    .downloadPage .reviewComment{margin:3.14rem 2.14rem 0;}
+    .downloadPage .reviewComment > h2{font-size: 2rem;}
+    .downloadPage .reviewComment .commentBoxMobile{display: flex;margin-top: 1.29rem;flex-direction: column;border-radius: 20px;background: #F9F9F9;justify-content: space-evenly;align-items: center;height: 20rem;}
+    .downloadPage .reviewComment .commentBoxMobile .wantToComment{display: flex;column-gap: 0.93rem;align-items: center;justify-content: center;}
+    .downloadPage .reviewComment .commentBoxMobile .wantToComment img{width: 2.14rem;height: auto;}
+    .downloadPage .reviewComment .commentBoxMobile .wantToComment p{color: #333333;font-size: 2rem;}
+    .downloadPage .reviewComment .commentBoxMobile .mobileStarWrap{display: flex;column-gap: 1.57rem;}
+    .downloadPage .reviewComment .commentBoxMobile .mobileStarWrap .mobileStar{background: url(../images/download/star.png);background-repeat: no-repeat;width: 2.57rem;height: 2.57rem;background-size: contain;}
+    .downloadPage .reviewComment .commentBoxMobile > p{font-size: 1.71rem;color: #CCCCCC;}
+
+    .downloadPage .reviewComment .reviewWrap{margin-top: 0;column-gap: 4.36rem;}
+    .downloadPage .reviewComment .titleWrapMobile{display: flex;justify-content: space-between;align-items: center;margin-bottom: 2.14rem;margin-top: 3.36rem;}
+    .downloadPage .reviewComment .titleWrapMobile h2{font-size: 2rem;color: var(--text-black);}
+    .downloadPage .reviewComment .titleWrapMobile .commentSortBy{display: flex;column-gap: 2.36rem;}
+    .downloadPage .reviewComment .titleWrapMobile .commentSortBy p{font-size: 1.71rem;color: #808080;transition: .3s all ease;position: relative;line-height: 1.71rem;}
+    .downloadPage .reviewComment .titleWrapMobile .commentSortBy p.active{color: #14DD94;transition: .3s all ease;}
+    .downloadPage .reviewComment .titleWrapMobile .commentSortBy p::after{content: "";position: absolute;background: #E5E5E5;right: -1.18rem;width: 1px;height: 100%;top: 0;}
+    .downloadPage .reviewComment .titleWrapMobile .commentSortBy p:last-of-type:after{display: none;}
+    .downloadPage .reviewComment .reviewWrap .ratingWrap::after{display: none;}
+
+    .downloadPage .reviewComment .reviewWrap .ratingWrap .rating-score{font-size: 6.57rem;line-height: normal;}
+    .downloadPage .reviewComment .reviewWrap .ratingWrap .starWrap .stars{column-gap: 0.36rem;margin-bottom: 2.14rem;}
+    .downloadPage .reviewComment .reviewWrap .ratingWrap > p{font-size: 1.29rem;}
+    .downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap{column-gap: 0.93rem;}
+    .downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap p{font-size: 1.29rem;flex: unset;max-width: 100%;white-space: nowrap;}
+    .downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap .rateBar{height: 1.43rem;}
+    .downloadPage .reviewComment .comment-section{margin-top: 3.07rem;}
+    .downloadPage .reviewComment .comment-section .titleWrap{display: none;}
+    .downloadPage .reviewComment .comment-section .inputWrap{display: none;}
+    .downloadPage .reviewComment .comment-section .commentList{margin-top: 0;row-gap: 0;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap{column-gap: 2.14rem;padding: 2.57rem 0;border-top: 1px solid #E6E9ED;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap > .profileIcon{width: 5.29rem;height: 5.29rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .commentName{font-size: 1.86rem;margin-bottom: 1.14rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap{column-gap: 0.64rem;margin-bottom: 1.57rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars{display: flex;column-gap: 0.29rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star-fill{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .starWrap .stars .star-half-fill{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .ratingWrap .commentDate{font-size: 1.29rem;line-height: normal;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment > p{font-size: 1.57rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap{column-gap: 0.57rem;position: absolute;top: 3px;right: 0;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap img{width: 1.43rem;height: auto;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap .comment .likeReplyWrap p {font-size: 1.43rem;}
+    .downloadPage .reviewComment .comment-section .commentList .commentWrap .commentDetailWrap{position: relative;}
+
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap{column-gap: 2.14rem;margin-top: 1.29rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap > .profileIcon{width: 3rem;height: 3rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .replyName{font-size: 1.86rem;margin-bottom: 1.14rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap{column-gap: 0.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars{column-gap: 0.29rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star-fill{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .starWrap .stars .star-half-fill{width: 1.71rem;height: 1.64rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .ratingWrap .replyDate{font-size: 1.29rem;line-height: normal;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply > p{font-size: 1.57rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap{column-gap: 0.57rem;position: absolute;top: 3px;right: 0;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap img{width: 1.43rem;height: auto;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap .reply .likeReplyWrap p {font-size: 1.43rem;}
+    .downloadPage .reviewComment .comment-section .commentList .replyWrap .replyDetailWrap{position: relative;}
+    .downloadPage .reviewComment .comment-section .loadAllButton{font-size: 1.43rem;}
+}
+
+@media (max-width: 575px) {
+    .downloadPage .banner-download-mobile .bottomWrap{column-gap: 5rem;}
+    .downloadPage .banner-download-mobile .bottomWrap > div::after{left: -2.5rem;}
+    .downloadPage .banner-download-mobile .topWrap .detailWrap .name{font-size: 2rem;}
+    .downloadPage .banner-download-mobile .topWrap .detailWrap .dateUpdate{font-size: 1.43rem;}
+    .downloadPage .app-info .detail-info .detailWrap > div h2{font-size: 1.4rem;}
+    .downloadPage .app-info .detail-info .detailWrap > div p{font-size: 1.4rem;}
+    .downloadPage .reviewComment .reviewWrap .rateBarWrap .barWrap .rateBar{height: 1rem;}
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .downloadPage .downloadInfo .content-right .related-topic .imgWrap img{width: 100%;height: auto;}
+    .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap, .downloadPage .downloadInfo .content-right .creator-other-game .app-list .appWrap .appDetailWrap{max-width: 40%;flex: 0 0 40%;}
+    .downloadPage .similar-app-list .appList .appWrap img, .downloadPage .good-app-recommend .appList .appWrap img{width: 80px;height: 80px;}
+    .downloadPage .similar-app-list .appList .appWrap .name, .downloadPage .good-app-recommend .appList .appWrap .name{font-size: 13px;}
+    .downloadPage .similar-app-list .appList .appWrap .dateUpdate, .downloadPage .good-app-recommend .appList .appWrap .dateUpdate{font-size: 11px;}
+    .downloadPage .similar-app-list .appList, .downloadPage .good-app-recommend .appList{column-gap: 0;justify-content: space-between;}
+    .downloadPage .downloadInfo .content-right .hot-topic-section .hot-topic-listing > div{padding: 0 12px;font-size: 13px;height: 30px;}
+    .downloadPage .related-info .infoList .infoWrap .imgWrap img{width: 100%;height: auto;}
+}

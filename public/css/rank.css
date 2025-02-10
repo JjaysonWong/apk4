@@ -1,0 +1,111 @@
+.topContainer{background: #f9fafc;padding-bottom: 30px;}
+
+.top-tab-banner{height: 266px;background: #feae18;border-radius: 20px;margin-top: 17px;position: relative;margin-bottom: 40px;}
+.top-tab-banner .crownImg{position: absolute;width: 207px;height: 208px;bottom: 0;right: -35px;}
+.top-tab-banner .crownBottomImg{position: absolute;width: 159px;height: 18px;bottom: -20px;right: -14px;}
+.top-tab-banner .titleWrap h2{font-size: 56px;font-weight: bold;color: #663300;margin-bottom: -10px;}
+.top-tab-banner .titleWrap img{width: 400px;height: 15px;}
+.top-tab-banner .titleWrap{display: flex;align-items: center;justify-content: center;flex-direction: column;padding-top: 46px;}
+.top-tab-banner h2{text-align: center;font-size: 24px;font-weight: normal;color: #663300;margin-top: 10px;}
+.top-tab-banner .mobile-application-rank-tab{display: flex;column-gap: 5px;position: absolute;bottom: 0;left: 50%;transform: translate(-50%, 0);}
+.top-tab-banner .mobile-application-rank-tab .tablinks{cursor: pointer;border: none;width: 291px;height: 65px;border-radius: 10px 10px 0 0;background: rgba(255, 255, 255, 0.25);color: #663300;font-size: 24px;text-align: center;outline: none;position: relative;bottom: -5px;transition: .3s all ease;}
+.top-tab-banner .mobile-application-rank-tab .tablinks.active{background: #ffffff;color: #FEAE18;font-weight: bold;bottom: 0;transition: .3s all ease;}
+
+.tabInnerContent .topTabcontent{display: none;}
+.tabInnerContent .topTabcontent#gameRank{display: block;}
+.tabInnerContent .topTabcontent .middle-banner{display: flex;column-gap: 20px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap{border-radius: 20px;background: #ffffff;padding-bottom: 11px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap{position: relative;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImage{width: 387px;height: 216px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap{display: flex;column-gap: 10px;position: absolute;right: 14px;bottom: 15px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap img{width: 50px;height: 50px;cursor: pointer;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap .innerLastWrap{position: relative;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap .innerLastWrap p{color: #663300;font-size: 12px;position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap{display: flex;align-items: center;column-gap: 12px;margin-top: 15px;padding-left: 14px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap .hotIcon{width: 26px; height: 34px;}
+.tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap .bannerTitle{font-size: 18px;color: #333333;}
+
+.bottomContainer{margin-top: 20px;}
+.bottomContainer .topTabcontent .catRankTabContent{display: none;}
+.bottomContainer .topTabcontent .catRankTabContent#guaji{display: block;}
+.bottomContainer .topTabcontent .catRankTabContent#guaji1{display: block;}
+.bottomContainer .topTabcontent .category-rank-tab{margin-bottom: 30px;display: flex;column-gap: 10px;}
+.bottomContainer .topTabcontent .category-rank-tab .tab .catRankTab{background: #F6F6F6;border-radius: 16px;color: #666666;font-size: 14px;height: 36px;width: fit-content;padding: 0 16px;border: none;outline: none;line-height: 36px;cursor: pointer;}
+.bottomContainer .topTabcontent .category-rank-tab .tab .catRankTab.active{color: #FEAE18;background: rgba(254, 174, 24, 0.15);}
+.bottomContainer .catRankTabContent {border-radius: 20px;border: 1px solid #EDEDED;}
+.bottomContainer .catRankTabContent .gameWrap{display: flex;align-items: center;cursor: pointer;padding: 30px 40px 30px 45px;transition: .3s all ease;}
+.bottomContainer .catRankTabContent .gameWrap .gameNumber{font-size: 32px;font-weight: bold;color: #8F8E93;margin-right: 40px;}
+.bottomContainer .catRankTabContent .gameWrap .gameNumber.first{color: #ffad37;}
+.bottomContainer .catRankTabContent .gameWrap .gameNumber.second{color: #d18fff;}
+.bottomContainer .catRankTabContent .gameWrap .gameNumber.third{color: #fea0cf;}
+.bottomContainer .catRankTabContent .gameWrap .gameImgWrap{position: relative;margin-right: 19px;}
+.bottomContainer .catRankTabContent .gameWrap .gameImgWrap .crown{position: absolute; width: 45px; height: 45px; top: -20px; left: -20px;}
+.bottomContainer .catRankTabContent .gameWrap .gameImgWrap .gameImage{width: 150px;height: 150px;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap{display: flex;flex-direction: column;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameName{margin-bottom: 9px;font-size: 20px;font-weight: bold;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail{display: flex;column-gap: 25px;margin-bottom: 17px;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail p{font-size: 14px;color: var(--text-gray);}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameContent{color: #666666;font-size: 14px;margin-bottom: 20px;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameCategoryType{display: flex;column-gap: 10px;flex-wrap: wrap;row-gap: 10px;}
+.bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameCategoryType p{border-radius: 6px;border: 1px solid #C2D3FF;color: #3D7CFF;font-size: 12px;padding: 0 16px;height: 26px;display: flex;justify-content: center;align-items: center;}
+.bottomContainer .catRankTabContent .gameWrap .arrowLeft{margin-left: auto;width: 24px;height: 8px;cursor: pointer;transition: .3s all ease;}
+.bottomContainer .catRankTabContent .gameWrap:hover{background: #FAFAFD;transition: .3s all ease;}
+.bottomContainer .catRankTabContent .gameWrap:hover .arrowLeft{filter: brightness(0) saturate(100%) invert(41%) sepia(77%) saturate(2653%) hue-rotate(208deg) brightness(101%) contrast(102%);transition: .3s all ease;}
+
+@media (max-width: 1024px) {
+    .topContainer{padding-bottom: 2.14rem;}
+    .top-tab-banner{margin-top: 1.43rem;margin-bottom: 2.14rem;height: 18.93rem;border-radius: 0;}
+    .top-tab-banner .crownImg{width: 9.5rem;height: auto;bottom: unset;right: unset;top: -20%;left: 50%;transform: translateX(-50%);}
+    .top-tab-banner .crownBottomImg{display: none;}
+    .top-tab-banner .titleWrap h2{font-size: 4rem;margin-bottom: -.5rem;}
+    .top-tab-banner .titleWrap img{width: 30.36rem;height: auto;}
+    .top-tab-banner .titleWrap{padding-top: 3rem;position: relative;z-index: 1;}
+    .top-tab-banner h2{font-size: 1.71rem;margin-top: 0.71rem;}
+    .top-tab-banner .mobile-application-rank-tab .tab{display: flex;column-gap: 5px;}
+    .top-tab-banner .mobile-application-rank-tab{column-gap: 5px;}
+    .top-tab-banner .mobile-application-rank-tab .tablinks{width: 18rem;height: 5rem;font-size: 1.71rem;bottom: -5px;}
+    .tabInnerContent .topTabcontent .middle-banner{overflow-x: scroll;padding: 0 2.14rem;column-gap: 1.21rem;}
+    .tabInnerContent .topTabcontent .middle-banner::-webkit-scrollbar{height: 0;display: none;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap{padding-bottom: 2.36rem;flex: 0 0 50%;max-width: 50%;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImage{width: 100%;height: auto;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap{column-gap: 10px;right: 10px;bottom: 10px;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap img{width: 5rem;height: auto;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImgWrap .innerLastWrap p{font-size: 1rem;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap{column-gap: 0.86rem;margin-top: 0.93rem;padding-left: 1.14rem;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap .hotIcon{width: 2.5rem; height: auto;}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .bannerTitleWrap .bannerTitle{font-size: 2rem;}
+
+    .bottomContainer{margin-top: 1.29rem;padding: 0 2.14rem;}
+    .bottomContainer .topTabcontent .category-rank-tab .tab{display: flex;overflow-x: scroll;column-gap: 0.79rem;}
+    .bottomContainer .topTabcontent .category-rank-tab .tab::-webkit-scrollbar{display: none;height: 0;}
+    .bottomContainer .topTabcontent .category-rank-tab{margin-bottom: 2.71rem;column-gap: 10px;}
+    .bottomContainer .topTabcontent .category-rank-tab .tab .catRankTab{font-size: 1.29rem;height: 3.57rem;width: fit-content;padding: 0 1.36rem;line-height: 3.57rem;white-space: nowrap;}
+
+    .bottomContainer .catRankTabContent .gameWrap{padding: 0 0 0 0.36rem;margin-bottom: 3.57rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameNumber{font-size: 2.29rem;margin-right: 1.79rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameImgWrap{margin-right: 1.86rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameImgWrap .crown{display: none;}
+    .bottomContainer .catRankTabContent .gameWrap .gameImgWrap .gameImage{width: 8.57rem;height: 8.57rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameName{margin-bottom: 0.93rem;font-size: 1.86rem;font-weight: normal;width: 28vw;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail{column-gap: 0;margin-bottom: 0;flex-direction: column;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail p:nth-child(1){margin-bottom: 1.14rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail p:nth-child(2){display: none;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameDetail p{font-size: 1.43rem;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameContent{display: none;}
+    .bottomContainer .catRankTabContent .gameWrap .gameDetailWrap .gameCategoryType{display: none;}
+    .bottomContainer .catRankTabContent .gameWrap .arrowLeft{display: none;}
+    .bottomContainer .catRankTabContent{border: none;}
+    .bottomContainer .catRankTabContent .gameWrap .viewButton{display: block;height: 3.57rem;line-height: 3.3rem;font-size: 1.42rem;color: #3D7CFF;border: 1px solid rgba(61, 124, 255, 0.5);border-radius: 14px;padding: 0 3rem;margin-left: auto;}
+}
+
+@media (min-width: 320px) and (max-width: 525px) {
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap{flex: 0 0 75%;max-width: 75%;}
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .tabInnerContent .topTabcontent .middle-banner{display: grid;grid-template-columns: repeat(3, 1fr);}
+    .tabInnerContent .topTabcontent .middle-banner .middle-banner-wrap .imgWrap .innerImage{width: 100%;height: auto;}
+    .bottomContainer .topTabcontent .category-rank-tab .tab .catRankTab{padding: 0 12px;font-size: 12px;}
+    .bottomContainer .catRankTabContent .gameWrap .gameImgWrap .gameImage{width: 120px;height: 120px;}
+    .top-tab-banner .mobile-application-rank-tab .tab{display: flex;column-gap: 5px;}
+}

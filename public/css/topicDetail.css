@@ -1,0 +1,126 @@
+.topic-detail-page .top-banner-section .topBackground{position: absolute;top: 0;width: 100%;height: 100%;z-index: -1;}
+
+.topic-detail-page .top-banner-section .bannerWrap{margin-top: 17px;display: flex;border-radius: 20px;background: #e2f8fb;column-gap: 20px;border: 1px solid #ffffff;box-sizing: border-box;}
+.topic-detail-page .top-banner-section .bannerWrap.mobile{display: none;}
+.topic-detail-page .top-banner-section .bannerWrap .bannerImg{max-width: 50%; flex: 0 0 50%;overflow: hidden;}
+.topic-detail-page .top-banner-section .bannerWrap img{height: 100%;width: auto;object-fit: fill;border-radius: 20px 0 0 20px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap{display: flex;flex-direction: column;padding: 40px 19px 40px 0;flex-grow: 1;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .bannerTitle{font-size: 22px;font-weight: bold;color: var(--text-black);margin-bottom: 15px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .dateWrap{display: flex;column-gap: 22px;margin-bottom: 20px;align-items: center;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .dateWrap p{font-size: 14px;color: var(--text-gray);}
+.topic-detail-page .top-banner-section .bannerDetailWrap .bannerContent{font-size: 16px;color: #666666;margin-bottom: 44px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap{display: flex;column-gap: 2px;align-items: center;row-gap: 10px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap p:first-child{color: var(--text-gray);font-size: 14px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap p.gameType{font-size: 12px;border: 1px solid #C2D3FF;border-radius: 6px;height: 26px;display: flex;justify-content: center;padding: 0 16px;color: rgba(61, 124, 255, 0.75);line-height: 23px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap .gameTypeList{display: flex;flex-wrap: wrap;row-gap: 10px;column-gap: 10px;}
+.topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap > div:first-child{white-space: nowrap;}
+
+.topic-detail-page .top-banner-section .all-app-list{margin-top: 25px;}
+.topic-detail-page .top-banner-section .all-app-list h2{font-size: 20px;color: var(--text-black);margin-bottom: 19px;}
+.topic-detail-page .top-banner-section .all-app-list .app-list{display: grid;grid-template-columns: repeat(3, 1fr);column-gap: 20px;row-gap: 20px;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap{display: flex;column-gap: 12px;align-items: center;padding: 20px 40px 20px 20px;border-radius: 20px;background: #fafafd;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap img{width: 70px;height: 70px;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .detailWrap {display: flex;flex-direction: column;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .detailWrap .name{font-size: 16px;color: var(--text-black);margin-bottom: 3px;overflow: hidden;white-space: nowrap;width: 9.5vw;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .detailWrap .gameType{display: flex;column-gap: 5px;row-gap: 5px;flex-wrap: wrap;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .detailWrap .type{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .detailWrap .dateUpdate{font-size: 12px;color: var(--text-gray);}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .starWrap{margin-left: auto;display: flex;column-gap: 5px;align-items: center;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .starWrap img{width: 17px;height: 16px;}
+.topic-detail-page .top-banner-section .all-app-list .app-list .appWrap .starWrap p{color: #FA8B15;font-size: 18px;}
+
+.topic-detail-page .top-banner-section .all-app-list .pagination { display: flex; align-items: center; gap: 10px;margin-top: 30px;width: 100%;justify-content: center;}
+.topic-detail-page .top-banner-section .all-app-list .pagination button{ border: 1px solid #EAEAEA; padding: 0 15px; background:transparent; cursor: pointer; font-size: 14px; height: 40px;color: #666666;box-sizing: border-box;border-radius: 3px;}
+.topic-detail-page .top-banner-section .all-app-list .pagination button:focus{outline: none;}
+.topic-detail-page .top-banner-section .all-app-list .pagination button.page-number{font-weight: bold;width: 40px;padding: 0;text-align: center;}
+.topic-detail-page .top-banner-section .all-app-list .pagination button.active { background-color: #14DD94; color: #ffffff;border: none;}
+.topic-detail-page .top-banner-section .all-app-list .pagination .dots { pointer-events: none; background-color: transparent; border: none;height: 40px;line-height: 30px;}
+
+.topic-detail-page .top-banner-section .recommend-for-you{margin-top: 26px;}
+.topic-detail-page .top-banner-section .recommend-for-you .titleWrap h2{font-size: 20px;margin-bottom: 0;font-weight: normal;}
+.topic-detail-page .top-banner-section .recommend-for-you .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
+.topic-detail-page .top-banner-section .recommend-for-you .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
+.topic-detail-page .top-banner-section .recommend-for-you .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list{display: grid;column-gap: 16px;grid-template-columns: repeat(3, 1fr);}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap{position: relative;}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap img{width: 100%;height: auto;}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap .detailWrap{position: absolute;bottom: 12px;padding-left: 15px;padding-right: 15px;}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap .detailWrap .topicTitle{color: var(--bg-color);font-size: 20px;margin-bottom: 5px;}
+.topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap .detailWrap .dateUpdated{font-size: 14px;color: var(--bg-color);}
+
+.modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); overflow: auto; padding-top: 60px; }
+.modal-content { display: block; margin: auto; width: 80%; max-width: 1920px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.close { position: absolute; top: 20px; right: 45px; color: white; font-size: 35px; font-weight: bold; cursor: pointer; }
+.close:hover{color: white;}
+
+.topic-detail-page .top-banner-section .mobile-topic-detail-bottom{display: none;}
+
+@media (max-width: 767px) {
+    .topic-detail-page .container{padding: 0 2.14rem;}
+    .topic-detail-page .top-banner-section .bannerWrap, .topic-detail-page .top-banner-section .recommend-for-you{display: none;}
+    .topic-detail-page .top-banner-section .bannerWrap.mobile{display: block;background: var(--bg-color);border: none;margin-top: 1.43rem;}
+    .topic-detail-page .top-banner-section .all-app-list{display: none;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom{display: block;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg{max-width: 100%; flex: 0 0 100%;overflow: hidden;position: relative;}
+    .topic-detail-page .top-banner-section .bannerWrap img{height: auto;width: 100%;object-fit: fill;border-radius: 20px 20px 0 0;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg .detailWrap{position: absolute;bottom: 1.43rem;padding: 0 1.07rem;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg .detailWrap .bannerTitle{color: var(--bg-color);font-weight: bold;font-size: 1.71rem;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg .detailWrap .dateWrap{display: flex;column-gap: 1.43rem;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg .detailWrap .dateWrap p{color: var(--bg-color);font-size: 1.29rem;}
+    .topic-detail-page .top-banner-section .bannerWrap .bannerImg .detailWrap .dateWrap p span{color: #F48319;}
+
+    .topic-detail-page .top-banner-section .bannerDetailWrap{display: flex;flex-direction: column;padding: 1.43rem 1.43rem 2.14rem;flex-grow: 1;}
+    .topic-detail-page .top-banner-section .bannerDetailWrap .bannerContent{font-size: 1.5rem;color: #333333;margin-bottom: 2.71rem;}
+    .topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap{column-gap: 0;row-gap: 1.07rem;}
+    .topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap p:first-child{font-size: 1.5rem;}
+    .topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap p.gameType{font-size: 1.5rem;height: 2.29rem;padding: 0 1.14rem;line-height: 2rem;}
+    .topic-detail-page .top-banner-section .bannerDetailWrap .related-recommend-wrap .gameTypeList{display: flex;flex-wrap: wrap;row-gap: 1.07rem;column-gap: 1.07rem;}
+
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom{display: block;margin-top: 1.64rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend h2{color: #1D2127;font-size: 2rem;margin-bottom: 2rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile{display: flex;justify-content: space-between;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap{display: flex;flex-direction: column;row-gap: 0.86rem;align-items: center;flex: 0 0 22%;max-width: 22%;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap img{width: 100%;height: auto;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap .name{font-size: 1.57rem;color: #333333;overflow: hidden;white-space: nowrap;width: 100%;text-align: center;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap .rateWrap{display: flex;align-items: center;justify-content: center;column-gap: 0.36rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap .rateWrap img{width: 1.21rem;height: auto;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .edit-recommend .app-list-mobile .appWrap .rateWrap p{font-size: 1.29rem;color: #FA8B15;}
+
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section {margin-top: 2.71rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .titleWrap h2{font-size: 2rem;margin-bottom: 0;font-weight: normal;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 2rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 1.57rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 1.64rem;height: 1rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile{display: flex;flex-direction: column;row-gap: 3.57rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap{display: flex;column-gap: 1.86rem;align-items: center;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap img{width: 8.58rem;height: auto;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap .detailWrap{display: flex;flex-direction: column;row-gap: 0.7rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap .detailWrap .name{color: var(--text-black);font-size: 1.86rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap .detailWrap .type, .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap .detailWrap .dateUpdate{color: var(--text-gray);font-size: 1.43rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-app-section .app-list-mobile .appWrap .viewButton{display: block;height: 3.57rem;line-height: 3rem;font-size: 1.42rem;color: #3D7CFF;border: 1px solid rgba(61, 124, 255, 0.5);border-radius: 14px;padding: 0 3rem;margin-left: auto;}
+
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section {margin-top: 3.57rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .titleWrap h2{font-size: 2rem;margin-bottom: 0;font-weight: normal;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 1.86rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 1.57rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 1.64rem;height: 1rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list{display: flex;flex-direction: column;row-gap: 1.43rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap{background: #f9f9f9;border-radius: 20px;padding-bottom: 2.36rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .imgWrap{position: relative;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .imgWrap img{width: 100%;height: auto;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .imgWrap .dateUpdate{color: var(--bg-color);font-size: 1.29rem;position: absolute;bottom: 1.43rem;right: 1.43rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .topicName{margin-top: 1.43rem;margin-bottom: 0.86rem;color: #000000;font-size: 1.71rem;padding: 0 1.43rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .amountGame{color: var(--text-gray);font-size: 1.43rem;padding: 0 1.43rem;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .amountGame span{color: #F48319;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .amountGame{display: flex;justify-content: space-between;align-items: center;}
+    .topic-detail-page .top-banner-section .mobile-topic-detail-bottom .pick-topic-section .topic-list .topicWrap .amountGame img{width: 2rem;height: auto;}
+
+    .close { right: 10px; top: 10px;font-size: 25px;}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .topic-detail-page .top-banner-section .container{padding: 0 20px;}
+    .topic-detail-page .top-banner-section .all-app-list .app-list{grid-template-columns: repeat(2, 1fr);column-gap: 15px;row-gap: 15px;}
+    .topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap .detailWrap .topicTitle{font-size: 16px;}
+    .topic-detail-page .top-banner-section .recommend-for-you .topic-list .topicWrap .detailWrap .dateUpdated{font-size: 12px;}
+}
