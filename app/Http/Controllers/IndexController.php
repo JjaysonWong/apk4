@@ -28,6 +28,7 @@ class IndexController extends Controller
                                         return $game;
                                     })
                                     ->toArray();
+                                    
         return view('pages.home', [
             'topGameList' => $topGameList,
             'topAppList' => $topAppList,
