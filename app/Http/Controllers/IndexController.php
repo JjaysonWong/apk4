@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+class IndexController extends Controller
+{
+    public function index()
+    {
+        $dbGameList = DB::table('apk4_game_list')->orderBy('game_score', 'desc')->limit(10)->get();
+        $topGameList = json_decode(json_encode($dbGameList), true);
+
+        $dbAppList = DB::table('apk4_app_list')->orderBy('game_score', 'desc')->limit(10)->get();
+        $topAppList = json_decode(json_encode($dbAppList), true);
+
+        $dbPersonalizedRecommendation = DB::table('apk4_game_list')
+                                        ->orderBy('game_score', 'desc')
+                                        ->inRandomOrder() 
+                                        ->limit(30)
+                                        ->get();
+        
+        $personalizedRecommendation = json_decode(json_encode($dbPersonalizedRecommendation), true);
+
+        foreach ($personalizedRecommendation as &$game) {
+            if (!empty($game['uptime'])) {
+                $game['uptime'] = date('Y-m-d', $game['uptime']); 
+            }
+        }
+
+        return view('pages.home', [
+            'topGameList' => $topGameList,
+            'topAppList' => $topAppList,
+            'personalizedRecommendation' => $personalizedRecommendation
+        ]);
+    }
+
+    public function games()
+    {
+        return view('pages.games');
+    }
+
+    public function application()
+    {
+        return view('application');
+    }
+
+    public function info()
+    {
+        return view('info');
+    }
+
+    public function topic()
+    {
+        return view('topic');
+    }
+    
+    public function rank()
+    {
+        return view('rank');
+    }
+}

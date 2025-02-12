@@ -39,7 +39,7 @@ header .navbar-nav .dropdown.top_lang_select.open .dropdownList{  transform: sca
 header .navbar-nav .dropdown.top_lang_select .dropdownList li{list-style: none;text-align: center;cursor: pointer;}
 header .navbar-nav .languageDropdown{margin-left: 35px;}
 header .navbar-nav .dropdown.top_lang_select > a{font-size: 14px;color: var(--text-black);cursor: pointer;}
-header .navbar-nav .languageDropdown .dropdown-toggle > img{margin-right: 7px;}
+header .navbar-nav .languageDropdown .dropdown-toggle > img{margin-right: 7px;width: 25px;height: auto;}
 header .navbar-nav .languageDropdown .dropdown-toggle{padding: 12px;border: 1px solid #bfd6d0;border-radius: 10px;}
 header .menu-mobile{display: none;}
 .nav-list{display: none;}

@@ -8,7 +8,6 @@
     @if($game)
         <p>ID: {{ $game->id }}</p>
         <p>Name: {{ $game->name }}</p>
-        
     @else
         <p>No game found with ID = 9</p>
     @endif
