@@ -16,24 +16,28 @@ class IndexController extends Controller
         $dbAppList = DB::table('apk4_app_list')->orderBy('game_score', 'desc')->limit(10)->get();
         $topAppList = json_decode(json_encode($dbAppList), true);
 
-        $dbPersonalizedRecommendation = DB::table('apk4_game_list')
-                                        ->orderBy('game_score', 'desc')
-                                        ->inRandomOrder() 
-                                        ->limit(30)
-                                        ->get();
-        
-        $personalizedRecommendation = json_decode(json_encode($dbPersonalizedRecommendation), true);
-
-        foreach ($personalizedRecommendation as &$game) {
-            if (!empty($game['uptime'])) {
-                $game['uptime'] = date('Y-m-d', $game['uptime']); 
-            }
-        }
-
+        $personalizedRecommendation = DB::table('apk4_game_list')
+                                    ->orderBy('game_score', 'desc')
+                                    ->inRandomOrder()
+                                    ->limit(30)
+                                    ->get()
+                                    ->map(function ($game) {
+                                        if (!empty($game->uptime)) {
+                                            $game->uptime = date('Y-m-d', $game->uptime);
+                                        }
+                                        return $game;
+                                    })
+                                    ->toArray();
         return view('pages.home', [
             'topGameList' => $topGameList,
             'topAppList' => $topAppList,
-            'personalizedRecommendation' => $personalizedRecommendation
+            'personalizedRecommendation' => $personalizedRecommendation,
+            'newUpdateGameList' =>  config('games.newUpdateGameList'),
+            'categories' => config('categories.categories'),
+            'applicationCategories' => config('categories.application_categories'),
+            'hotRank'  => config('categories.hot_rank'),
+            'hotAppRank'  => config('categories.hot_app_rank'),
+            'games' => config('games.games'),
         ]);
     }
 

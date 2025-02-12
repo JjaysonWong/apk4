@@ -26,7 +26,7 @@
 <body>
     @include('layouts.header')
     @yield('content')
-    
+    @include('layouts.footer')
     @yield('scripts')
     <script src="{{ asset('js/main.js') }}"></script>
 </body>

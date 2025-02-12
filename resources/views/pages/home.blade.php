@@ -112,3020 +112,351 @@
                 <img src="{{ asset('images/home/HOT.png') }}" alt="Hot Icon" />
             </div>
             <swiper-container class="mySwiper recommendSwiper" space-between="40" slides-per-view="8" navigation="true" init="false">
-
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
-                        <img src="{{ $game['icon'] }}" alt="Game Image" />
-                        <p class="gamename">{{ $game['name'] }}</p>
-                        <p class="updatedTime">{{ date('Y-m-d', strtotime($game['uptime'])) }} 更新</p>
+                        <img src="{{ $game->icon }}" alt="Game Image" />
+                        <p class="gamename">{{ $game->name }}</p>
+                        <p class="updatedTime">{{ date('Y-m-d', strtotime($game->uptime)) }} 更新</p>
                         <div class="rating">
                             <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
-                            <p>{{ number_format($game['game_score'], 1) }}</p>
+                            <p>{{ number_format($game->game_score, 1) }}</p>
                         </div>
                     </swiper-slide>
                 @endforeach
                 
             </swiper-container> 
           
-
-          <div class="new-update-section">
-            <div class="titleWrap">
-                <h2>新上线与最近更新</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+            <div class="new-update-section">
+                <div class="titleWrap">
+                    <h2>{{__('auth.new_online_update')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+                <div class="new-update-game-list">
+                    @foreach ($newUpdateGameList as $i =>$game)
+                        <!-- use carbon to generate random dates -->
+                        @php
+                            $randomDate = \Carbon\Carbon::createFromTimestamp(rand(strtotime("2020-01-01"), strtotime("2025-12-31")))->toDateString();
+                        @endphp
+                        <div class="new-update-game-wrap">
+                            <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}" alt="Game Image" />
+                            <div class="new-update-small-wrap">
+                                <img src="{{ asset('images/home/newUpdateSmall' .$i.'.png') }}" alt="Game Image" />
+                                <div class="new-update-small-detail">
+                                    <h4>{{$game}}</h4>
+                                    <p class="dateUpdate">{{ $randomDate }} {{ __('auth.update') }}</p>
+                                    <p>现代战舰，炫酷的海上战争，激进的</p> 
+                                </div> 
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <div class="new-update-game-list">
-                <div class="new-update-game-wrap">
-                    <img class="banner-image" src="{{ asset('images/home/newUpdateGame1.png') }}" alt="Game Image" />
-                    <div class="new-update-small-wrap">
-                        <img src="{{ asset('images/home/newUpdateSmall1.png') }}" alt="Game Image" />
-                        <div class="new-update-small-detail">
-                            <h4>Tower of Fantasy</h4>
-                            <p class="dateUpdate">2023-12-07更新</p>
-                            <p>现代战舰，炫酷的海上战争，激进的</p>
+
+            <div class="game-category-list">
+                    <div class="titleWrap">
+                        <h2>{{__('auth.game_list')}}</h2>
+                        <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    </div>
+
+                    <div class="category-tab">
+                        <div class="tab">
+                            @foreach ($categories as $key => $name)
+                                <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}" 
+                                        onclick="switchCatTab(event, '{{ $key }}')">
+                                    {{ $name }}
+                                </button>
+                            @endforeach
+                        </div>
+
+                        @foreach ($categories as $key => $name)
+                            @php
+                                $shuffledGames = $games; 
+                               
+                                shuffle($shuffledGames); // Randomize the order for this category
+                            @endphp
+                            <div id="{{ $key }}" class="catTabContent" style="{{ $loop->first ? '' : 'display:none;' }}">
+                                @foreach ($shuffledGames as $game)
+                                    <div class="gameWrap">
+                                        <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
+                                        <p class="gameName">{{ $game['name'] }}</p>
+                                        <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                        
+                    </div>
+            </div>
+
+            <div class="topic-share-section">
+                <div class="titleWrap">
+                    <h2>{{__('auth.topic_sharing')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+
+                <div class="topic-share-list">
+                    @for ($i = 1; $i <= 4; $i++)
+                        <div class="topic-share-img-wrap">
+                            <img src="{{ asset('images/home/topicshare' . $i . '.png') }}" alt="Topic Image" />
+                            <div class="topicNumber">0{{ $i }}</div>
+                            <div class="topicTitle">{{__('auth.action_attack')}}</div>
+                            <div class="topicDate">2023-12-08{{__('auth.update')}}</div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="hot-game-rank">
+                <div class="titleWrap">
+                    <h2>{{__('auth.hot_ranking')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+                <div class="hot-game-rank-tab">
+                    <div class="tab">
+                        <button class="hot-game-tab tablinks active" onclick="switchHotGameTab(event, 'remenmianfei', '1')">{{__('auth.hot_free')}}</button>
+                        <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'zuisouqidai', '2')">{{__('auth.most_anticipated')}}</button>
+                        <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'xiazaizuiduo', '3')">{{__('auth.most_downloaded')}}</button>
+                    </div>
+                    @foreach ($hotRank as $hotRankKey => $hotRankName)
+                        <div id="{{ $hotRankKey }}" class="hotGameTabContent">
+                            @for ($i = 1; $i <= 9; $i++)
+                                <div class="gameWrap">
+                                    <div class="gameNumber">{{ $i }}</div>
+                                    <div class="gameDetailWrap">
+                                        <img src="{{ asset('images/home/hotrank' . $i . '.png') }}" alt="Game Image" />
+                                        <div class="details">
+                                            <p class="gameName">游戏名称 {{ $hotRankName }} {{ $i }}</p>
+                                            <p class="gameCategory">游戏类别</p>
+                                            <p class="gameUpdate">2023-06-06更新</p>
+                                        </div>
+                                    </div>  
+                                    <div class="viewNowButton">查看</div>        
+                                </div>
+                            @endfor
+                        </div>
+                    @endforeach 
+                </div>
+            </div>
+
+            <div class="useful-application-section">
+                <div class="titleWrap">
+                    <h2>{{__('auth.application_tab')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+                <div class="useful-application-tab">
+                    <div class="tab">
+                        @foreach ($applicationCategories as $key => $name)
+                            <button class="usefulAppTab tablinks {{ $loop->first ? 'active' : '' }}" 
+                                    onclick="switchUsefulAppTab(event, '{{ $key }}')">
+                                {{ $name }}
+                            </button>
+                        @endforeach
+                    </div>
+                    @foreach ($applicationCategories as $key => $name)
+                        @php
+                            $shuffledGames = $games; 
+                           
+                            shuffle($shuffledGames); // Randomize the order for this category
+                        @endphp
+                        <div id="{{ $key }}" class="usefulAppTabContent" style="{{ $loop->first ? '' : 'display:none;' }}">
+                            @foreach ($shuffledGames as $game)
+                                <div class="gameWrap">
+                                    <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
+                                    <p class="gameName">{{ $game['name'] }}</p>
+                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            <div class="application-mix-section">
+                <h2>{{__('auth.software_collection')}}</h2>
+                <div class="application-mix-list">
+                    @for ($i = 1; $i <= 4; $i++)
+                            
+                        <div class="application-mix-img-wrap">
+                        <img src="{{ asset('images/home/appMix'.$i. '.png') }}" alt="App Image" />
+                        <div class="topicNumber">0{{ $i }}</div>
+                        <div class="topicTitle">升级快不花钱的传奇游戏</div>
+                        <div class="topicDate">2023-12-08{{__('auth.update')}}</div>
+                    </div>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="hot-app-rank">
+                <div class="titleWrap">
+                    <h2>{{__('auth.app_ranking')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+                <div class="hot-app-rank-tab">
+                    <div class="tab">
+                        <button class="hot-app-tab tablinks active" onclick="switchHotAppTab(event, 'remenmianfei1', '1')">热门免费</button>
+                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">最受期待</button>
+                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">下载最多</button>
+                    </div>
+                    @foreach ($hotAppRank as $hotAppRankKey => $hotAppRankName)
+                        <div id="{{ $hotAppRankKey }}" class="hotAppTabContent">
+                            @for ($i = 1; $i <= 9; $i++)
+                                <div class="gameWrap">
+                                    <div class="gameNumber">{{ $i }}</div>
+                                    <div class="gameDetailWrap">
+                                        <img src="{{ asset('images/home/app' . $i . '.png') }}" alt="Game Image" />
+                                        <div class="details">
+                                            <p class="gameName">游戏名称 {{ $hotAppRankName }} {{ $i }}</p>
+                                            <p class="gameCategory">游戏类别</p>
+                                            <p class="gameUpdate">2023-06-06更新</p>
+                                        </div>
+                                    </div>  
+                                    <div class="viewNowButton">查看</div>        
+                                </div>
+                            @endfor
+                        </div>
+                    @endforeach 
+                </div>
+            </div>
+
+            <div class="news-section">
+                <div class="titleWrap">
+                    <h2>{{__('auth.news_update')}}</h2>
+                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                </div>
+                <div class="newsWrap">
+                    <div class="news-left col-7">
+                        <div class="news-top-left">
+                            <div class="imgWrap">
+                            <div class="hotIconWrap">
+                                <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
+                                <p>HOT</p>
+                            </div>
+                            <img class="newsImage" src="{{ asset('images/home/news1.png') }}" alt="News Image" />
+                            <p class="postDate">发布于 2023-12-11 10:02</p>
+                            </div>
+                            <div class="newsDetail">
+                                <h3 class="newsTitle">龙神万相神战手游什么时候公测？有PC电脑版 吗？教你如何下载安装</h3>
+                                <p class="newsContent">《龙神万相：神战》是一款策略卡牌手游，由热血国漫 预热第五季内容。玩家将加入西行小队，玩家可尝试跨 越阴阳、巅峰竞技、龙神八部等多种玩法。游戏突出挂 机收益，强调策略搭配，带来无限可能。此外，游戏…</p>
+                            </div>
+                        </div>
+                        <div class="news-bottom-left">
+                            <div class="news-bottom-inner-left">
+                                <div class="imgWrap">
+                                    <img src="{{ asset('images/home/newsBottomLeft.png') }}" alt="News Image" />
+                                    <p class="postDate">发布于 2023-12-11 10:02</p>
+                                </div>
+                                <h3>万华弧光电脑版PC端下载安装教程 电脑版怎么 玩万华弧光攻略</h3>
+                            </div>
+                            <div class="news-bottom-inner-right">
+                                <div class="imgWrap">
+                                    <img src="{{ asset('images/home/newsBottomRight.png') }}" alt="News Image" />
+                                    <p class="postDate">发布于 2023-12-11 10:02</p>
+                                </div> 
+                                <h3>PC端下载安装教程 电脑版怎么玩万华弧光</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="new-update-game-wrap">
-                    <img class="banner-image" src="{{ asset('images/home/newUpdateGame2.png') }}" alt="Game Image" />
-                    <div class="new-update-small-wrap">
-                        <img src="{{ asset('images/home/newUpdateSmall2.png') }}" alt="Game Image" />
-                        <div class="new-update-small-detail">
-                            <h4>完美世界：诸神之战</h4>
-                            <p class="dateUpdate">2023-12-07更新</p>
-                            <p>现代战舰，炫酷的海上战争，激进的</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="new-update-game-wrap">
-                    <img class="banner-image" src="{{ asset('images/home/newUpdateGame3.png') }}" alt="Game Image" />
-                    <div class="new-update-small-wrap">
-                        <img src="{{ asset('images/home/newUpdateSmall3.png') }}" alt="Game Image" />
-                        <div class="new-update-small-detail">
-                            <h4>幻之封神</h4>
-                            <p class="dateUpdate">2023-12-07更新</p>
-                            <p>现代战舰，炫酷的海上战争，激进的</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="game-category-list">
-            <div class="titleWrap">
-                <h2>游戏大全</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-
-            <div class="category-tab">
-                <div class="tab">
-                    <button class="catTab tablinks active" onclick="switchCatTab(event, 'tuijian')">推荐</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'jiaose')">角色扮演</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'dongzuo')">动作格斗</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'xiuxian')">休闲益智</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'sheji')">枪战射击</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'maoxian')">冒险解谜</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'zhanzheng')">战争策略</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'kapai')">卡牌对战</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'wudao')">音乐舞蹈</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'jingying')">模拟经营</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'shouyou')">传奇手游</button>
-                    <button class="catTab tablinks" onclick="switchCatTab(event, 'guaji')">挂机养老</button>
-                </div>
-                <div id="tuijian" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="jiaose" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="dongzuo" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image"/>
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image"/>
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image"/>
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image"/>
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image"/>
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image"/>
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image"/>
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image"/>
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image"/>
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image"/>
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image"/>
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image"/>
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image"/>
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image"/>
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image"/>
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image"/>
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="xiuxian" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image"/>
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image"/>
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image"/>
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image"/>
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image"/>
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image"/>
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image"/>
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image"/>
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image"/>
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image"/>
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image"/>
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image"/>
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image"/>
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image"/>
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image"/>
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image"/>
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div> 
-                </div>
-                <div id="sheji" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image"/>
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image"/>
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image"/>
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image"/>
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image"/>
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image"/>
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image"/>
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image"/>
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image"/>
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image"/>
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image"/>
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image"/>
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image"/>
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image"/>
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image"/>
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image"/>
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>  
-                </div>
-                <div id="maoxian" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="zhanzheng" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="kapai" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="wudao" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="jingying" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="shouyou" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="guaji" class="catTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="topic-share-section">
-            <div class="titleWrap">
-                <h2>专题分享</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-
-            <div class="topic-share-list">
-                <div class="topic-share-img-wrap">
-                    <img src="{{ asset('images/home/topicshare1.png') }}" alt="Topic Image" />
-                    <div class="topicNumber">01</div>
-                    <div class="topicTitle">出击速度很快的动作出击</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="topic-share-img-wrap">
-                    <img src="{{ asset('images/home/topicshare2.png') }}" alt="Topic Image" />
-                    <div class="topicNumber">02</div>
-                    <div class="topicTitle">出击速度很快的动作出击</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="topic-share-img-wrap">
-                    <img src="{{ asset('images/home/topicshare3.png') }}" alt="Topic Image" />
-                    <div class="topicNumber">03</div>
-                    <div class="topicTitle">出击速度很快的动作出击</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="topic-share-img-wrap">
-                    <img src="{{ asset('images/home/topicshare4.png') }}" alt="Topic Image" />
-                    <div class="topicNumber">04</div>
-                    <div class="topicTitle">升级快不花钱的传奇游戏</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-            </div>
-          </div>
-
-          <div class="hot-game-rank">
-            <div class="titleWrap">
-                <h2>热游排行榜</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-            <div class="hot-game-rank-tab">
-                <div class="tab">
-                    <button class="hot-game-tab tablinks active" onclick="switchHotGameTab(event, 'remenmianfei', '1')">热门免费</button>
-                    <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'zuisouqidai', '2')">最受期待</button>
-                    <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'xiazaizuiduo', '3')">下载最多</button>
-                </div>
-                <div id="remenmianfei" class="hotGameTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank1.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank4.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank7.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-                <div id="zuisouqidai" class="hotGameTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank1.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank4.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank7.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-                <div id="xiazaizuiduo" class="hotGameTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank1.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank4.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank7.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="useful-application-section">
-            <div class="titleWrap">
-                <h2>应用安利</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-            <div class="useful-application-tab">
-                <div class="tab">
-                    <button class="usefulAppTab tablinks active" onclick="switchUsefulAppTab(event, 'tuijian1')">推荐</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'jiaose1')">角色扮演</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'dongzuo1')">动作格斗</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'xiuxian1')">休闲益智</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'sheji1')">枪战射击</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'maoxian1')">冒险解谜</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'zhanzheng1')">战争策略</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'kapai1')">卡牌对战</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'wudao1')">音乐舞蹈</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'jingying1')">模拟经营</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'shouyou1')">传奇手游</button>
-                    <button class="usefulAppTab tablinks" onclick="switchUsefulAppTab(event, 'guaji1')">挂机养老</button>
-                </div>
-                <div id="tuijian1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app1.png') }}" alt="App Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app2.png') }}" alt="App Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app3.png') }}" alt="App Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app4.png') }}" alt="App Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app5.png') }}" alt="App Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app6.png') }}" alt="App Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/app7.png') }}" alt="App Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="jiaose1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="dongzuo1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="xiuxian1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div> 
-                </div>
-                <div id="sheji1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>  
-                </div>
-                <div id="maoxian1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="zhanzheng1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="kapai1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="wudao1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="jingying1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="shouyou1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-                <div id="guaji1" class="usefulAppTabContent">
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat1.png') }}" alt="Game Image" />
-                        <p class="gameName">冲呀!饼干人</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat2.png') }}" alt="Game Image" />
-                        <p class="gameName">皮卡堂之梦想起</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat3.png') }}" alt="Game Image" />
-                        <p class="gameName">潮灵王国：起源</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat4.png') }}" alt="Game Image" />
-                        <p class="gameName">锦绣江湖</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat5.png') }}" alt="Game Image" />
-                        <p class="gameName">星罗棋布</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat6.png') }}" alt="Game Image" />
-                        <p class="gameName"> 幻谕</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat7.png') }}" alt="Game Image" />
-                        <p class="gameName">浮生梦山海</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat8.png') }}" alt="Game Image" />
-                        <p class="gameName">进击的骑士</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat9.png') }}" alt="Game Image" />
-                        <p class="gameName">代号56</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat10.png') }}" alt="Game Image" />
-                        <p class="gameName">仙剑奇侠传</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat11.png') }}" alt="Game Image" />
-                        <p class="gameName">哆啦A梦飞车</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat12.png') }}" alt="Game Image" />
-                        <p class="gameName">不朽家族</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat13.png') }}" alt="Game Image" />
-                        <p class="gameName">异界深渊：大灵</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat14.png') }}" alt="Game Image" />
-                        <p class="gameName">最强祖师</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat15.png') }}" alt="Game Image" />
-                        <p class="gameName">奥拉星2</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                    <div class="gameWrap">
-                        <img src="{{ asset('images/home/gamecat16.png') }}" alt="Game Image" />
-                        <p class="gameName">斗罗大陆：史莱</p>
-                        <p class="gameUpdate">2023-12-06更新</p>
-                    </div>
-                </div>
-            </div>
-          </div>
-          
-          <div class="application-mix-section">
-            <h2>软件合集</h2>
-            <div class="application-mix-list">
-                <div class="application-mix-img-wrap">
-                    <img src="{{ asset('images/home/appMix1.png') }}" alt="App Image" />
-                    <div class="topicNumber">01</div>
-                    <div class="topicTitle">升级快不花钱的传奇游戏</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="application-mix-img-wrap">
-                    <img src="{{ asset('images/home/appMix2.png') }}" alt="App Image" />
-                    <div class="topicNumber">02</div>
-                    <div class="topicTitle">出击速度很快的动作出击</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="application-mix-img-wrap">
-                    <img src="{{ asset('images/home/appMix3.png') }}" alt="App Image" />
-                    <div class="topicNumber">03</div>
-                    <div class="topicTitle">黑猫奇闻社所有版本</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-                <div class="application-mix-img-wrap">
-                    <img src="{{ asset('images/home/appMix4.png') }}" alt="App Image" />
-                    <div class="topicNumber">04</div>
-                    <div class="topicTitle">出击速度很快的动作</div>
-                    <div class="topicDate">2023-12-08更新</div>
-                </div>
-            </div>
-          </div>
-
-          <div class="hot-app-rank">
-            <div class="titleWrap">
-                <h2>应用排行榜</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-            <div class="hot-app-rank-tab">
-                <div class="tab">
-                    <button class="hot-app-tab tablinks active" onclick="switchHotAppTab(event, 'remenmianfei1', '1')">热门免费</button>
-                    <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">最受期待</button>
-                    <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">下载最多</button>
-                </div>
-                <div id="remenmianfei1" class="hotAppTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app1.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app2.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app3.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app4.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app5.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app6.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/app7.png') }}" alt="App Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-                <div id="zuisouqidai1" class="hotAppTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank1.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank4.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank7.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-                <div id="xiazaizuiduo1" class="hotAppTabContent">
-                    <div class="gameWrap">
-                        <div class="gameNumber">1</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank1.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">凡人修仙传：人界篇</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">2</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">异度神剑2</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">3</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">斗破苍穹：斗帝</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">4</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank4.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">愤怒的兔子（测试服）</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">5</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">仓鼠点心工厂</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">6</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">镇魂街：武神觉醒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">7</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank7.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">守卫悬崖</p>
-                                <p class="gameCategory">益智休闲</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">8</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">哒哒嗒哒</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                    <div class="gameWrap">
-                        <div class="gameNumber">9</div>
-                        <div class="gameDetailWrap">
-                            <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
-                            <div class="details">
-                                <p class="gameName">侏罗纪军团</p>
-                                <p class="gameCategory">战斗策略</p>
-                                <p class="gameUpdate">2023-06-06更新</p>
-                            </div>
-                        </div>  
-                        <div class="viewNowButton">查看</div>        
-                    </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="news-section">
-            <div class="titleWrap">
-                <h2>新闻资讯</h2>
-                <p class="more">更多<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
-            </div>
-            <div class="newsWrap">
-                <div class="news-left col-7">
-                    <div class="news-top-left">
+                    <div class="news-right col-5">
                         <div class="imgWrap">
-                           <div class="hotIconWrap">
-                            <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
-                            <p>HOT</p>
-                           </div>
-                           <img class="newsImage" src="{{ asset('images/home/news1.png') }}" alt="News Image" />
-                           <p class="postDate">发布于 2023-12-11 10:02</p>
-                        </div>
-                        <div class="newsDetail">
-                            <h3 class="newsTitle">龙神万相神战手游什么时候公测？有PC电脑版 吗？教你如何下载安装</h3>
-                            <p class="newsContent">《龙神万相：神战》是一款策略卡牌手游，由热血国漫 预热第五季内容。玩家将加入西行小队，玩家可尝试跨 越阴阳、巅峰竞技、龙神八部等多种玩法。游戏突出挂 机收益，强调策略搭配，带来无限可能。此外，游戏…</p>
-                        </div>
-                    </div>
-                    <div class="news-bottom-left">
-                        <div class="news-bottom-inner-left">
-                            <div class="imgWrap">
-                                <img src="{{ asset('images/home/newsBottomLeft.png') }}" alt="News Image" />
-                                <p class="postDate">发布于 2023-12-11 10:02</p>
-                            </div>
-                            <h3>万华弧光电脑版PC端下载安装教程 电脑版怎么 玩万华弧光攻略</h3>
-                        </div>
-                        <div class="news-bottom-inner-right">
-                            <div class="imgWrap">
-                                <img src="{{ asset('images/home/newsBottomRight.png') }}" alt="News Image" />
-                                <p class="postDate">发布于 2023-12-11 10:02</p>
-                            </div> 
-                            <h3>PC端下载安装教程 电脑版怎么玩万华弧光</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-right col-5">
-                    <div class="imgWrap">
-                        <div class="newIconWrap">
-                         <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
-                         <p>NEW</p>
-                        </div>
-                        <img class="newsImage" src="{{ asset('images/home/newsRight.png') }}" alt="News Image" />
-                        <p class="postTitle">帽子先生大冒险电脑版按键设置教程-百度经验</p>
-                     </div>
-                     <div class="newsList">
-                        <div class="newsDetailWrap">
-                            <div class="newsNumber">
-                                01
-                            </div>
-                            <p class="newsDetailTitle">帝国雄师电脑版PC端下载安装教程 电脑版怎么玩帝国雄师 攻略</p>
-                        </div>
-                        <div class="newsDetailWrap">
-                            <div class="newsNumber">
-                                02
-                            </div>
-                            <p class="newsDetailTitle">斗罗大陆：史莱克学院手游什么时候公测？有PC电脑版吗？ 教你如何下载安装</p>
-                        </div>
-                        <div class="newsDetailWrap">
-                            <div class="newsNumber">
-                                03
-                            </div>
-                            <p class="newsDetailTitle"> 《宿命回响：弦上的叹息》公测今日开启，多重活动迎接指挥 家的到来！</p>
-                        </div>
-                        <div class="newsDetailWrap">
-                            <div class="newsNumber">
-                                04
-                            </div>
-                            <p class="newsDetailTitle">斗罗大陆：史莱克学院电脑版怎么玩？ 斗罗大陆：史莱克学 院性能优化240高帧 游戏多开 后台挂机 按键设置教程</p>
-                        </div>
-                        <div class="newsDetailWrap">
-                            <div class="newsNumber">
-                                05
-                            </div>
-                            <p class="newsDetailTitle">刘慈欣献声！ 《流浪地球》手游预约正式开启</p>
-                        </div>
-                     </div>
-                </div>
-            </div>
-            <div class="newsWrapMobile">
-                <div class="newsMobileWrap">
-                    <div class="imgWrap">
-                        <div class="hotIconWrap">
-                            <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
-                            <p>HOT</p>
-                        </div>
-                        <img class="newsImage" src="{{ asset('images/home/mobileNews1.png') }}" alt="News Image" />
-                    </div>
-                    <div class="detailWrap">
-                        <p class="title">全明星街球派对电脑版PC端下载安装教程电脑版怎么玩全明星街</p>
-                        <p class="datePost">发布于 2023-12-27 10:12:56</p>
-                    </div>
-                </div>
-                <div class="newsMobileWrap">
-                    <div class="imgWrap">
-                        <div class="newIconWrap">
+                            <div class="newIconWrap">
                             <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
                             <p>NEW</p>
+                            </div>
+                            <img class="newsImage" src="{{ asset('images/home/newsRight.png') }}" alt="News Image" />
+                            <p class="postTitle">帽子先生大冒险电脑版按键设置教程-百度经验</p>
                         </div>
-                        <img class="newsImage" src="{{ asset('images/home/mobileNews2.png') }}" alt="News Image" />
-                    </div>
-                    <div class="detailWrap">
-                        <p class="title">暴雪社区经理澄清《守望先锋2》 将在 2023年发布是谣言</p>
-                        <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        <div class="newsList">
+                            <div class="newsDetailWrap">
+                                <div class="newsNumber">
+                                    01
+                                </div>
+                                <p class="newsDetailTitle">帝国雄师电脑版PC端下载安装教程 电脑版怎么玩帝国雄师 攻略</p>
+                            </div>
+                            <div class="newsDetailWrap">
+                                <div class="newsNumber">
+                                    02
+                                </div>
+                                <p class="newsDetailTitle">斗罗大陆：史莱克学院手游什么时候公测？有PC电脑版吗？ 教你如何下载安装</p>
+                            </div>
+                            <div class="newsDetailWrap">
+                                <div class="newsNumber">
+                                    03
+                                </div>
+                                <p class="newsDetailTitle"> 《宿命回响：弦上的叹息》公测今日开启，多重活动迎接指挥 家的到来！</p>
+                            </div>
+                            <div class="newsDetailWrap">
+                                <div class="newsNumber">
+                                    04
+                                </div>
+                                <p class="newsDetailTitle">斗罗大陆：史莱克学院电脑版怎么玩？ 斗罗大陆：史莱克学 院性能优化240高帧 游戏多开 后台挂机 按键设置教程</p>
+                            </div>
+                            <div class="newsDetailWrap">
+                                <div class="newsNumber">
+                                    05
+                                </div>
+                                <p class="newsDetailTitle">刘慈欣献声！ 《流浪地球》手游预约正式开启</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="newsMobileWrap">
-                    <div class="imgWrap">
-                        <img class="newsImage" src="{{ asset('images/home/mobileNews3.png') }}" alt="News Image" />
+                <div class="newsWrapMobile">
+                    <div class="newsMobileWrap">
+                        <div class="imgWrap">
+                            <div class="hotIconWrap">
+                                <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
+                                <p>HOT</p>
+                            </div>
+                            <img class="newsImage" src="{{ asset('images/home/mobileNews1.png') }}" alt="News Image" />
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">全明星街球派对电脑版PC端下载安装教程电脑版怎么玩全明星街</p>
+                            <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        </div>
                     </div>
-                    <div class="detailWrap">
-                        <p class="title">隐藏在可爱外表下的暴力心王者荣耀强势射手李元芳参上 </p>
-                        <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                    <div class="newsMobileWrap">
+                        <div class="imgWrap">
+                            <div class="newIconWrap">
+                                <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
+                                <p>NEW</p>
+                            </div>
+                            <img class="newsImage" src="{{ asset('images/home/mobileNews2.png') }}" alt="News Image" />
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">暴雪社区经理澄清《守望先锋2》 将在 2023年发布是谣言</p>
+                            <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        </div>
                     </div>
-                </div>
-                <div class="newsMobileWrap">
-                    <div class="imgWrap">
-                        <img class="newsImage" src="{{ asset('images/home/mobileNews4.png') }}" alt="News Image" />
+                    <div class="newsMobileWrap">
+                        <div class="imgWrap">
+                            <img class="newsImage" src="{{ asset('images/home/mobileNews3.png') }}" alt="News Image" />
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">隐藏在可爱外表下的暴力心王者荣耀强势射手李元芳参上 </p>
+                            <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        </div>
                     </div>
-                    <div class="detailWrap">
-                        <p class="title">国外爆料称索尼或将于明天公布发布会时间</p>
-                        <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                    <div class="newsMobileWrap">
+                        <div class="imgWrap">
+                            <img class="newsImage" src="{{ asset('images/home/mobileNews4.png') }}" alt="News Image" />
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">国外爆料称索尼或将于明天公布发布会时间</p>
+                            <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        </div>
                     </div>
-                </div>
-                <div class="newsMobileWrap">
-                    <div class="imgWrap">
-                        <img class="newsImage" src="{{ asset('images/home/mobileNews5.png') }}" alt="News Image" />
-                    </div>
-                    <div class="detailWrap">
-                        <p class="title">关于元旦假期未成年人游戏限时的通知</p>
-                        <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                    <div class="newsMobileWrap">
+                        <div class="imgWrap">
+                            <img class="newsImage" src="{{ asset('images/home/mobileNews5.png') }}" alt="News Image" />
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">关于元旦假期未成年人游戏限时的通知</p>
+                            <p class="datePost">发布于 2023-12-27 10:12:56</p>
+                        </div>
                     </div>
                 </div>
             </div>
-          </div>
         </div>
     </div>
-   
-    <footer>
-        <div class="container">
-            <div class="footer-link-list">
-                <div>关于我们</div>
-                <div>广告服务</div>
-                <div>市场合作</div>
-                <div>加入我们</div>
-                <div>联系我们</div>
-                <div>版权声明</div>
-                <div>网站地图</div>
-            </div>
-            <div class="copyright">
-                <p>本站所有软件来自互联网，版权归原著所有。如有侵权，敬请来信告知（yx8899@gmail.com），我们将及时撤销。</p>
-                <p>Copyright © {{ date('Y') }} {{ strtolower(env('APP_NAME', 'APK4')) }}.com All rights reserved. 版权所有 XXX游戏网站</p>
-            </div>
-            <div class="footer-bottom">
-                <div class="report-section">
-                    <div class="imgWrap">
-                        <img src="{{ asset('images/footer/report1.png') }}" alt="Report Center" />
-                        <p>网络违法犯罪举报网站</p>
-                    </div>
-                    <div class="imgWrap">
-                        <img src="{{ asset('images/footer/report2.png') }}"  alt="Report Center" />
-                        <p>河北互联网违法和不良信息举报</p>
-                    </div>
-                    <div class="imgWrap">
-                        <img src="{{ asset('images/footer/report3.png') }}"  alt="Report Center" />
-                        <p>中国互联网举报中心</p>
-                    </div>
-                </div>
-                <div class="languageDropdown">
-                    <li class="dropdown top_lang_select" id="languageFooterDropdown">
-                        <a class="dropdown-toggle" onclick="toggleFooterLangDropdown(event)">
-                            <img src="{{ asset('images/header/china_flag.png') }}" alt="Chinese Language" />
-                            <i class="dev_top_lang_icon"></i>中文 <b class="minicaret"></b>
-                        </a>
-                        <ul class="dropdownList">
-                            <li class="chosen" onclick="changeLanguage('zh', this)">
-                                <a>中文</a>
-                            </li>
-                            <li onclick="changeLanguage('en', this)">
-                                <a>英文</a>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
-            </div>
-        </div>
-    </footer>
 @endsection
 
 @section('scripts')

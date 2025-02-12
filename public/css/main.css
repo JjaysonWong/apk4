@@ -62,7 +62,7 @@ footer .footer-bottom .dropdown.top_lang_select .dropdownList{  width: 105px; mi
 footer .footer-bottom .dropdown.top_lang_select.open .dropdownList{  transform: scaleX(1.0) scaleY(1.0); opacity: 1; pointer-events: all;}
 footer .footer-bottom .dropdown.top_lang_select .dropdownList li{list-style: none;text-align: center;cursor: pointer;}
 footer .footer-bottom .dropdown.top_lang_select > a{font-size: 14px;color: var(--bg-color);cursor: pointer;}
-footer .footer-bottom .languageDropdown .dropdown-toggle > img{margin-right: 7px;}
+footer .footer-bottom .languageDropdown .dropdown-toggle > img{margin-right: 7px;width: 25px; height: auto;}
 
 /***** 404.html ******/
 .shadow{height: 10px;width: 100%;background: #f0f2f4;}

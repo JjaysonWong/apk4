@@ -38,6 +38,19 @@ return [
     'learn_game_news' => '了解更多游戏新鲜事',
     'selected_recommendations' => '精选推荐',
     'personalized_recommendation' => '个性化推荐',
-
-
+    'new_online_update' => '新上线与最近更新',
+    'more' => '更多',
+    'update' => '更新',
+    'game_list' => '游戏大全',
+    'topic_sharing' => '专题分享',
+    'action_attack' => '出击速度很快的动作出击',
+    'hot_ranking' => '热游排行榜',   
+    'hot_free' => '热门免费',   
+    'most_anticipated' => '最受期待',   
+    'most_downloaded' => '下载最多',
+    'view_now'  => '查看',   
+    'application_tab' => '应用安利', 
+    'software_collection'   => '软件合集', 
+    'app_ranking' => '应用排行榜',
+    'news_update' => '新闻资讯',
 ];
