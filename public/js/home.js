@@ -31,9 +31,6 @@ function switchHotGameTab(evt, tabName) {
     tabcontent = document.getElementsByClassName("hotGameTabContent");
     tablinks = document.getElementsByClassName("hot-game-tab");
 
-    // Debug: Log the clicked tab
-    console.log("Clicked tab:", evt.currentTarget);  // Should show the clicked button
-
     // Hide all tab content
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
@@ -72,9 +69,6 @@ function switchHotAppTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("hotAppTabContent");
     tablinks = document.getElementsByClassName("hot-app-tab");
-
-    // Debug: Log the clicked tab
-    console.log("Clicked tab:", evt.currentTarget);  // Should show the clicked button
 
     // Hide all tab content
     for (i = 0; i < tabcontent.length; i++) {
