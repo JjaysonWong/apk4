@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '应用页')
+@section('title', __('auth.app_title'))
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/applications.css') }}">
 @endsection

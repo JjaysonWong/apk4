@@ -57,6 +57,12 @@ return [
     'game_name' => 'Game Name',
     'selected_game_recommend' => 'Selected Game Recommend',
     'selected_app_recommend' => 'Selected App Recommend',
+    'hottest_latest_best' => 'The hottest, latest, and best ever on the entire site',
+    'topic_title'=> 'Topic',
+    'info_title'=> 'Info',
+    'game_title'=> 'Game',
+    'app_title'=> 'Application',
+
 
 
     'footer' =>[

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '游戏页')
+@section('title', __('auth.game_title'))
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/games.css') }}">
 @endsection

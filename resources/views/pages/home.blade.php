@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', '首页')
+@section('title', __('auth.homepage'))
 
 @section('content')
     <img src="{{ asset('images/topbg.png') }}" class="topbg" alt="Background Color Image" />
-    
+
     <!-- navigation list for mobile  -->
     <div class="nav-list">
         <a class="active" href="{{ url('/') }}">{{ __('auth.homepage') }}</a>
@@ -24,37 +24,44 @@
                         @for ($i = 1; $i <= 5; $i++)
                             <swiper-slide>
                                 <img src="{{ asset('images/home/banner1.png') }}" alt="Home Banner" />
-                                <p>{{__('auth.top_banner_section')}}{{ $i }}</p>
+                                <p>{{ __('auth.top_banner_section') }}{{ $i }}</p>
                             </swiper-slide>
                         @endfor
-                      </swiper-container>
+                    </swiper-container>
                 </div>
 
                 <div class="banner-right col-4">
                     <div class="topic-info">
                         <div class="topic-redirect">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="35" viewBox="0 0 102 35">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="102" height="35" viewBox="0 0 102 35">
                                 <defs>
-                                  <linearGradient id="linear-gradient" x1="0.363" y1="0.25" x2="0.637" y2="0.75" gradientUnits="objectBoundingBox">
-                                    <stop offset="0" stop-color="#0091ff"/>
-                                    <stop offset="0.281" stop-color="#0091ff"/>
-                                    <stop offset="1" stop-color="#7fc8ff"/>
-                                  </linearGradient>
+                                    <linearGradient id="linear-gradient" x1="0.363" y1="0.25" x2="0.637"
+                                        y2="0.75" gradientUnits="objectBoundingBox">
+                                        <stop offset="0" stop-color="#0091ff" />
+                                        <stop offset="0.281" stop-color="#0091ff" />
+                                        <stop offset="1" stop-color="#7fc8ff" />
+                                    </linearGradient>
                                 </defs>
                                 <g id="精选推荐标签" transform="translate(-1252 -91)">
-                                  <path id="圆角矩形_4" data-name="圆角矩形 4" d="M1267,91h72a15,15,0,0,1,0,30h-66.329c-1.391,0-6.75,5-6.75,5l1.079-5a15,15,0,0,1,0-30Z" fill="url(#linear-gradient)"/>
-                                  <text id="精选推荐" transform="translate(1273.546 110)" fill="#fff" font-size="14" font-family="MicrosoftYaHei, Microsoft YaHei"><tspan x="0" y="0">{{__('auth.selected_recommendations')}}</tspan></text>
+                                    <path id="圆角矩形_4" data-name="圆角矩形 4"
+                                        d="M1267,91h72a15,15,0,0,1,0,30h-66.329c-1.391,0-6.75,5-6.75,5l1.079-5a15,15,0,0,1,0-30Z"
+                                        fill="url(#linear-gradient)" />
+                                    <text id="精选推荐" transform="translate(1273.546 110)" fill="#fff" font-size="14"
+                                        font-family="MicrosoftYaHei, Microsoft YaHei">
+                                        <tspan x="0" y="0">{{ __('auth.selected_recommendations') }}</tspan>
+                                    </text>
                                 </g>
-                              </svg>
-                              
+                            </svg>
+
                             <h2>SPECIAL</h2>
-                            <h3>{{__('auth.popular_topics')}}</h3>
-                            <p>{{__('auth.discover_more_fun')}}</p>
+                            <h3>{{ __('auth.popular_topics') }}</h3>
+                            <p>{{ __('auth.discover_more_fun') }}</p>
                         </div>
                         <div class="info-redirect">
                             <h2>NEWS</h2>
-                            <h3>{{__('auth.hotspot_news')}}</h3>
-                            <p>{{__('auth.learn_game_news')}}</p>
+                            <h3>{{ __('auth.hotspot_news') }}</h3>
+                            <p>{{ __('auth.learn_game_news') }}</p>
                         </div>
                     </div>
 
@@ -66,52 +73,56 @@
                         <!-- top 最佳游戏 -->
                         <div id="topGame" class="topTabcontent">
                             <swiper-container class="mySwiper top-game-swiper" space-between="10" slides-per-view="3.3">
-                            @foreach ($topGameList as $index => $game)
-                                <swiper-slide>
-                                    @if ($index < 4)
-                                        <div class="crownWrap">
-                                            <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}" alt="Crown Image" />
-                                            <p>{{ $index + 1 }}</p>
-                                        </div>
-                                    @endif
-                                    <img src="{{ $game['icon'] }}" alt="Game Image" />
-                                    <p>{{ $game['name'] }}</p>
-                                </swiper-slide>
-                            @endforeach
+                                @foreach ($topGameList as $index => $game)
+                                    <swiper-slide>
+                                        @if ($index < 4)
+                                            <div class="crownWrap">
+                                                <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
+                                                    alt="Crown Image" />
+                                                <p>{{ $index + 1 }}</p>
+                                            </div>
+                                        @endif
+                                        <img src="{{ $game['icon'] }}" alt="Game Image" />
+                                        <p>{{ $game['name'] }}</p>
+                                    </swiper-slide>
+                                @endforeach
                             </swiper-container>
                         </div>
                         <!-- top 热门应用 -->
                         <div id="topApp" class="topTabcontent">
-                            <swiper-container class="mySwiper top-applications-swiper" space-between="10" slides-per-view="3.3">
-                            @foreach ($topAppList as $index => $app)
-                                <swiper-slide>
-                                    @if ($index < 4)
-                                        <div class="crownWrap">
-                                            <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}" alt="Crown Image" />
-                                            <p>{{ $index + 1 }}</p>
-                                        </div>
-                                    @endif
-                                    <img src="{{ $app['icon'] }}" alt="App Image" />
-                                    <p>{{ $app['name'] }}</p>
-                                </swiper-slide>
-                            @endforeach
+                            <swiper-container class="mySwiper top-applications-swiper" space-between="10"
+                                slides-per-view="3.3">
+                                @foreach ($topAppList as $index => $app)
+                                    <swiper-slide>
+                                        @if ($index < 4)
+                                            <div class="crownWrap">
+                                                <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
+                                                    alt="Crown Image" />
+                                                <p>{{ $index + 1 }}</p>
+                                            </div>
+                                        @endif
+                                        <img src="{{ $app['icon'] }}" alt="App Image" />
+                                        <p>{{ $app['name'] }}</p>
+                                    </swiper-slide>
+                                @endforeach
                             </swiper-container>
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
 
         <div class="recommend-section">
             <div class="titleWrap">
-                <h2>{{__('auth.personalized_recommendation')}}</h2>
+                <h2>{{ __('auth.personalized_recommendation') }}</h2>
                 <!-- <div class="hotIconWrap">
-                    <img src="{{ asset('images/home/chaojihuati-remendianjitai.png') }}" />
-                    <p>Hot</p>
-                </div> -->
+                        <img src="{{ asset('images/home/chaojihuati-remendianjitai.png') }}" />
+                        <p>Hot</p>
+                    </div> -->
                 <img src="{{ asset('images/home/HOT.png') }}" alt="Hot Icon" />
             </div>
-            <swiper-container class="mySwiper recommendSwiper" space-between="40" slides-per-view="8" navigation="true" init="false">
+            <swiper-container class="mySwiper recommendSwiper" space-between="40" slides-per-view="8" navigation="true"
+                init="false">
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
                         <img src="{{ $game->icon }}" alt="Game Image" />
@@ -123,29 +134,33 @@
                         </div>
                     </swiper-slide>
                 @endforeach
-                
-            </swiper-container> 
-          
+
+            </swiper-container>
+
             <div class="new-update-section">
                 <div class="titleWrap">
-                    <h2>{{__('auth.new_online_update')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.new_online_update') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
                 <div class="new-update-game-list">
-                    @foreach ($newUpdateGameList as $i =>$game)
+                    @foreach ($newUpdateGameList as $i => $game)
                         <!-- use carbon to generate random dates -->
                         @php
-                            $randomDate = \Carbon\Carbon::createFromTimestamp(rand(strtotime("2020-01-01"), strtotime("2025-12-31")))->toDateString();
+                            $randomDate = \Carbon\Carbon::createFromTimestamp(
+                                rand(strtotime('2020-01-01'), strtotime('2025-12-31')),
+                            )->toDateString();
                         @endphp
                         <div class="new-update-game-wrap">
-                            <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}" alt="Game Image" />
+                            <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}"
+                                alt="Game Image" />
                             <div class="new-update-small-wrap">
-                                <img src="{{ asset('images/home/newUpdateSmall' .$i.'.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/home/newUpdateSmall' . $i . '.png') }}" alt="Game Image" />
                                 <div class="new-update-small-detail">
-                                    <h4>{{$game}}</h4>
+                                    <h4>{{ $game }}</h4>
                                     <p class="dateUpdate">{{ $randomDate }} {{ __('auth.update') }}</p>
-                                    <p>现代战舰，炫酷的海上战争，激进的</p> 
-                                </div> 
+                                    <p>现代战舰，炫酷的海上战争，激进的</p>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -153,45 +168,48 @@
             </div>
 
             <div class="game-category-list">
-                    <div class="titleWrap">
-                        <h2>{{__('auth.game_list')}}</h2>
-                        <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                <div class="titleWrap">
+                    <h2>{{ __('auth.game_list') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
+                </div>
+
+                <div class="category-tab">
+                    <div class="tab">
+                        @foreach ($categories as $key => $name)
+                            <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}"
+                                onclick="switchCatTab(event, '{{ $key }}')">
+                                {{ $name }}
+                            </button>
+                        @endforeach
                     </div>
 
-                    <div class="category-tab">
-                        <div class="tab">
-                            @foreach ($categories as $key => $name)
-                                <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}" 
-                                        onclick="switchCatTab(event, '{{ $key }}')">
-                                    {{ $name }}
-                                </button>
+                    @foreach ($categories as $key => $name)
+                        @php
+                            $shuffledGames = $games;
+
+                            shuffle($shuffledGames); // Randomize the order for this category
+                        @endphp
+                        <div id="{{ $key }}" class="catTabContent"
+                            style="{{ $loop->first ? '' : 'display:none;' }}">
+                            @foreach ($shuffledGames as $game)
+                                <div class="gameWrap">
+                                    <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
+                                    <p class="gameName">{{ $game['name'] }}</p>
+                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
+                                </div>
                             @endforeach
                         </div>
+                    @endforeach
 
-                        @foreach ($categories as $key => $name)
-                            @php
-                                $shuffledGames = $games; 
-                               
-                                shuffle($shuffledGames); // Randomize the order for this category
-                            @endphp
-                            <div id="{{ $key }}" class="catTabContent" style="{{ $loop->first ? '' : 'display:none;' }}">
-                                @foreach ($shuffledGames as $game)
-                                    <div class="gameWrap">
-                                        <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
-                                        <p class="gameName">{{ $game['name'] }}</p>
-                                        <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endforeach
-                        
-                    </div>
+                </div>
             </div>
 
             <div class="topic-share-section">
                 <div class="titleWrap">
-                    <h2>{{__('auth.topic_sharing')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.topic_sharing') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
 
                 <div class="topic-share-list">
@@ -199,8 +217,8 @@
                         <div class="topic-share-img-wrap">
                             <img src="{{ asset('images/home/topicshare' . $i . '.png') }}" alt="Topic Image" />
                             <div class="topicNumber">0{{ $i }}</div>
-                            <div class="topicTitle">{{__('auth.action_attack')}}</div>
-                            <div class="topicDate">2023-12-08{{__('auth.update')}}</div>
+                            <div class="topicTitle">{{ __('auth.action_attack') }}</div>
+                            <div class="topicDate">2023-12-08{{ __('auth.update') }}</div>
                         </div>
                     @endfor
                 </div>
@@ -208,14 +226,18 @@
 
             <div class="hot-game-rank">
                 <div class="titleWrap">
-                    <h2>{{__('auth.hot_ranking')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.hot_ranking') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
                 <div class="hot-game-rank-tab">
                     <div class="tab">
-                        <button class="hot-game-tab tablinks active" onclick="switchHotGameTab(event, 'remenmianfei', '1')">{{__('auth.hot_free')}}</button>
-                        <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'zuisouqidai', '2')">{{__('auth.most_anticipated')}}</button>
-                        <button class="hot-game-tab tablinks" onclick="switchHotGameTab(event, 'xiazaizuiduo', '3')">{{__('auth.most_downloaded')}}</button>
+                        <button class="hot-game-tab tablinks active"
+                            onclick="switchHotGameTab(event, 'remenmianfei', '1')">{{ __('auth.hot_free') }}</button>
+                        <button class="hot-game-tab tablinks"
+                            onclick="switchHotGameTab(event, 'zuisouqidai', '2')">{{ __('auth.most_anticipated') }}</button>
+                        <button class="hot-game-tab tablinks"
+                            onclick="switchHotGameTab(event, 'xiazaizuiduo', '3')">{{ __('auth.most_downloaded') }}</button>
                     </div>
                     @foreach ($hotRank as $hotRankKey => $hotRankName)
                         <div id="{{ $hotRankKey }}" class="hotGameTabContent">
@@ -229,36 +251,38 @@
                                             <p class="gameCategory">游戏类别</p>
                                             <p class="gameUpdate">2023-06-06更新</p>
                                         </div>
-                                    </div>  
-                                    <div class="viewNowButton">查看</div>        
+                                    </div>
+                                    <div class="viewNowButton">查看</div>
                                 </div>
                             @endfor
                         </div>
-                    @endforeach 
+                    @endforeach
                 </div>
             </div>
 
             <div class="useful-application-section">
                 <div class="titleWrap">
-                    <h2>{{__('auth.application_tab')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.application_tab') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
                 <div class="useful-application-tab">
                     <div class="tab">
                         @foreach ($applicationCategories as $key => $name)
-                            <button class="usefulAppTab tablinks {{ $loop->first ? 'active' : '' }}" 
-                                    onclick="switchUsefulAppTab(event, '{{ $key }}')">
+                            <button class="usefulAppTab tablinks {{ $loop->first ? 'active' : '' }}"
+                                onclick="switchUsefulAppTab(event, '{{ $key }}')">
                                 {{ $name }}
                             </button>
                         @endforeach
                     </div>
                     @foreach ($applicationCategories as $key => $name)
                         @php
-                            $shuffledGames = $games; 
-                           
+                            $shuffledGames = $games;
+
                             shuffle($shuffledGames); // Randomize the order for this category
                         @endphp
-                        <div id="{{ $key }}" class="usefulAppTabContent" style="{{ $loop->first ? '' : 'display:none;' }}">
+                        <div id="{{ $key }}" class="usefulAppTabContent"
+                            style="{{ $loop->first ? '' : 'display:none;' }}">
                             @foreach ($shuffledGames as $game)
                                 <div class="gameWrap">
                                     <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
@@ -272,30 +296,33 @@
             </div>
             {{-- 软件合集 --}}
             <div class="application-mix-section">
-                <h2>{{__('auth.software_collection')}}</h2>
+                <h2>{{ __('auth.software_collection') }}</h2>
                 <div class="application-mix-list">
                     @for ($i = 1; $i <= 4; $i++)
-                            
                         <div class="application-mix-img-wrap">
-                        <img src="{{ asset('images/home/appMix'.$i. '.png') }}" alt="App Image" />
-                        <div class="topicNumber">0{{ $i }}</div>
-                        <div class="topicTitle">升级快不花钱的传奇游戏</div>
-                        <div class="topicDate">2023-12-08{{__('auth.update')}}</div>
-                    </div>
+                            <img src="{{ asset('images/home/appMix' . $i . '.png') }}" alt="App Image" />
+                            <div class="topicNumber">0{{ $i }}</div>
+                            <div class="topicTitle">升级快不花钱的传奇游戏</div>
+                            <div class="topicDate">2023-12-08{{ __('auth.update') }}</div>
+                        </div>
                     @endfor
                 </div>
             </div>
             应用排行榜
             <div class="hot-app-rank">
                 <div class="titleWrap">
-                    <h2>{{__('auth.app_ranking')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.app_ranking') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
                 <div class="hot-app-rank-tab">
                     <div class="tab">
-                        <button class="hot-app-tab tablinks active" onclick="switchHotAppTab(event, 'remenmianfei1', '1')">{{__('categories.remenmianfei')}}</button>
-                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">{{__('categories.zuisouqidai')}}</button>
-                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">{{__('categories.xiazaizuiduo')}}</button>
+                        <button class="hot-app-tab tablinks active"
+                            onclick="switchHotAppTab(event, 'remenmianfei1', '1')">{{ __('categories.remenmianfei') }}</button>
+                        <button class="hot-app-tab tablinks"
+                            onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">{{ __('categories.zuisouqidai') }}</button>
+                        <button class="hot-app-tab tablinks"
+                            onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">{{ __('categories.xiazaizuiduo') }}</button>
                     </div>
                     @foreach ($hotAppRank as $hotAppRankKey => $hotAppRankName)
                         <div id="{{ $hotAppRankKey }}" class="hotAppTabContent">
@@ -305,38 +332,41 @@
                                     <div class="gameDetailWrap">
                                         <img src="{{ asset('images/home/app' . $i . '.png') }}" alt="Game Image" />
                                         <div class="details">
-                                            <p class="gameName">{{__('auth.game_name')}} {{ $hotAppRankName }} {{ $i }}</p>
-                                            <p class="gameCategory">{{__('auth.game_category')}}</p>
-                                            <p class="gameUpdate">2023-06-06{{__('auth.update')}}</p>
+                                            <p class="gameName">{{ __('auth.game_name') }} {{ $hotAppRankName }}
+                                                {{ $i }}</p>
+                                            <p class="gameCategory">{{ __('auth.game_category') }}</p>
+                                            <p class="gameUpdate">2023-06-06{{ __('auth.update') }}</p>
                                         </div>
-                                    </div>  
-                                    <div class="viewNowButton">{{__('auth.more')}}</div>        
+                                    </div>
+                                    <div class="viewNowButton">{{ __('auth.more') }}</div>
                                 </div>
                             @endfor
                         </div>
-                    @endforeach 
+                    @endforeach
                 </div>
             </div>
 
             <div class="news-section">
                 <div class="titleWrap">
-                    <h2>{{__('auth.news_update')}}</h2>
-                    <p class="more">{{__('auth.more')}}<img src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></p>
+                    <h2>{{ __('auth.news_update') }}</h2>
+                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
+                            alt="More Icon" /></p>
                 </div>
                 <div class="newsWrap">
                     <div class="news-left col-7">
                         <div class="news-top-left">
                             <div class="imgWrap">
-                            <div class="hotIconWrap">
-                                <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
-                                <p>HOT</p>
-                            </div>
-                            <img class="newsImage" src="{{ asset('images/home/news1.png') }}" alt="News Image" />
-                            <p class="postDate">发布于 2023-12-11 10:02</p>
+                                <div class="hotIconWrap">
+                                    <img src="{{ asset('images/home/hotIcon.png') }}" alt="Hot Icon" />
+                                    <p>HOT</p>
+                                </div>
+                                <img class="newsImage" src="{{ asset('images/home/news1.png') }}" alt="News Image" />
+                                <p class="postDate">发布于 2023-12-11 10:02</p>
                             </div>
                             <div class="newsDetail">
                                 <h3 class="newsTitle">龙神万相神战手游什么时候公测？有PC电脑版 吗？教你如何下载安装</h3>
-                                <p class="newsContent">《龙神万相：神战》是一款策略卡牌手游，由热血国漫 预热第五季内容。玩家将加入西行小队，玩家可尝试跨 越阴阳、巅峰竞技、龙神八部等多种玩法。游戏突出挂 机收益，强调策略搭配，带来无限可能。此外，游戏…</p>
+                                <p class="newsContent">《龙神万相：神战》是一款策略卡牌手游，由热血国漫 预热第五季内容。玩家将加入西行小队，玩家可尝试跨
+                                    越阴阳、巅峰竞技、龙神八部等多种玩法。游戏突出挂 机收益，强调策略搭配，带来无限可能。此外，游戏…</p>
                             </div>
                         </div>
                         <div class="news-bottom-left">
@@ -351,7 +381,7 @@
                                 <div class="imgWrap">
                                     <img src="{{ asset('images/home/newsBottomRight.png') }}" alt="News Image" />
                                     <p class="postDate">发布于 2023-12-11 10:02</p>
-                                </div> 
+                                </div>
                                 <h3>PC端下载安装教程 电脑版怎么玩万华弧光</h3>
                             </div>
                         </div>
@@ -359,8 +389,8 @@
                     <div class="news-right col-5">
                         <div class="imgWrap">
                             <div class="newIconWrap">
-                            <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
-                            <p>NEW</p>
+                                <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
+                                <p>NEW</p>
                             </div>
                             <img class="newsImage" src="{{ asset('images/home/newsRight.png') }}" alt="News Image" />
                             <p class="postTitle">帽子先生大冒险电脑版按键设置教程-百度经验</p>
@@ -468,7 +498,7 @@
         const swiper2 = document.querySelector('.recommendSwiper')
 
         const params = {
-          injectStyles: [`
+            injectStyles: [`
           .swiper{
             border-radius:20px;
           }
@@ -515,18 +545,18 @@
                 }
             }
           `],
-          pagination: {
-            clickable: true,
-            renderBullet: function (index, className) {
-              return '<span class="' + className + '">' + "</span>";
+            pagination: {
+                clickable: true,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + '">' + "</span>";
+                },
             },
-          },
         }
-    
+
         Object.assign(swiperEl, params)
 
         const recommendSwiper2 = {
-          injectStyles: [`
+            injectStyles: [`
           .swiper{
             position:static;
           }
@@ -567,31 +597,31 @@
             slidesPerView: 8,
             spaceBetween: 40,
             breakpoints: {
-            320: {
-            slidesPerView: 3.2,
-            spaceBetween: 10,
+                320: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 10,
+                },
+                375: {
+                    slidesPerView: 3.5,
+                    spaceBetween: 20,
+                },
+                525: {
+                    slidesPerView: 4.3,
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 6,
+                    spaceBetween: 30,
+                },
+                1025: {
+                    slidesPerView: 7,
+                    spaceBetween: 25,
+                },
+                1440: {
+                    slidesPerView: 8,
+                    spaceBetween: 40,
+                },
             },
-            375: {
-            slidesPerView: 3.5,
-            spaceBetween: 20,
-            },
-            525: {
-            slidesPerView: 4.3,
-            spaceBetween: 30,
-            },
-            768: {
-            slidesPerView: 6,
-            spaceBetween: 30,
-            },
-            1025: {
-            slidesPerView: 7,
-            spaceBetween: 25,
-            },
-            1440: {
-            slidesPerView: 8,
-            spaceBetween: 40,
-            },
-        },
         })
         swiperEl.initialize();
         swiper2.initialize();
@@ -602,28 +632,28 @@
             spaceBetween: 10,
             breakpoints: {
                 320: {
-                slidesPerView: 2.8,
-                spaceBetween: 10,
+                    slidesPerView: 2.8,
+                    spaceBetween: 10,
                 },
                 375: {
-                slidesPerView: 3.5,
-                spaceBetween: 10,
+                    slidesPerView: 3.5,
+                    spaceBetween: 10,
                 },
                 525: {
-                slidesPerView: 4,
-                spaceBetween: 20,
+                    slidesPerView: 4,
+                    spaceBetween: 20,
                 },
                 768: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                    slidesPerView: 5,
+                    spaceBetween: 20,
                 },
                 1025: {
-                slidesPerView: 2.5,
-                spaceBetween: 10,
+                    slidesPerView: 2.5,
+                    spaceBetween: 10,
                 },
                 1200: {
-                slidesPerView: 3.3,
-                spaceBetween: 10,
+                    slidesPerView: 3.3,
+                    spaceBetween: 10,
                 },
             },
         });
@@ -634,28 +664,28 @@
             spaceBetween: 10,
             breakpoints: {
                 320: {
-                slidesPerView: 2.8,
-                spaceBetween: 10,
+                    slidesPerView: 2.8,
+                    spaceBetween: 10,
                 },
                 375: {
-                slidesPerView: 3.5,
-                spaceBetween: 10,
+                    slidesPerView: 3.5,
+                    spaceBetween: 10,
                 },
                 525: {
-                slidesPerView: 4,
-                spaceBetween: 20,
+                    slidesPerView: 4,
+                    spaceBetween: 20,
                 },
                 768: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                    slidesPerView: 5,
+                    spaceBetween: 20,
                 },
                 1025: {
-                slidesPerView: 2.5,
-                spaceBetween: 10,
+                    slidesPerView: 2.5,
+                    spaceBetween: 10,
                 },
                 1200: {
-                slidesPerView: 3.3,
-                spaceBetween: 10,
+                    slidesPerView: 3.3,
+                    spaceBetween: 10,
                 },
             },
         });

@@ -13,7 +13,13 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'first_page' => '首页',
+    'prev_page' => '上一页',
+    'next_page' => '下一页',
+    'last_page' => '尾页',
+    'home' => '首页',
+    'previous' => '上一页',
+    'next' => '下一页',
+    'end' => '尾页',
 
 ];

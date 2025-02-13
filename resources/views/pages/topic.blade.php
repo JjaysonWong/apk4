@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '专题页')
+@section('title', __('auth.topic_title'))
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/topic.css') }}">
 @endsection
@@ -155,6 +155,18 @@
 @section('scripts')
     <script src="{{ asset('js/topic.js') }}"></script>
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+    <script>
+        window.translations = {
+            firstPage: "{{ __('pagination.first_page') }}",
+            prevPage: "{{ __('pagination.prev_page') }}",
+            nextPage: "{{ __('pagination.next_page') }}",
+            lastPage: "{{ __('pagination.last_page') }}",
+            home: "{{ __('pagination.home') }}",
+            previous: "{{ __('pagination.previous') }}",
+            next: "{{ __('pagination.next') }}",
+            end: "{{ __('pagination.end') }}"
+        };
+    </script>
     <script>
         const swiperEl = document.querySelector('swiper-container')
 

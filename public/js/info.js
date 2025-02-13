@@ -661,10 +661,10 @@ function updatePagination(tabId, currentPage, totalPages) {
         
 
     pagination.innerHTML = `
-        <button class="first-page" ${currentPage === 1 ? 'disabled' : ''}>首页</button>
-        <button class="prev-page pagination-button" ${currentPage === 1 ? 'disabled' : ''}>${isSmallScreen === true ? '<' : '上一页'}</button>
+        <button class="first-page" ${currentPage === 1 ? 'disabled' : ''}>${window.translations.firstPage}</button>
+        <button class="prev-page pagination-button" ${currentPage === 1 ? 'disabled' : ''}>${isSmall ? '<' : window.translations.prevPage}</button>
         ${pageNumbers.join('')}
-        <button class="next-page pagination-button" ${currentPage === totalPages ? 'disabled' : ''}>${isSmallScreen === true ? '>' : '下一页'}</button>
-        <button class="last-page" ${currentPage === totalPages ? 'disabled' : ''}>尾页</button>
+        <button class="next-page pagination-button" ${currentPage === totalPages ? 'disabled' : ''}>${isSmall ? '>' : window.translations.nextPage}</button>
+        <button class="last-page" ${currentPage === totalPages ? 'disabled' : ''}>${window.translations.lastPage}</button>
     `;
 }

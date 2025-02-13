@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', '排行榜')
+@section('title', __('auth.ranking'))
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/rank.css') }}">
 @endsection
@@ -34,10 +35,10 @@
 
             <div class="top-tab-banner">
                 <div class="titleWrap">
-                    <h2>TOP排行榜</h2>
+                    <h2>TOP{{ __('auth.ranking') }}</h2>
                     <img src="{{ asset('images/rank/titleSide.png') }}" alt="Title Icon" />
                 </div>
-                <h2>全站最热、最新、最佳一网打尽</h2>
+                <h2>{{ __('auth.hottest_latest_best') }}</h2>
                 <div class="mobile-application-rank-tab">
                     <div class="tab">
                         <button class="topTab tablinks active" onclick="switchTab(event, 'gameRank')">手游排行榜</button>

@@ -57,6 +57,11 @@ return [
     'game_name' => '游戏名称',
     'selected_game_recommend' => '精选游戏推荐',
     'selected_app_recommend' => '精选应用推荐',
+    'hottest_latest_best' => '全站最热、最新、最佳一网打尽',
+    'topic_title'=> '专题页',
+    'info_title'=> '资讯页',
+    'game_title'=> '游戏页',
+    'app_title'=> '应用页',
 
     'footer' =>[
         'about_us' => '关于我们',
