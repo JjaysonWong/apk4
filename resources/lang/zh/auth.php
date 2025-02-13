@@ -69,6 +69,16 @@ return [
     'text_guide'    => '图文攻略',
     'software_tutorial' => '软件教程',
     'video_guide'   => '视频攻略',
+    'mobile_game_ranking' => '手游排行榜',
+    'app_ranking' => '应用排行榜',
+    'idle_game_ranking'     => '挂机游戏排行榜',
+    'campus_game_ranking'   => '校园游戏排行榜',
+    'placement_game_ranking' => '放置游戏排行榜',
+    'strategy_game_ranking' => '策略游戏排行榜',
+    'three_kingdoms_game_ranking' => '三国游戏排行榜',
+    'legend_gold_game_ranking' => '传奇打金游戏排行榜',
+    'fighting_mobile_game_ranking' => '格斗手游排行榜',
+    'apple_game_ranking' => '苹果游戏排行榜',
 
     'footer' =>[
         'about_us' => '关于我们',

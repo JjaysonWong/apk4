@@ -69,6 +69,16 @@ return [
     'text_guide'    => 'Text Guide',
     'software_tutorial' => 'Software Tutorials',
     'video_guide'   => 'Video Guide',
+    'mobile_game_ranking' => 'Mobile Game Ranking',
+    'app_ranking' => 'App Ranking',
+    'idle_game_ranking'     => 'Idle Game Ranking',
+    'campus_game_ranking'   => 'Campus Game Ranking',
+    'placement_game_ranking' => 'Placement Game Ranking',
+    'strategy_game_ranking' => 'Strategy Game Ranking',
+    'three_kingdoms_game_ranking' => 'Three Kingdoms Game Ranking',
+    'legend_gold_game_ranking' => 'Legend Gold Game Ranking',
+    'fighting_mobile_game_ranking' => 'Fighting Mobile Game Ranking',
+    'apple_game_ranking' => 'Apple Game Ranking',
     
 
 

@@ -41,8 +41,10 @@
                 <h2>{{ __('auth.hottest_latest_best') }}</h2>
                 <div class="mobile-application-rank-tab">
                     <div class="tab">
-                        <button class="topTab tablinks active" onclick="switchTab(event, 'gameRank')">手游排行榜</button>
-                        <button class="topTab tablinks" onclick="switchTab(event, 'appRank')">应用排行榜</button>
+                        <button class="topTab tablinks active"
+                            onclick="switchTab(event, 'gameRank')">{{ __('auth.mobile_game_ranking') }}</button>
+                        <button class="topTab tablinks"
+                            onclick="switchTab(event, 'appRank')">{{ __('auth.app_ranking') }}</button>
                     </div>
                 </div>
                 <img class="crownImg" src="{{ asset('images/rank/crown.png') }}" alt="Crown Image" />
@@ -182,7 +184,7 @@
                 <div id="gameRank" class="topTabcontent">
                     <div class="category-rank-tab">
                         <div class="tab">
-                            @foreach (['guaji' => '挂机游戏排行榜', 'xiaoyuan' => '校园游戏排行榜', 'fangzhi' => '放置游戏排行榜', 'celue' => '策略游戏排行榜', 'sanguo' => '三国游戏排行榜', 'chuanqi' => '传奇打金游戏排行榜', 'gedou' => '格斗手游排行榜', 'pinguo' => '苹果游戏排行榜'] as $category => $title)
+                            @foreach (['guaji' => __('auth.idle_game_ranking'), 'xiaoyuan' => __('auth.campus_game_ranking'), 'fangzhi' => __('auth.placement_game_ranking'), 'celue' => __('auth.strategy_game_ranking'), 'sanguo' => __('auth.three_kingdoms_game_ranking'), 'chuanqi' => __('auth.legend_gold_game_ranking'), 'gedou' => __('auth.fighting_mobile_game_ranking'), 'pinguo' => __('auth.apple_game_ranking')] as $category => $title)
                                 <button class="gameCatRankTab catRankTab tablinks {{ $loop->first ? 'active' : '' }}"
                                     onclick="switchGameCatRankTab(event, '{{ $category }}')">{{ $title }}</button>
                             @endforeach
@@ -196,7 +198,7 @@
                 <div id="appRank" class="topTabcontent">
                     <div class="category-rank-tab">
                         <div class="tab">
-                            @foreach (['guaji1' => '挂机游戏排行榜', 'xiaoyuan1' => '校园游戏排行榜', 'fangzhi1' => '放置游戏排行榜', 'celue1' => '策略游戏排行榜', 'sanguo1' => '三国游戏排行榜', 'chuanqi1' => '传奇打金游戏排行榜', 'gedou1' => '格斗手游排行榜', 'pinguo1' => '苹果游戏排行榜'] as $category => $title)
+                            @foreach (['guaji1' => __('auth.idle_game_ranking'), 'xiaoyuan1' => __('auth.campus_game_ranking'), 'fangzhi1' => __('auth.placement_game_ranking'), 'celue1' => __('auth.strategy_game_ranking'), 'sanguo1' => __('auth.three_kingdoms_game_ranking'), 'chuanqi1' => __('auth.legend_gold_game_ranking'), 'gedou1' => __('auth.fighting_mobile_game_ranking'), 'pinguo1' => __('auth.apple_game_ranking')] as $category => $title)
                                 <button class="appCatRankTab catRankTab tablinks {{ $loop->first ? 'active' : '' }}"
                                     onclick="switchAppCatRankTab(event, '{{ $category }}')">{{ $title }}</button>
                             @endforeach
