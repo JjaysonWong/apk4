@@ -124,10 +124,10 @@
                     <div class="tab">
                         @php
                             $tabs = [
-                                1 => '游戏资讯',
-                                2 => '图文攻略',
-                                3 => '软件教程',
-                                4 => '视频攻略',
+                                1 => __('auth.game_info'),
+                                2 => __('auth.text_guide'),
+                                3 => __('auth.software_tutorial'),
+                                4 => __('auth.video_guide'),
                             ];
                         @endphp
 

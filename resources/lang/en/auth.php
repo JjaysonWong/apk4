@@ -62,6 +62,14 @@ return [
     'info_title'=> 'Info',
     'game_title'=> 'Game',
     'app_title'=> 'Application',
+    'all_collections' => 'All Topics',
+    'game_topics'   => 'Game Topics',
+    'app_topics'    => 'App Topics',
+    'game_info' => 'Game Info',
+    'text_guide'    => 'Text Guide',
+    'software_tutorial' => 'Software Tutorials',
+    'video_guide'   => 'Video Guide',
+    
 
 
 

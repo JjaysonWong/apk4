@@ -129,6 +129,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'page_not_exist'    => ',The page you are looking for does not exist!!',  
 
     /*
     |--------------------------------------------------------------------------

@@ -20,7 +20,7 @@
     <div class="topic-page">
         <div class="topBackground">
             <div class="container">
-                <h1>专题页</h1>
+                <h1>{{ __('auth.topic_title') }}</h1>
                 <div class="top-breadcrumb">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12"
                         height="14" viewBox="0 0 12 14">
@@ -123,9 +123,9 @@
                     <div class="tab">
                         @php
                             $tabs = [
-                                1 => '全部合集',
-                                2 => '游戏专题',
-                                3 => '应用专题',
+                                1 => __('auth.all_collections'),
+                                2 => __('auth.game_topics'),
+                                3 => __('auth.app_topics'),
                             ];
                         @endphp
 

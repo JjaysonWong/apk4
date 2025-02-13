@@ -62,6 +62,13 @@ return [
     'info_title'=> '资讯页',
     'game_title'=> '游戏页',
     'app_title'=> '应用页',
+    'all_collections' => '全部合集',
+    'game_topics'   => '游戏专题',
+    'app_topics'    => '应用专题',
+    'game_info' => '游戏资讯',
+    'text_guide'    => '图文攻略',
+    'software_tutorial' => '软件教程',
+    'video_guide'   => '视频攻略',
 
     'footer' =>[
         'about_us' => '关于我们',
