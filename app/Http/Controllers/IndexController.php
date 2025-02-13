@@ -28,16 +28,34 @@ class IndexController extends Controller
                                         return $game;
                                     })
                                     ->toArray();
-                                    
+
+
+
+        $categories = collect(config('categories.categories'))
+                    ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])
+                    ->toArray();
+    
+        $applicationCategories = collect(config('categories.application_categories'))
+                                ->mapWithKeys(fn($key) => [$key => __('categories.' . str_replace('1', '', $key))])
+                                ->toArray();
+    
+        $hotRank = collect(config('categories.hot_rank'))
+                ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])
+                ->toArray();
+    
+        $hotAppRank = collect(config('categories.hot_app_rank'))
+                    ->mapWithKeys(fn($key) => [$key => __('categories.' . str_replace('1', '', $key))])
+                    ->toArray();
+                                
         return view('pages.home', [
             'topGameList' => $topGameList,
             'topAppList' => $topAppList,
             'personalizedRecommendation' => $personalizedRecommendation,
-            'newUpdateGameList' =>  config('games.newUpdateGameList'),
-            'categories' => config('categories.categories'),
-            'applicationCategories' => config('categories.application_categories'),
-            'hotRank'  => config('categories.hot_rank'),
-            'hotAppRank'  => config('categories.hot_app_rank'),
+            'newUpdateGameList' => config('games.newUpdateGameList'),
+            'categories' => $categories,
+            'applicationCategories' => $applicationCategories,
+            'hotRank' => $hotRank,
+            'hotAppRank' => $hotAppRank,
             'games' => config('games.games'),
         ]);
     }

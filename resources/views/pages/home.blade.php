@@ -270,7 +270,7 @@
                     @endforeach
                 </div>
             </div>
-            
+            {{-- 软件合集 --}}
             <div class="application-mix-section">
                 <h2>{{__('auth.software_collection')}}</h2>
                 <div class="application-mix-list">
@@ -285,7 +285,7 @@
                     @endfor
                 </div>
             </div>
-
+            应用排行榜
             <div class="hot-app-rank">
                 <div class="titleWrap">
                     <h2>{{__('auth.app_ranking')}}</h2>
@@ -293,9 +293,9 @@
                 </div>
                 <div class="hot-app-rank-tab">
                     <div class="tab">
-                        <button class="hot-app-tab tablinks active" onclick="switchHotAppTab(event, 'remenmianfei1', '1')">热门免费</button>
-                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">最受期待</button>
-                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">下载最多</button>
+                        <button class="hot-app-tab tablinks active" onclick="switchHotAppTab(event, 'remenmianfei1', '1')">{{__('categories.remenmianfei')}}</button>
+                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">{{__('categories.zuisouqidai')}}</button>
+                        <button class="hot-app-tab tablinks" onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">{{__('categories.xiazaizuiduo')}}</button>
                     </div>
                     @foreach ($hotAppRank as $hotAppRankKey => $hotAppRankName)
                         <div id="{{ $hotAppRankKey }}" class="hotAppTabContent">
@@ -305,12 +305,12 @@
                                     <div class="gameDetailWrap">
                                         <img src="{{ asset('images/home/app' . $i . '.png') }}" alt="Game Image" />
                                         <div class="details">
-                                            <p class="gameName">游戏名称 {{ $hotAppRankName }} {{ $i }}</p>
-                                            <p class="gameCategory">游戏类别</p>
-                                            <p class="gameUpdate">2023-06-06更新</p>
+                                            <p class="gameName">{{__('auth.game_name')}} {{ $hotAppRankName }} {{ $i }}</p>
+                                            <p class="gameCategory">{{__('auth.game_category')}}</p>
+                                            <p class="gameUpdate">2023-06-06{{__('auth.update')}}</p>
                                         </div>
                                     </div>  
-                                    <div class="viewNowButton">查看</div>        
+                                    <div class="viewNowButton">{{__('auth.more')}}</div>        
                                 </div>
                             @endfor
                         </div>

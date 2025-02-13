@@ -53,5 +53,22 @@ return [
     'software_collection'   => 'Software Collection', 
     'app_ranking' => 'App Ranking',
     'news_update' => 'News Update',
+    'game_category' => 'Game Category',
+    'game_name' => 'Game Name',
+
+
+    'footer' =>[
+        'about_us' => 'About Us',
+        'advertisement' => 'Advertisement Service',
+        'market_coop' => 'Market Cooperation',  
+        'join_us' => 'Join Us', 
+        'contact_us' => 'Contact US', 
+        'copyright_notice' => 'Copyright Notice', 
+        'sitemap' => 'Sitemap',
+        'copyright_statement' =>  'All software on this site comes from the internet and is copyrighted to the original work. If there is any infringement, please notify us by letter (yx8899@gmail). (Com), we will promptly revoke it.',  
+        'online_criminal_website' => 'Online Crime & Illegal Activity Report',
+        'hebei_internet' => 'Hebei Internet Reporting Center',
+        'china_internet' => 'China Internet Reporting Center',
+    ],
  
 ];

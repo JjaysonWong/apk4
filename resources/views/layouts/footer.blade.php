@@ -1,31 +1,31 @@
 <footer>
         <div class="container">
             <div class="footer-link-list">
-                <div>关于我们</div>
-                <div>广告服务</div>
-                <div>市场合作</div>
-                <div>加入我们</div>
-                <div>联系我们</div>
-                <div>版权声明</div>
-                <div>网站地图</div>
+                <div>{{__('auth.footer.about_us')}}</div>
+                <div>{{__('auth.footer.advertisement')}}</div>
+                <div>{{__('auth.footer.market_coop')}}</div>
+                <div>{{__('auth.footer.join_us')}}</div>
+                <div>{{__('auth.footer.contact_us')}}</div>
+                <div>{{__('auth.footer.copyright_notice')}}</div>
+                <div>{{__('auth.footer.sitemap')}}</div>
             </div>
             <div class="copyright">
-                <p>本站所有软件来自互联网，版权归原著所有。如有侵权，敬请来信告知（yx8899@gmail.com），我们将及时撤销。</p>
+                <p>{{__('auth.footer.copyright_statement')}}</p>
                 <p>Copyright © {{ date('Y') }} {{ strtolower(env('APP_NAME', 'APK4')) }}.com All rights reserved. 版权所有 XXX游戏网站</p>
             </div>
             <div class="footer-bottom">
                 <div class="report-section">
                     <div class="imgWrap">
                         <img src="{{ asset('images/footer/report1.png') }}" alt="Report Center" />
-                        <p>网络违法犯罪举报网站</p>
+                        <p>{{__('auth.footer.online_criminal_website')}}</p>
                     </div>
                     <div class="imgWrap">
                         <img src="{{ asset('images/footer/report2.png') }}"  alt="Report Center" />
-                        <p>河北互联网违法和不良信息举报</p>
+                        <p>{{__('auth.footer.hebei_internet')}}</p>
                     </div>
                     <div class="imgWrap">
                         <img src="{{ asset('images/footer/report3.png') }}"  alt="Report Center" />
-                        <p>中国互联网举报中心</p>
+                        <p>{{__('auth.footer.china_internet')}}</p>
                     </div>
                 </div>
                 <div class="languageDropdown">

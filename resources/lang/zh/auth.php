@@ -53,4 +53,20 @@ return [
     'software_collection'   => '软件合集', 
     'app_ranking' => '应用排行榜',
     'news_update' => '新闻资讯',
+    'game_category' => '游戏类别',
+    'game_name' => '游戏名称',
+
+    'footer' =>[
+        'about_us' => '关于我们',
+        'advertisement' => '广告服务',
+        'market_coop' => '市场合作',  
+        'join_us' => '加入我们', 
+        'contact_us' => '联系我们', 
+        'copyright_notice' => '版权声明', 
+        'sitemap' => '网站地图',  
+        'copyright_statement' =>  '本站所有软件来自互联网，版权归原著所有。如有侵权，敬请来信告知（yx8899@gmail.com），我们将及时撤销。',  
+        'online_criminal_website' => '网络违法犯罪举报网站',
+        'hebei_internet' => '河北互联网违法和不良信息举报中心',
+        'china_internet' => '中国互联网举报中心',
+    ],
 ];
