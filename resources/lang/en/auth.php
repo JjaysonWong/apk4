@@ -56,6 +56,7 @@ return [
     'game_category' => 'Game Category',
     'game_name' => 'Game Name',
     'selected_game_recommend' => 'Selected Game Recommend',
+    'selected_app_recommend' => 'Selected App Recommend',
 
 
     'footer' =>[

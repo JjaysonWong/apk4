@@ -67,7 +67,7 @@ class IndexController extends Controller
 
     public function application()
     {
-        return view('application');
+        return view('pages.application');
     }
 
     public function info()

@@ -20,7 +20,7 @@ return [
     'xiazaizuiduo' => 'Most downloaded',
 
     'all_categories' => 'All Categories',
-    'role_playing' => 'Role Playing',
+    'role_playing' => 'Role Playing (RPG)',
     'tower_defense' => 'Tower Defense',
     'action_competition' => 'Action Competition',
     'casual_puzzle' => 'Casual Puzzle',

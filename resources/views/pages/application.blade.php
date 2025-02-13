@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
-@section('title', '游戏页')
+@section('title', '应用页')
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/games.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/applications.css') }}">
 @endsection
 @section('content')
+
     <div class="nav-list">
         <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">{{ __('auth.homepage') }}</a>
         <a href="{{ url('/games') }}" class="{{ request()->is('games') ? 'active' : '' }}">{{ __('auth.game') }}</a>
@@ -18,15 +19,14 @@
     <div class="shadow"></div>
 
     <div class="container">
-        <h1>游戏页</h1>
+        <h1>应用页</h1>
         <div class="top-breadcrumb">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="14"
                 viewBox="0 0 12 14">
                 <image id="dingweixiao" width="12" height="14" opacity="0.702"
                     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAABHNCSVQICAgIfAhkiAAAARFJREFUKFNj/P//PwMIpKencwCpACC2BmIZsCADwxMgPgTEm2fOnPkDJMAI0gBULAtk1wOxOFQhOvUCKNAE1PSYMS0tjRvImQzEojgUw4RfAxm5IA2xQEYYAcUw6VUgDbOAPEkkDU+B7Ckg5wJxNhBLI8k9B2nYBJWEibcD3XoMxAH6zQpIVSJp+AfSsBYowIYkOAeoYSNUQyCQTkKS+wXS0AYU0EUS/A1k74by3YA0C5LcJZAGdGvx+b8NFg9FQFWOBEJqH9Cp/TANIGsLgNgeh6aDQPE+oIZ/YA1QDzIB6UIgdkDTtA/InwhSDBKHa4BqAoV9JhB7QjVtB9LTgYohpqJrQNKUCmSDTJyLrBgkDwDB7GB2TMfutQAAAABJRU5ErkJggg==" />
             </svg>
-            <p><a href="{{ url('/') }}">{{ __('auth.homepage') }}</a> <span>></span> {{ __('auth.mobile_game') }}
-            </p>
+            <p><a href="./index">{{ __('auth.homepage') }}</a> <span>></span> {{ __('auth.application') }}</p>
         </div>
 
         <div class="top-banner-slider">
@@ -40,7 +40,8 @@
                         </div>
                         <div class="overlayImage">
                             <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner1.png') }}" alt="App Banner" />
+                            <img class="bannerImage"
+                                src="{{ asset('images/applications/topBanner1.png') }}"alt="App Banner" />
                         </div>
                         <p class="bannerTitle">凡人修仙传：人界篇</p>
                         <div class="viewButton">{{ __('auth.view_now') }}</div>
@@ -50,7 +51,8 @@
                     <div class="imgWrap">
                         <div class="overlayImage">
                             <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner2.png') }}" alt="App Banner" />
+                            <img class="bannerImage"
+                                src="{{ asset('images/applications/topBanner2.png') }}"alt="App Banner" />
                         </div>
                         <p class="bannerTitle">凡人修仙传：人界篇</p>
                         <div class="viewButton">{{ __('auth.view_now') }}</div>
@@ -60,7 +62,8 @@
                     <div class="imgWrap">
                         <div class="overlayImage">
                             <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner3.png') }}" alt="App Banner" />
+                            <img class="bannerImage"
+                                src="{{ asset('images/applications/topBanner3.png') }}"alt="App Banner" />
                         </div>
                         <p class="bannerTitle">凡人修仙传：人界篇</p>
                         <div class="viewButton">{{ __('auth.view_now') }}</div>
@@ -70,7 +73,8 @@
                     <div class="imgWrap">
                         <div class="overlayImage">
                             <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner1.png') }}" alt="App Banner" />
+                            <img class="bannerImage"
+                                src="{{ asset('images/applications/topBanner1.png') }}"alt="App Banner" />
                         </div>
                         <p class="bannerTitle">凡人修仙传：人界篇</p>
                         <div class="viewButton">{{ __('auth.view_now') }}</div>
@@ -79,71 +83,71 @@
             </swiper-container>
         </div>
 
-        <div class="game-recommend-section">
-            <h2>{{ __('auth.selected_game_recommend') }}</h2>
-            <div class="recommend-game-list">
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank2.png') }}" alt="Game Image" />
+        <div class="app-recommend-section">
+            <h2>{{ __('auth.selected_app_recommend') }}</h2>
+            <div class="recommend-app-list">
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app1.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">异度神剑2</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">异度神剑2</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                 </div>
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank5.png') }}" alt="Game Image" />
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app2.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">仓鼠点心工厂</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">仓鼠点心工厂</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                 </div>
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank8.png') }}" alt="Game Image" />
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app3.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">哒哒嗒哒</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">哒哒嗒哒</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                 </div>
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank3.png') }}" alt="Game Image" />
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app4.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">斗破苍穹：斗帝</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">斗破苍穹：斗帝</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                 </div>
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank6.png') }}" alt="Game Image" />
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app5.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">镇魂街：武神觉醒</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">镇魂街：武神觉醒</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                 </div>
-                <div class="gameWrap">
-                    <div class="gameDetailWrap">
-                        <img src="{{ asset('images/home/hotrank9.png') }}" alt="Game Image" />
+                <div class="appWrap">
+                    <div class="appDetailWrap">
+                        <img src="{{ asset('images/applications/app6.png') }}" alt="App Image" />
                         <div class="details">
-                            <p class="gameName">侏罗纪军团</p>
-                            <p class="gameCategory">战斗策略</p>
-                            <p class="gameUpdate">2023-06-06更新</p>
+                            <p class="appName">侏罗纪军团</p>
+                            <p class="appCategory">战斗策略</p>
+                            <p class="appUpdate">2023-06-06更新</p>
                         </div>
                     </div>
                     <div class="viewNowButton">{{ __('auth.view_now') }}</div>
@@ -156,6 +160,24 @@
         <div class="container">
             <div class="category-tab">
                 <div class="tab">
+                    {{-- <button class="catTab tablinks active" onclick="switchTab(event, 'quanbu')">全部分类</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'jiaose')">角色扮演</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'guanka')">关卡塔防</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'dongzuo')">动作竞技</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'xiuxian')">休闲益智</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'zhanzheng')">战争策略</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'tiyu')">体育竞技</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'feixing')">飞行射击</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'maoxian')">冒险解谜</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'shengcun')">生存冒险</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'kapai')">卡牌对战</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'yinyue')">音乐舞蹈</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'chuanqi')">传奇手游</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'jingying')">模拟经营</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'jieji')">街机格斗</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'chongwu')">宠物养成</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'saiche')">赛车竞赛</button>
+                    <button class="catTab tablinks" onclick="switchTab(event, 'qita')">其他游戏</button> --}}
                     @php
                         $categories = [
                             'quanbu' => __('categories.all_categories'),
@@ -191,107 +213,87 @@
     <div class="category-game-list">
         <div class="container">
             <div id="quanbu" class="catTabcontent">
-                <!-- Content for 全部分类 -->
             </div>
             <div id="jiaose" class="catTabcontent">
-                <!-- Content for 角色扮演 -->
             </div>
             <div id="guanka" class="catTabcontent">
-                <!-- Content for 关卡塔防 -->
             </div>
             <div id="dongzuo" class="catTabcontent">
-                <!-- Content for 动作竞技 -->
             </div>
             <div id="xiuxian" class="catTabcontent">
-                <!-- Content for 休闲益智 -->
             </div>
             <div id="zhanzheng" class="catTabcontent">
-                <!-- Content for 战争策略 -->
             </div>
             <div id="tiyu" class="catTabcontent">
-                <!-- Content for 体育竞技 -->
             </div>
             <div id="feixing" class="catTabcontent">
-                <!-- Content for 飞行射击 -->
             </div>
             <div id="maoxian" class="catTabcontent">
-                <!-- Content for 冒险解谜 -->
             </div>
             <div id="shengcun" class="catTabcontent">
-                <!-- Content for 生存冒险 -->
             </div>
             <div id="kapai" class="catTabcontent">
-                <!-- Content for 卡牌对战 -->
             </div>
             <div id="yinyue" class="catTabcontent">
-                <!-- Content for 音乐舞蹈 -->
             </div>
             <div id="chuanqi" class="catTabcontent">
-                <!-- Content for 传奇手游 -->
             </div>
             <div id="jingying" class="catTabcontent">
-                <!-- Content for 模拟经营 -->
             </div>
             <div id="jieji" class="catTabcontent">
-                <!-- Content for 街机格斗 -->
             </div>
             <div id="chongwu" class="catTabcontent">
-                <!-- Content for 宠物养成 -->
             </div>
             <div id="saiche" class="catTabcontent">
-                <!-- Content for 赛车竞赛 -->
             </div>
             <div id="qita" class="catTabcontent">
-                <!-- Content for 其他游戏 -->
             </div>
             <div id="pagination" class="pagination"></div>
         </div>
     </div>
-
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('js/games.js') }}"></script>
-    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 
+@section('scripts')
+    <script src="{{ asset('js/applications.js') }}"></script>
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script>
         const swiperEl = document.querySelector('.topBannerSwiper')
 
         const params = {
-            injectStyles: [
-                `   .swiper{
-                    position:static;
-                    }
-                    .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
-                        opacity:0;
-                    }
-                    .swiper-button-next, .swiper-button-prev{
-                        width:40px;
-                        height:40px;
-                        border-radius: 50%;
-                        background: #ffffff; 
-                        box-shadow: 0 3px 6px #999999
-                    }
-                    .swiper-button-next svg, .swiper-button-prev svg{
-                        width:10px;
-                        height:18px;
-                        color:#9b9b9b;
-                        stroke: #9b9b9b;
-                        stroke-width: 1.5px
-                    }
-                    .swiper-button-prev{
-                        left:-20px;
-                    }
-                    .swiper-button-next{
-                        right:-20px;
-                    }
-                    @media (max-width: 1024px) {
-                        .swiper-button-next, .swiper-button-prev{
-                            display:none;
-                        }
-                    }
-                `
-            ],
+            injectStyles: [`
+        .swiper{
+            position:static;
+        }
+        .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+            opacity:0;
+        }
+        .swiper-button-next, .swiper-button-prev{
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            background: #ffffff; 
+            box-shadow: 0 3px 6px #999999
+        }
+        .swiper-button-next svg, .swiper-button-prev svg{
+            width:10px;
+            height:18px;
+            color:#9b9b9b;
+            stroke: #9b9b9b;
+            stroke-width: 1.5px
+        }
+        .swiper-button-prev{
+            left:-20px;
+        }
+        .swiper-button-next{
+            right:-20px;
+        }
+        @media (max-width: 1024px) {
+            .swiper-button-next, .swiper-button-prev{
+                display:none;
+            }
+        }
+        `],
         }
         Object.assign(swiperEl, params, {
             slidesPerView: 3,
@@ -325,5 +327,4 @@
         })
         swiperEl.initialize();
     </script>
-
 @endsection

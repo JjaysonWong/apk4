@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,16 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="yes" name="apple-touch-fullscreen">
     <link rel="canonical" href="@yield('canonical_url', 'https://www.APK4.com/')">
-    <link rel="icon" href="{{ asset('/images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/games.css') }}">
     <script src="{{ asset('js/language.js') }}"></script>
 
-    @yield('styles') 
+    @yield('styles')
 </head>
+
 <body>
     @include('layouts.header')
     @yield('content')
@@ -30,4 +31,5 @@
     @yield('scripts')
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
+
 </html>
