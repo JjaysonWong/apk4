@@ -72,16 +72,16 @@ class IndexController extends Controller
 
     public function info()
     {
-        return view('info');
+        return view('pages.info');
     }
 
     public function topic()
     {
-        return view('topic');
+        return view('pages.topic');
     }
     
     public function rank()
     {
-        return view('rank');
+        return view('pages.rank');
     }
 }
