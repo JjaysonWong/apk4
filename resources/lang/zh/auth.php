@@ -55,6 +55,7 @@ return [
     'news_update' => '新闻资讯',
     'game_category' => '游戏类别',
     'game_name' => '游戏名称',
+    'selected_game_recommend' => '精选游戏推荐',
 
     'footer' =>[
         'about_us' => '关于我们',

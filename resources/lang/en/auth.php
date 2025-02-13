@@ -55,6 +55,7 @@ return [
     'news_update' => 'News Update',
     'game_category' => 'Game Category',
     'game_name' => 'Game Name',
+    'selected_game_recommend' => 'Selected Game Recommend',
 
 
     'footer' =>[
