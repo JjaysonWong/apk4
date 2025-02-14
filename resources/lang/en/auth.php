@@ -79,7 +79,7 @@ return [
     'legend_gold_game_ranking' => 'Legend Gold Game Ranking',
     'fighting_mobile_game_ranking' => 'Fighting Mobile Game Ranking',
     'apple_game_ranking' => 'Apple Game Ranking',
-    
+    'details' => 'Details',
 
 
 

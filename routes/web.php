@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/info', [IndexController::class, 'info']);
 Route::get('/topic', [IndexController::class, 'topic']);
 Route::get('/rank', [IndexController::class, 'rank']);
 
+Route::get('/games/{union_id?}', [GameController::class, 'show'])->name('game.show');
 
 // sample route to test database connection
 Route::get('/checkdb', function () {

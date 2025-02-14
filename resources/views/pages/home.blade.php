@@ -75,15 +75,18 @@
                             <swiper-container class="mySwiper top-game-swiper" space-between="10" slides-per-view="3.3">
                                 @foreach ($topGameList as $index => $game)
                                     <swiper-slide>
-                                        @if ($index < 4)
-                                            <div class="crownWrap">
-                                                <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
-                                                    alt="Crown Image" />
-                                                <p>{{ $index + 1 }}</p>
-                                            </div>
-                                        @endif
-                                        <img src="{{ $game['icon'] }}" alt="Game Image" />
-                                        <p>{{ $game['name'] }}</p>
+                                        <a href="{{ route('game.show', ['union_id' => $game['union_id']]) }}">
+
+                                            @if ($index < 4)
+                                                <div class="crownWrap">
+                                                    <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
+                                                        alt="Crown Image" />
+                                                    <p>{{ $index + 1 }}</p>
+                                                </div>
+                                            @endif
+                                            <img src="{{ $game['icon'] }}" alt="Game Image" />
+                                            <p>{{ $game['name'] }}</p>
+                                        </a>
                                     </swiper-slide>
                                 @endforeach
                             </swiper-container>
@@ -116,9 +119,9 @@
             <div class="titleWrap">
                 <h2>{{ __('auth.personalized_recommendation') }}</h2>
                 <!-- <div class="hotIconWrap">
-                        <img src="{{ asset('images/home/chaojihuati-remendianjitai.png') }}" />
-                        <p>Hot</p>
-                    </div> -->
+                                                                                                                                                <img src="{{ asset('images/home/chaojihuati-remendianjitai.png') }}" />
+                                                                                                                                                <p>Hot</p>
+                                                                                                                                            </div> -->
                 <img src="{{ asset('images/home/HOT.png') }}" alt="Hot Icon" />
             </div>
             <swiper-container class="mySwiper recommendSwiper" space-between="40" slides-per-view="8" navigation="true"

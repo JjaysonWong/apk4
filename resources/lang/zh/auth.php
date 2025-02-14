@@ -79,6 +79,7 @@ return [
     'legend_gold_game_ranking' => '传奇打金游戏排行榜',
     'fighting_mobile_game_ranking' => '格斗手游排行榜',
     'apple_game_ranking' => '苹果游戏排行榜',
+    'details' => '详情',
 
     'footer' =>[
         'about_us' => '关于我们',

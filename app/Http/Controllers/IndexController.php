@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
@@ -12,6 +13,12 @@ class IndexController extends Controller
     {
         $dbGameList = DB::table('apk4_game_list')->orderBy('game_score', 'desc')->limit(10)->get();
         $topGameList = json_decode(json_encode($dbGameList), true);
+
+        // Apply Str::slug to the name attribute
+        $topGameList = array_map(function($game) {
+            $game['slug'] = Str::slug($game['name']);
+            return $game;
+        }, $topGameList);
 
         $dbAppList = DB::table('apk4_app_list')->orderBy('game_score', 'desc')->limit(10)->get();
         $topAppList = json_decode(json_encode($dbAppList), true);
@@ -28,8 +35,6 @@ class IndexController extends Controller
                                         return $game;
                                     })
                                     ->toArray();
-
-
 
         $categories = collect(config('categories.categories'))
                     ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])
