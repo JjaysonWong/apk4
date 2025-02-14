@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $dbGameList = DB::table('apk4_game_list')->orderBy('game_score', 'desc')->limit(10)->get();
+        $dbGameList = DB::table('apk4_game_list')->orderBy('game_score', 'desc')->limit(16)->get();
         $topGameList = json_decode(json_encode($dbGameList), true);
 
         // Apply Str::slug to the name attribute
@@ -20,13 +20,13 @@ class IndexController extends Controller
             return $game;
         }, $topGameList);
 
-        $dbAppList = DB::table('apk4_app_list')->orderBy('game_score', 'desc')->limit(10)->get();
+        $dbAppList = DB::table('apk4_app_list')->orderBy('game_score', 'desc')->limit(16)->get();
         $topAppList = json_decode(json_encode($dbAppList), true);
 
         $personalizedRecommendation = DB::table('apk4_game_list')
                                     ->orderBy('game_score', 'desc')
-                                    ->inRandomOrder()
-                                    ->limit(30)
+                                    // ->inRandomOrder()
+                                    ->limit(16)
                                     ->get()
                                     ->map(function ($game) {
                                         if (!empty($game->uptime)) {

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $game->name)
+@section('title', $app->name)
 @section('styles')
     <style>
         .testing>p {
@@ -32,7 +32,7 @@
 
                 </svg>
                 <p><a href="{{ url('/') }}">{{ __('auth.homepage') }}</a> <span>></span>
-                    {{ __('auth.mobile_game') }}
+                    {{ __('auth.application') }}
                     <span>></span> {{ __('auth.details') }}
                 </p>
 
@@ -40,15 +40,15 @@
             </div>
             <div class="banner-download">
                 <img class="appImage"
-                    src="{{ Str::startsWith($game->icon, ['http://', 'https://']) ? $game->icon : env('IMG_DB') . $game->icon }}"
-                    alt="Game Image" />
+                    src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                    alt="App Image" />
                 <div class="detailWrap">
-                    <div class="name">{{ $game->name }}</div>
+                    <div class="name">{{ $app->name }}</div>
                     <div class="detail">
                         {{-- <p>角色扮演</p>
                         <p>V1.2.0.5</p>
                         <p>2023-12-12 10:58:06</p> --}}
-                        <p>{{ $game->title }}</p>
+                        <p>{{ $app->title }}</p>
                     </div>
                     <div class="typeWrap">
                         <p>赛博朋克</p>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="downloadButtonWrap">
                     <div class="ratingWrap">
-                        <p class="rating-score">{{ $game->game_score }}</p>
+                        <p class="rating-score">{{ $app->game_score }}</p>
                         <div class="starWrap">
                             <div class="stars">
                             </div>
@@ -81,10 +81,10 @@
             <div class="banner-download-mobile">
                 <div class="topWrap">
                     <img class="appImage"
-                        src="{{ Str::startsWith($game->icon, ['http://', 'https://']) ? $game->icon : env('IMG_DB') . $game->icon }}"
-                        alt="Game Image" />
+                        src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                        alt="App Image" />
                     <div class="detailWrap">
-                        <div class="name">{{ $game->name }}</div>
+                        <div class="name">{{ $app->name }}</div>
                         <div class="dateUpdate">2024-01-02 13:10:26更新</div>
                     </div>
                 </div>
@@ -117,19 +117,19 @@
                         <swiper-container class="mySwiper screenshotSwiper" space-between="15" slides-per-view="1.7"
                             navigation="true" init="false">
                             <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
+                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="App Screenshot" />
                             </swiper-slide>
                             <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
+                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="App Screenshot" />
                             </swiper-slide>
                             <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
+                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="App Screenshot" />
                             </swiper-slide>
                         </swiper-container>
                     </div>
 
                     <div class="app-info">
-                        <div class="testing">{!! $game->introduce !!}</div>
+                        <div class="testing">{!! $app->introduce !!}</div>
                         <br>
 
                         <h2>游戏简介</h2>
@@ -266,7 +266,7 @@
                         </div>
                         <div class="appList">
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game24.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game24.png') }}" alt="App Image" />
                                 <p class="name">仙剑奇侠传</p>
                                 <p class="dateUpdate">2023-12-06更新</p>
                                 <div class="mobileStarWrap">
@@ -275,7 +275,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game19.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game19.png') }}" alt="App Image" />
                                 <p class="name">哆啦A梦飞车</p>
                                 <p class="dateUpdate">2023-12-06更新</p>
                                 <div class="mobileStarWrap">
@@ -284,7 +284,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game20.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game20.png') }}" alt="App Image" />
                                 <p class="name">不朽家族</p>
                                 <p class="dateUpdate">2023-02-07更新</p>
                                 <div class="mobileStarWrap">
@@ -293,7 +293,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game21.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game21.png') }}" alt="App Image" />
                                 <p class="name">异界深渊：大灵</p>
                                 <p class="dateUpdate">2022-08-16更新</p>
                                 <div class="mobileStarWrap">
@@ -302,7 +302,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game22.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game22.png') }}" alt="App Image" />
                                 <p class="name">最强祖师</p>
                                 <p class="dateUpdate">2023-02-07更新</p>
                                 <div class="mobileStarWrap">
@@ -311,7 +311,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game23.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game23.png') }}" alt="App Image" />
                                 <p class="name">奥拉星2</p>
                                 <p class="dateUpdate">2022-08-16更新</p>
                                 <div class="mobileStarWrap">
@@ -390,7 +390,7 @@
                         </div>
                         <div class="appList">
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game1.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game1.png') }}" alt="App Image" />
                                 <p class="name">仙剑奇侠传</p>
                                 <p class="dateUpdate">2023-12-06更新</p>
                                 <div class="mobileStarWrap">
@@ -399,7 +399,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game2.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game2.png') }}" alt="App Image" />
                                 <p class="name">哆啦A梦飞车</p>
                                 <p class="dateUpdate">2023-12-06更新</p>
                                 <div class="mobileStarWrap">
@@ -408,7 +408,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game3.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game3.png') }}" alt="App Image" />
                                 <p class="name">不朽家族</p>
                                 <p class="dateUpdate">2023-02-07更新</p>
                                 <div class="mobileStarWrap">
@@ -417,7 +417,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game4.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game4.png') }}" alt="App Image" />
                                 <p class="name">异界深渊：大灵</p>
                                 <p class="dateUpdate">2022-08-16更新</p>
                                 <div class="mobileStarWrap">
@@ -426,7 +426,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game5.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game5.png') }}" alt="App Image" />
                                 <p class="name">最强祖师</p>
                                 <p class="dateUpdate">2023-02-07更新</p>
                                 <div class="mobileStarWrap">
@@ -435,7 +435,7 @@
                                 </div>
                             </div>
                             <div class="appWrap">
-                                <img src="{{ asset('images/games/game6.png') }}" alt="Game Image" />
+                                <img src="{{ asset('images/games/game6.png') }}" alt="App Image" />
                                 <p class="name">奥拉星2</p>
                                 <p class="dateUpdate">2022-08-16更新</p>
                                 <div class="mobileStarWrap">
@@ -472,7 +472,7 @@
                         </div>
                         <div class="reviewWrap">
                             <div class="ratingWrap">
-                                <p class="rating-score">{{ $game->game_score }}</p>
+                                <p class="rating-score">{{ $app->game_score }}</p>
                                 <div class="starWrap">
                                     <div class="stars"> </div>
                                 </div>

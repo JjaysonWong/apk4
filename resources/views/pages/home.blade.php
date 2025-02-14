@@ -84,7 +84,9 @@
                                                     <p>{{ $index + 1 }}</p>
                                                 </div>
                                             @endif
-                                            <img src="{{ $game['icon'] }}" alt="Game Image" />
+
+                                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : env('IMG_DB') . $game['icon'] }}"
+                                                alt="Game Image" />
                                             <p>{{ $game['name'] }}</p>
                                         </a>
                                     </swiper-slide>
@@ -97,15 +99,19 @@
                                 slides-per-view="3.3">
                                 @foreach ($topAppList as $index => $app)
                                     <swiper-slide>
-                                        @if ($index < 4)
-                                            <div class="crownWrap">
-                                                <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
-                                                    alt="Crown Image" />
-                                                <p>{{ $index + 1 }}</p>
-                                            </div>
-                                        @endif
-                                        <img src="{{ $app['icon'] }}" alt="App Image" />
-                                        <p>{{ $app['name'] }}</p>
+                                        <a href="{{ route('app.show', ['union_id' => $app['union_id']]) }}">
+                                            @if ($index < 4)
+                                                <div class="crownWrap">
+                                                    <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
+                                                        alt="Crown Image" />
+                                                    <p>{{ $index + 1 }}</p>
+                                                </div>
+                                            @endif
+
+                                            <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : env('IMG_DB') . $app['icon'] }}"
+                                                alt="App Image" />
+                                            <p>{{ $app['name'] }}</p>
+                                        </a>
                                     </swiper-slide>
                                 @endforeach
                             </swiper-container>
@@ -118,23 +124,23 @@
         <div class="recommend-section">
             <div class="titleWrap">
                 <h2>{{ __('auth.personalized_recommendation') }}</h2>
-                <!-- <div class="hotIconWrap">
-                                                                                                                                                <img src="{{ asset('images/home/chaojihuati-remendianjitai.png') }}" />
-                                                                                                                                                <p>Hot</p>
-                                                                                                                                            </div> -->
                 <img src="{{ asset('images/home/HOT.png') }}" alt="Hot Icon" />
             </div>
             <swiper-container class="mySwiper recommendSwiper" space-between="40" slides-per-view="8" navigation="true"
                 init="false">
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
-                        <img src="{{ $game->icon }}" alt="Game Image" />
-                        <p class="gamename">{{ $game->name }}</p>
-                        <p class="updatedTime">{{ date('Y-m-d', strtotime($game->uptime)) }} 更新</p>
-                        <div class="rating">
-                            <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
-                            <p>{{ number_format($game->game_score, 1) }}</p>
-                        </div>
+                        <a href="{{ route('game.show', ['union_id' => $game->union_id]) }}">
+                            <img src="{{ Str::startsWith($game->icon, ['http://', 'https://']) ? $game->icon : env('IMG_DB') . $game->icon }}"
+                                alt="Game Image" />
+                            <p class="gamename">{{ $game->name }}</p>
+                            {{-- <p class="updatedTime">{{ date('Y-m-d', strtotime($game->uptime)) }} {{ __('auth.update') }} --}}
+                            </p>
+                            <div class="rating">
+                                <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
+                                <p>{{ number_format($game->game_score, 1) }}</p>
+                            </div>
+                        </a>
                     </swiper-slide>
                 @endforeach
 
