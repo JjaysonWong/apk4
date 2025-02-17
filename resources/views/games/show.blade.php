@@ -176,7 +176,7 @@
                             <p class="appUpdateInfo">{!! $game->description !!}</p>
                         </div>
 
-                        <div class="detail-info">
+                        {{-- <div class="detail-info">
                             <h2>{{ __('auth.details_info') }}</h2>
                             <div class="detailWrap">
                                 <div>
@@ -208,7 +208,7 @@
                                     <p>安徽雷虎网络科技有限公司</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="related-history-version">
                             <h2>{{ __('auth.related_history_version') }}</h2>
@@ -457,7 +457,7 @@
                         </div>
                     </div>
 
-                    <div class="reviewComment">
+                    {{-- <div class="reviewComment">
                         <h2>评分和评价</h2>
                         <div class="commentBoxMobile">
                             <div class="wantToComment">
@@ -850,7 +850,7 @@
                                 加载全部评论
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="content-right">
@@ -1204,40 +1204,40 @@
         // Apply the function to all .ratingWrap elements
         document.querySelectorAll('.ratingWrap').forEach(updateStars);
 
-        const inputField = document.getElementById('commentField');
-        const sendButton = document.getElementById('sendComment');
+        // const inputField = document.getElementById('commentField');
+        // const sendButton = document.getElementById('sendComment');
 
-        // Add an event listener for the "keydown" event
-        inputField.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') { // Check if the Enter key is pressed
-                sendMessage();
-            }
-        });
+        // // Add an event listener for the "keydown" event
+        // inputField.addEventListener('keydown', function(event) {
+        //     if (event.key === 'Enter') { // Check if the Enter key is pressed
+        //         sendMessage();
+        //     }
+        // });
 
-        // Add click listener for the button (optional)
-        sendButton.addEventListener('click', sendMessage);
+        // // Add click listener for the button (optional)
+        // sendButton.addEventListener('click', sendMessage);
 
-        // Function to handle the action
-        function sendMessage() {
-            const value = inputField.value.trim();
-            if (value) {
-                console.log('Message sent:', value);
-                inputField.value = ''; // Clear the input field after sending
-            } else {
-                console.log('Input is empty');
-            }
-        }
+        // // Function to handle the action
+        // function sendMessage() {
+        //     const value = inputField.value.trim();
+        //     if (value) {
+        //         console.log('Message sent:', value);
+        //         inputField.value = ''; // Clear the input field after sending
+        //     } else {
+        //         console.log('Input is empty');
+        //     }
+        // }
 
-        document.querySelector('.loadAllButton').addEventListener('click', function() {
-            const allComments = document.querySelectorAll('.commentList .commentWrap');
+        // document.querySelector('.loadAllButton').addEventListener('click', function() {
+        //     const allComments = document.querySelectorAll('.commentList .commentWrap');
 
-            allComments.forEach(comment => {
-                comment.style.display = 'flex'; // Show all comments
-            });
+        //     allComments.forEach(comment => {
+        //         comment.style.display = 'flex'; // Show all comments
+        //     });
 
-            // Hide the "加载全部评论" button after showing all comments
-            this.style.display = 'none';
-        });
+        //     // Hide the "加载全部评论" button after showing all comments
+        //     this.style.display = 'none';
+        // });
 
         document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.querySelector('.toggle-content');

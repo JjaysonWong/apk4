@@ -1,90 +1,113 @@
 
 const applications = [
-    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'jiaose' },
-    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'guanka' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'dongzuo' },
-    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'xiuxian' },
-    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'zhanzheng' },
-    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'tiyu' },
-    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'feixing' },
-    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'maoxian' },
-    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'shengcun' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'kapai' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'yinyue' },
-    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'chuanqi' },
-    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'jingying' },
-    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'jieji' },
-    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'chongwu' },
-    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'saiche' },
-    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'qita' },
-    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'jiaose' },
-    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'guanka' },
-    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'dongzuo' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'xiuxian' },
-    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'zhanzheng' },
-    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'tiyu' },
-    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'feixing' },
-    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'maoxian' },
-    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'shengcun' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'kapai' },
-    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'yinyue' },
-    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'chuanqi' },
-    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'jingying' },
-    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'jieji' },
-    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'chongwu' },
-    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'saiche' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'qita' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'jiaose' },
-    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'guanka' },
-    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'dongzuo' },
-    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'xiuxian' },
-    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'zhanzheng' },
-    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'tiyu' },
-    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'feixing' },
-    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'maoxian' },
-    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'shengcun' },
-    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'kapai' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'yinyue' },
-    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'chuanqi' },
-    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'jingying' },
-    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'jieji' },
-    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'jiaose' },
-    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'jiaose' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'jiaose' },
-    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'chongwu' },
-    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'saiche' },
-    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'qita' },
-    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'jiaose' },
-    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'guanka' },
-    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'dongzuo' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'xiuxian' },
-    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'zhanzheng' },
-    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'tiyu' },
-    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'feixing' },
-    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'maoxian' },
-    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'shengcun' },
-    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'kapai' },
-    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'yinyue' },
-    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'chuanqi' },
-    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'jingying' },
-    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'jieji' },
-    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'chongwu' },
-    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'saiche' },
-    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'qita' },
-    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'jiaose' },
+    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'rpg' },
+    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'tower_defense' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'action' },
+    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'puzzle' },
+    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'war' },
+    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'sport' },
+    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'shoot' },
+    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'adventure' },
+    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'survival' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'card' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'music' },
+    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'mobile' },
+    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'simulation' },
+    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'arcade' },
+    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'pet' },
+    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'race' },
+    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'other' },
+    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'rpg' },
+    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'tower_defense' },
+    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'action' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'puzzle' },
+    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'war' },
+    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'sport' },
+    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'shoot' },
+    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'adventure' },
+    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'survival' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'card' },
+    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'music' },
+    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'mobile' },
+    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'simulation' },
+    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'arcade' },
+    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'pet' },
+    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'race' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'other' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'rpg' },
+    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'tower_defense' },
+    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'action' },
+    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'puzzle' },
+    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'war' },
+    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'sport' },
+    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'shoot' },
+    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'adventure' },
+    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'survival' },
+    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'card' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'music' },
+    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'mobile' },
+    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'simulation' },
+    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'arcade' },
+    { name: '冲呀!饼干人', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'rpg' },
+    { name: '皮卡堂之梦想起', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'rpg' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'rpg' },
+    { name: '锦绣江湖', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'pet' },
+    { name: '星罗棋布', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'race' },
+    { name: ' 幻谕', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'other' },
+    { name: '浮生梦山海', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'rpg' },
+    { name: '进击的骑士', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'tower_defense' },
+    { name: '三国云梦录', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app9.png', category: 'action' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app10.png', category: 'puzzle' },
+    { name: '潮灵王国：起源', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app11.png', category: 'war' },
+    { name: '荒蛮传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app12.png', category: 'sport' },
+    { name: '莽荒纪-纪宁传奇', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app13.png', category: 'shoot' },
+    { name: '轴音旋律', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app14.png', category: 'adventure' },
+    { name: '矩阵临界', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app15.png', category: 'survival' },
+    { name: '魂之刃2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app16.png', category: 'card' },
+    { name: '代号56', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app1.png', category: 'music' },
+    { name: '仙剑奇侠传', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app2.png', category: 'mobile' },
+    { name: '哆啦A梦飞车', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app3.png', category: 'simulation' },
+    { name: '不朽家族', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app4.png', category: 'arcade' },
+    { name: '异界深渊：大灵', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app5.png', category: 'pet' },
+    { name: '最强祖师', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app6.png', category: 'race' },
+    { name: '奥拉星2', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app7.png', category: 'other' },
+    { name: '斗罗大陆：史莱', type: "休闲益智",date: '2023-12-06更新', image: '/images/applications/app8.png', category: 'rpg' },
 ];
 
-let activeCategory = "quanbu"; // Default to 'quanbu' (all categories)
+let activeCategory = "all"; // Default to 'quanbu' (all categories)
 let currentPage = 1; // Track the current page
 const gamesPerPage = 10; // Number of games to display per page
 
 // Function to get games for the active category
 function getGamesForCategory() {
-    if (activeCategory === "quanbu") {
+    if (activeCategory === "all") {
         return applications;
     }
     return applications.filter(game => game.category === activeCategory);
 }
+
+function getCategoryFromURL() {
+    const pathSegments = window.location.pathname.split('/');
+    const categoryIndex = pathSegments.indexOf('category');
+    const category = categoryIndex !== -1 ? pathSegments[categoryIndex + 1] : null;
+    
+    return category !== null ? category : "all";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    activeCategory = getCategoryFromURL();
+
+    const activeTab = document.getElementsByClassName("catTab tablinks active");
+
+    if (activeTab.length > 0) {
+        switchTab({ currentTarget: activeTab[0] }, activeCategory);
+    }
+
+    // Listen for screen resize to handle responsive logic
+    window.addEventListener('resize', () => {
+        renderGames();
+    });
+});
 
 // Function to render the games for the current page
 function renderGames() {

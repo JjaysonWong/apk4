@@ -17,7 +17,24 @@ class AppController extends Controller
         if (!$app) {
             abort(404);
         }
+
+        if (!empty($app->uptime)) {
+            $app->uptime = date('Y-m-d H:i:s', $app->uptime);
+        }
+
+        $app->app_version = $this->extractVersion($app->title);
         
         return view('apps.show', compact('app'));
+    }
+
+    public function showAppCategory($appCategories = null)
+    {
+        return view('pages.application', compact('appCategories'));
+    }
+
+    private function extractVersion($title)
+    {
+        preg_match('/v\d+(\.\d+)+/', $title, $matches);
+        return $matches[0] ?? null; 
     }
 }

@@ -26,15 +26,15 @@
             </li>
 
             <div class="menu-right">
-                <li>
+                {{-- <li>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15"
                         height="15" viewBox="0 0 15 15">
                         <image id="搜索_2_" data-name="搜索 (2)" width="15" height="15"
                             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABHNCSVQICAgIfAhkiAAAAU5JREFUKFONkk0oRFEUx42UlLKYErGRWIyPnWxH2LGQ5RQ1KyyQnaTMrCx8ZKG8LCaNvZIdsZsVhVlJKSsphIVmIeb3r3PrdZtp3q1f59x7zv/c9+45sSAI6ryVYJ+CEfiDS8jDo58Y88SnJExa0gO2AbptrwIz4QJh8T2BAZiDQ7tVuU2wCJtwAeOugBOfczAGbfDqf57t+7FFyEFaZxJ3YZ9gHg6qCN3xNs4KxOFD4l2cJaivIXThf5xl2JP4DkcP0xdR/EXeGaQkvsZpgZ6I4m/yTmBW4izOuv4/griRnJI9WE5ivfALbECmRoEj4uq12ldyrTrWP8AgqB2VVpLDK1C/V5UQHhINwKgFt7DvVqETuwYaHq0bmIZnfzz3OVywpE+sutBs+x3sBPTCGwz7YuVpAKZgCH6hAHrdH2iFW2hXrJLYLqpqOohoNuJldPVUERKexTkAAAAASUVORK5CYII=" />
                     </svg>
-                </li>
-                <li class="loginButton"><a href="{{ url('/') }}">{{ __('auth.login') }}</a></li>
-                <li class="registerButton"><a href="{{ url('/') }}">{{ __('auth.register') }}</a></li>
+                </li> --}}
+                {{-- <li class="loginButton"><a href="{{ url('/') }}">{{ __('auth.login') }}</a></li>
+                <li class="registerButton"><a href="{{ url('/') }}">{{ __('auth.register') }}</a></li> --}}
                 <div class="languageDropdown">
                     <li class="dropdown top_lang_select" id="languageDropdown">
                         <a class="dropdown-toggle" onclick="toggleLangDropdown(event)">

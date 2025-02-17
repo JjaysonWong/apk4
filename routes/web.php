@@ -33,6 +33,8 @@ Route::get('/games/{union_id?}', [GameController::class, 'show'])->name('game.sh
 Route::get('/games/category/{category}', [GameController::class, 'showGameCategory'])->name('game.category');
 
 Route::get('/application/{union_id?}', [AppController::class, 'show'])->name('app.show');
+Route::get('/application/category/{category}', [AppController::class, 'showAppCategory'])->name('app.category');
+
 // sample route to test database connection
 Route::get('/checkdb', function () {
     try {

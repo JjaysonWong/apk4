@@ -1,7 +1,7 @@
 .downloadPage .top-breadcrumb{padding-top: 16px;}
 
 .downloadPage .banner-download{margin-top: 17px;border-radius: 20px;background: linear-gradient(19deg, rgb(202 200 255 / 54%) 12%, #effbf7 94%);padding: 30px;display: flex;column-gap: 20px;align-items: center;}
-.downloadPage .banner-download .appImage{width: 150px;height: 150px;}
+.downloadPage .banner-download .appImage{width: 150px;height: 150px; border-radius: 25px;}
 .downloadPage .banner-download .detailWrap{display: flex;flex-direction: column;}
 .downloadPage .banner-download .detailWrap .name {font-size: 28px;color: var(--text-black);margin-bottom: 15px;overflow: hidden;white-space: nowrap;}
 .downloadPage .banner-download .detailWrap .detail{display: flex;column-gap: 27px;margin-bottom: 30px;}
