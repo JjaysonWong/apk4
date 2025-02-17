@@ -35,10 +35,13 @@ Route::get('/games/category/{category}', [GameController::class, 'showGameCatego
 Route::get('/application/{union_id?}', [AppController::class, 'show'])->name('app.show');
 // sample route to test database connection
 Route::get('/checkdb', function () {
-
-    $game = DB::table('apk4_game')->where('id', 9)->first();
-   
-    return view('checkdb', ['game' => $game ?? 'DB connection failed']);
+    try {
+        DB::connection()->getPdo();
+        return view('checkdb', ['status' => 'Database connection is successful']);
+    } catch (\Exception $e) {
+        Log::error('Database connection failed: ' . $e->getMessage());
+        return view('checkdb', ['status' => 'DB connection failed']);
+    }
 });
 
 // language switcher
