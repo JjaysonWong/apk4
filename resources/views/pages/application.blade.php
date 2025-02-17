@@ -160,36 +160,34 @@
         <div class="container">
             <div class="category-tab">
                 <div class="tab">
-                    <div class="tab">
-                        @php
-                            $categories = [
-                                'all' => __('categories.all_categories'),
-                                'rpg' => __('categories.role_playing'),
-                                'tower_defense' => __('categories.tower_defense'),
-                                'action' => __('categories.action_competition'),
-                                'puzzle' => __('categories.casual_puzzle'),
-                                'war' => __('categories.war_strategy'),
-                                'sport' => __('categories.sports_competition'),
-                                'shoot' => __('categories.flight_shooting'),
-                                'adventure' => __('categories.adventure_puzzle'),
-                                'survival' => __('categories.survival_adventure'),
-                                'card' => __('categories.card_battle'),
-                                'music' => __('categories.music_dance'),
-                                'mobile' => __('categories.legend_mobile'),
-                                'simulation' => __('categories.simulation_management'),
-                                'arcade' => __('categories.arcade_fighting'),
-                                'pet' => __('categories.pet_cultivation'),
-                                'race' => __('categories.racing_competition'),
-                                'other' => __('categories.other_games'),
-                            ];
-                            $activeCategory = $appCategories ?? 'all';
-                        @endphp
+                    @php
+                        $categories = [
+                            'all' => __('categories.all_categories'),
+                            'rpg' => __('categories.role_playing'),
+                            'tower_defense' => __('categories.tower_defense'),
+                            'action' => __('categories.action_competition'),
+                            'puzzle' => __('categories.casual_puzzle'),
+                            'war' => __('categories.war_strategy'),
+                            'sport' => __('categories.sports_competition'),
+                            'shoot' => __('categories.flight_shooting'),
+                            'adventure' => __('categories.adventure_puzzle'),
+                            'survival' => __('categories.survival_adventure'),
+                            'card' => __('categories.card_battle'),
+                            'music' => __('categories.music_dance'),
+                            'mobile' => __('categories.legend_mobile'),
+                            'simulation' => __('categories.simulation_management'),
+                            'arcade' => __('categories.arcade_fighting'),
+                            'pet' => __('categories.pet_cultivation'),
+                            'race' => __('categories.racing_competition'),
+                            'other' => __('categories.other_games'),
+                        ];
+                        $activeCategory = $appCategories ?? 'all';
+                    @endphp
 
-                        @foreach ($categories as $key => $value)
-                            <button class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}"
-                                onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
-                        @endforeach
-                    </div>
+                    @foreach ($categories as $key => $value)
+                        <button class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}"
+                            onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
+                    @endforeach
                 </div>
             </div>
         </div>
