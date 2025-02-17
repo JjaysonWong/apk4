@@ -75,8 +75,8 @@
                             <swiper-container class="mySwiper top-game-swiper" space-between="10" slides-per-view="3.3">
                                 @foreach ($topGameList as $index => $game)
                                     <swiper-slide>
-                                        <a href="{{ route('game.show', ['union_id' => $game['union_id']]) }}">
-
+                                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'"
+                                            style="cursor: pointer;">
                                             @if ($index < 4)
                                                 <div class="crownWrap">
                                                     <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
@@ -84,11 +84,10 @@
                                                     <p>{{ $index + 1 }}</p>
                                                 </div>
                                             @endif
-
                                             <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : env('IMG_DB') . $game['icon'] }}"
                                                 alt="Game Image" />
                                             <p>{{ $game['name'] }}</p>
-                                        </a>
+                                        </div>
                                     </swiper-slide>
                                 @endforeach
                             </swiper-container>
@@ -99,7 +98,8 @@
                                 slides-per-view="3.3">
                                 @foreach ($topAppList as $index => $app)
                                     <swiper-slide>
-                                        <a href="{{ route('app.show', ['union_id' => $app['union_id']]) }}">
+                                        <div onclick="window.location.href='{{ route('app.show', ['union_id' => $app['union_id']]) }}'"
+                                            style="cursor: pointer;">
                                             @if ($index < 4)
                                                 <div class="crownWrap">
                                                     <img src="{{ asset('images/home/' . ($index + 1) . '.png') }}"
@@ -111,7 +111,7 @@
                                             <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : env('IMG_DB') . $app['icon'] }}"
                                                 alt="App Image" />
                                             <p>{{ $app['name'] }}</p>
-                                        </a>
+                                        </div>
                                     </swiper-slide>
                                 @endforeach
                             </swiper-container>
@@ -130,7 +130,8 @@
                 init="false">
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
-                        <a href="{{ route('game.show', ['union_id' => $game->union_id]) }}">
+                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game->union_id]) }}'"
+                            style="cursor: pointer;">
                             <img src="{{ Str::startsWith($game->icon, ['http://', 'https://']) ? $game->icon : env('IMG_DB') . $game->icon }}"
                                 alt="Game Image" />
                             <p class="gamename">{{ $game->name }}</p>
@@ -140,7 +141,7 @@
                                 <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
                                 <p>{{ number_format($game->game_score, 1) }}</p>
                             </div>
-                        </a>
+                        </div>
                     </swiper-slide>
                 @endforeach
 
@@ -149,8 +150,8 @@
             <div class="new-update-section">
                 <div class="titleWrap">
                     <h2>{{ __('auth.new_online_update') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
                 <div class="new-update-game-list">
                     @foreach ($newUpdateGameList as $i => $game)
@@ -161,14 +162,19 @@
                             )->toDateString();
                         @endphp
                         <div class="new-update-game-wrap">
-                            <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}"
-                                alt="Game Image" />
-                            <div class="new-update-small-wrap">
-                                <img src="{{ asset('images/home/newUpdateSmall' . $i . '.png') }}" alt="Game Image" />
-                                <div class="new-update-small-detail">
-                                    <h4>{{ $game }}</h4>
-                                    <p class="dateUpdate">{{ $randomDate }} {{ __('auth.update') }}</p>
-                                    <p>现代战舰，炫酷的海上战争，激进的</p>
+
+                            <div
+                                onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'">
+                                <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}"
+                                    alt="Game Image" />
+                                <div class="new-update-small-wrap">
+                                    <img src="{{ asset('images/home/newUpdateSmall' . $i . '.png') }}"
+                                        alt="Game Image" />
+                                    <div class="new-update-small-detail">
+                                        <h4>{{ $game['name'] }}</h4>
+                                        <p class="dateUpdate">{{ $randomDate }} {{ __('auth.update') }}</p>
+                                        <p>{{ $game['keywords'] }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -179,33 +185,30 @@
             <div class="game-category-list">
                 <div class="titleWrap">
                     <h2>{{ __('auth.game_list') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
 
                 <div class="category-tab">
                     <div class="tab">
-                        @foreach ($categories as $key => $name)
+                        @foreach ($dbGameCategory as $key => $games)
                             <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}"
                                 onclick="switchCatTab(event, '{{ $key }}')">
-                                {{ $name }}
+                                {{ $games['catalog'] }}
                             </button>
                         @endforeach
                     </div>
 
-                    @foreach ($categories as $key => $name)
-                        @php
-                            $shuffledGames = $games;
-
-                            shuffle($shuffledGames); // Randomize the order for this category
-                        @endphp
+                    @foreach ($dbGameCategory as $key => $games)
                         <div id="{{ $key }}" class="catTabContent"
                             style="{{ $loop->first ? '' : 'display:none;' }}">
-                            @foreach ($shuffledGames as $game)
-                                <div class="gameWrap">
-                                    <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
-                                    <p class="gameName">{{ $game['name'] }}</p>
-                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
+                            @foreach ($games['games'] as $game)
+                                <div class="gameWrap"
+                                    onclick="window.location.href='{{ route('game.show', ['union_id' => $game->union_id]) }}'">
+                                    <img src="{{ $game->icon }}" alt="Game Image" />
+                                    <p class="gameName">{{ $game->name }}</p>
+                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }}
+                                        {{ __('auth.update') }}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -217,8 +220,8 @@
             <div class="topic-share-section">
                 <div class="titleWrap">
                     <h2>{{ __('auth.topic_sharing') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/topic') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
 
                 <div class="topic-share-list">
@@ -236,8 +239,8 @@
             <div class="hot-game-rank">
                 <div class="titleWrap">
                     <h2>{{ __('auth.hot_ranking') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
                 <div class="hot-game-rank-tab">
                     <div class="tab">
@@ -258,10 +261,10 @@
                                         <div class="details">
                                             <p class="gameName">游戏名称 {{ $hotRankName }} {{ $i }}</p>
                                             <p class="gameCategory">游戏类别</p>
-                                            <p class="gameUpdate">2023-06-06更新</p>
+                                            <p class="gameUpdate">2023-06-06{{ __('auth.update') }}</p>
                                         </div>
                                     </div>
-                                    <div class="viewNowButton">查看</div>
+                                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
                                 </div>
                             @endfor
                         </div>
@@ -272,31 +275,29 @@
             <div class="useful-application-section">
                 <div class="titleWrap">
                     <h2>{{ __('auth.application_tab') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/application') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
                 <div class="useful-application-tab">
                     <div class="tab">
-                        @foreach ($applicationCategories as $key => $name)
+                        @foreach ($dbAppCategory as $key => $apps)
                             <button class="usefulAppTab tablinks {{ $loop->first ? 'active' : '' }}"
                                 onclick="switchUsefulAppTab(event, '{{ $key }}')">
-                                {{ $name }}
+                                {{ $apps['catalog'] }}
                             </button>
                         @endforeach
                     </div>
-                    @foreach ($applicationCategories as $key => $name)
-                        @php
-                            $shuffledGames = $games;
-
-                            shuffle($shuffledGames); // Randomize the order for this category
-                        @endphp
+                    @foreach ($dbAppCategory as $key => $apps)
                         <div id="{{ $key }}" class="usefulAppTabContent"
                             style="{{ $loop->first ? '' : 'display:none;' }}">
-                            @foreach ($shuffledGames as $game)
-                                <div class="gameWrap">
-                                    <img src="{{ asset('images/home/' . $game['image']) }}" alt="Game Image" />
-                                    <p class="gameName">{{ $game['name'] }}</p>
-                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }} 更新</p>
+                            @foreach ($apps['apps'] as $app)
+                                <div class="gameWrap"
+                                    onclick="window.location.href='{{ route('app.show', ['union_id' => $app->union_id]) }}'">
+                                    <img src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                                        alt="Game Image" />
+                                    <p class="gameName">{{ $app->name }}</p>
+                                    <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }}
+                                        {{ __('auth.update') }}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -317,12 +318,12 @@
                     @endfor
                 </div>
             </div>
-            应用排行榜
+
             <div class="hot-app-rank">
                 <div class="titleWrap">
                     <h2>{{ __('auth.app_ranking') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/application') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
                 <div class="hot-app-rank-tab">
                     <div class="tab">
@@ -358,8 +359,8 @@
             <div class="news-section">
                 <div class="titleWrap">
                     <h2>{{ __('auth.news_update') }}</h2>
-                    <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                            alt="More Icon" /></p>
+                    <a href="{{ url('/info') }}" class="more">{{ __('auth.more') }}<img
+                            src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                 </div>
                 <div class="newsWrap">
                     <div class="news-left col-7">

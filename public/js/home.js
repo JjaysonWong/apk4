@@ -23,6 +23,7 @@ function switchCatTab(evt, tabName) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "flex";
+    document.getElementById(tabName).style.justifyContent = "space-between";
     evt.currentTarget.className += " active";
 }
 
@@ -62,8 +63,22 @@ function switchUsefulAppTab(evt, tabName) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "flex";
+    document.getElementById(tabName).style.justifyContent = "space-between";
+
     evt.currentTarget.className += " active";
 }
+// Ensure the first tab is loaded on refresh
+document.addEventListener("DOMContentLoaded", function() {
+    var firstCatTab = document.querySelector(".catTab");
+    if (firstCatTab) {
+        firstCatTab.click();
+    }
+
+    var firstUsefulAppTab = document.querySelector(".usefulAppTab");
+    if (firstUsefulAppTab) {
+        firstUsefulAppTab.click();
+    }
+});
 
 function switchHotAppTab(evt, tabName) {
     var i, tabcontent, tablinks;

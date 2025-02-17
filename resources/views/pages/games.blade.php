@@ -158,29 +158,30 @@
                 <div class="tab">
                     @php
                         $categories = [
-                            'quanbu' => __('categories.all_categories'),
-                            'jiaose' => __('categories.role_playing'),
-                            'guanka' => __('categories.tower_defense'),
-                            'dongzuo' => __('categories.action_competition'),
-                            'xiuxian' => __('categories.casual_puzzle'),
-                            'zhanzheng' => __('categories.war_strategy'),
-                            'tiyu' => __('categories.sports_competition'),
-                            'feixing' => __('categories.flight_shooting'),
-                            'maoxian' => __('categories.adventure_puzzle'),
-                            'shengcun' => __('categories.survival_adventure'),
-                            'kapai' => __('categories.card_battle'),
-                            'yinyue' => __('categories.music_dance'),
-                            'chuanqi' => __('categories.legend_mobile'),
-                            'jingying' => __('categories.simulation_management'),
-                            'jieji' => __('categories.arcade_fighting'),
-                            'chongwu' => __('categories.pet_cultivation'),
-                            'saiche' => __('categories.racing_competition'),
-                            'qita' => __('categories.other_games'),
+                            'all' => __('categories.all_categories'),
+                            'rpg' => __('categories.role_playing'),
+                            'tower_defense' => __('categories.tower_defense'),
+                            'action' => __('categories.action_competition'),
+                            'puzzle' => __('categories.casual_puzzle'),
+                            'war' => __('categories.war_strategy'),
+                            'sport' => __('categories.sports_competition'),
+                            'shoot' => __('categories.flight_shooting'),
+                            'adventure' => __('categories.adventure_puzzle'),
+                            'survival' => __('categories.survival_adventure'),
+                            'card' => __('categories.card_battle'),
+                            'music' => __('categories.music_dance'),
+                            'mobile' => __('categories.legend_mobile'),
+                            'simulation' => __('categories.simulation_management'),
+                            'arcade' => __('categories.arcade_fighting'),
+                            'pet' => __('categories.pet_cultivation'),
+                            'race' => __('categories.racing_competition'),
+                            'other' => __('categories.other_games'),
                         ];
+                        $activeCategory = $gameCategories ?? 'all';
                     @endphp
 
                     @foreach ($categories as $key => $value)
-                        <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}"
+                        <button class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}"
                             onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
                     @endforeach
                 </div>
@@ -190,58 +191,58 @@
 
     <div class="category-game-list">
         <div class="container">
-            <div id="quanbu" class="catTabcontent">
+            <div id="all" class="catTabcontent">
                 <!-- Content for 全部分类 -->
             </div>
-            <div id="jiaose" class="catTabcontent">
+            <div id="rpg" class="catTabcontent">
                 <!-- Content for 角色扮演 -->
             </div>
-            <div id="guanka" class="catTabcontent">
+            <div id="tower_defense" class="catTabcontent">
                 <!-- Content for 关卡塔防 -->
             </div>
-            <div id="dongzuo" class="catTabcontent">
+            <div id="action" class="catTabcontent">
                 <!-- Content for 动作竞技 -->
             </div>
-            <div id="xiuxian" class="catTabcontent">
+            <div id="puzzle" class="catTabcontent">
                 <!-- Content for 休闲益智 -->
             </div>
-            <div id="zhanzheng" class="catTabcontent">
+            <div id="war" class="catTabcontent">
                 <!-- Content for 战争策略 -->
             </div>
-            <div id="tiyu" class="catTabcontent">
+            <div id="sport" class="catTabcontent">
                 <!-- Content for 体育竞技 -->
             </div>
-            <div id="feixing" class="catTabcontent">
+            <div id="shoot" class="catTabcontent">
                 <!-- Content for 飞行射击 -->
             </div>
-            <div id="maoxian" class="catTabcontent">
+            <div id="adventure" class="catTabcontent">
                 <!-- Content for 冒险解谜 -->
             </div>
-            <div id="shengcun" class="catTabcontent">
+            <div id="survival" class="catTabcontent">
                 <!-- Content for 生存冒险 -->
             </div>
-            <div id="kapai" class="catTabcontent">
+            <div id="card" class="catTabcontent">
                 <!-- Content for 卡牌对战 -->
             </div>
-            <div id="yinyue" class="catTabcontent">
+            <div id="music" class="catTabcontent">
                 <!-- Content for 音乐舞蹈 -->
             </div>
-            <div id="chuanqi" class="catTabcontent">
+            <div id="mobile" class="catTabcontent">
                 <!-- Content for 传奇手游 -->
             </div>
-            <div id="jingying" class="catTabcontent">
+            <div id="simulation" class="catTabcontent">
                 <!-- Content for 模拟经营 -->
             </div>
-            <div id="jieji" class="catTabcontent">
+            <div id="arcade" class="catTabcontent">
                 <!-- Content for 街机格斗 -->
             </div>
-            <div id="chongwu" class="catTabcontent">
+            <div id="pet" class="catTabcontent">
                 <!-- Content for 宠物养成 -->
             </div>
-            <div id="saiche" class="catTabcontent">
+            <div id="race" class="catTabcontent">
                 <!-- Content for 赛车竞赛 -->
             </div>
-            <div id="qita" class="catTabcontent">
+            <div id="other" class="catTabcontent">
                 <!-- Content for 其他游戏 -->
             </div>
             <div id="pagination" class="pagination"></div>
@@ -252,6 +253,9 @@
 
 @section('scripts')
     <script src="{{ asset('js/games.js') }}"></script>
+    <script>
+        var Translate = "{{ __('auth.view_now') }}";
+    </script>
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 
     <script>

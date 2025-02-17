@@ -15,7 +15,7 @@
         <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">{{ __('auth.homepage') }}</a>
         <a href="{{ url('/games') }}" class="{{ request()->is('games') ? 'active' : '' }}">{{ __('auth.game') }}</a>
         <a href="{{ url('/application') }}"
-            class="{{ request()->is('application') ? 'active' : '' }}">{{ __('auth.app') }}</a>
+            class="{{ request()->is('application*') ? 'active' : '' }}">{{ __('auth.app') }}</a>
         <a href="{{ url('/info') }}" class="{{ request()->is('info') ? 'active' : '' }}">{{ __('auth.info') }}</a>
         <a href="{{ url('/topic') }}" class="{{ request()->is('topic') ? 'active' : '' }}">{{ __('auth.topic') }}</a>
         <a href="{{ url('/rank') }}" class="{{ request()->is('rank') ? 'active' : '' }}">{{ __('auth.ranking') }}</a>

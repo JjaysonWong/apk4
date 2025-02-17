@@ -23,13 +23,14 @@ use App\Http\Controllers\AppController;
 Route::get('/', [IndexController::class, 'index']);
 
 
-Route::get('/games', [IndexController::class, 'games']);
+Route::get('/games', [IndexController::class, 'games'])->name('index.game');
 Route::get('/application', [IndexController::class, 'application']);
 Route::get('/info', [IndexController::class, 'info']);
 Route::get('/topic', [IndexController::class, 'topic']);
 Route::get('/rank', [IndexController::class, 'rank']);
 
 Route::get('/games/{union_id?}', [GameController::class, 'show'])->name('game.show');
+Route::get('/games/category/{category}', [GameController::class, 'showGameCategory'])->name('game.category');
 
 Route::get('/application/{union_id?}', [AppController::class, 'show'])->name('app.show');
 // sample route to test database connection

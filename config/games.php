@@ -21,8 +21,8 @@ return [
     ],
 
     'newUpdateGameList' => [
-        1 => 'Tower of Fantasy',
-        2 => '完美世界：诸神之战',
-        3 => '幻之封神',
+        1 => ['name' => 'Tower of Fantasy', 'union_id' => '1'],
+        2 => ['name' => '完美世界：诸神之战', 'union_id' => '2'],
+        3 => ['name' => '幻之封神', 'union_id' => '3'],
     ],
 ];

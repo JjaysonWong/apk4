@@ -80,6 +80,20 @@ return [
     'fighting_mobile_game_ranking' => 'Fighting Mobile Game Ranking',
     'apple_game_ranking' => 'Apple Game Ranking',
     'details' => 'Details',
+    'update_info' => 'Update Info',
+    'check_log_history' => 'Check Log History',
+    'close' => 'Close',
+    'game_overview'  => 'Game Overview', 
+    'game_version_advantage' => 'Game Version Advantage',
+    'details_info' => 'Details Info',
+    'related_history_version' => 'Related History Version',
+    'download' => 'Download',
+    'similar_games' => 'Similar Games',
+    'related_info' => 'Related Info',
+    'related_topic' => 'Related Topic',
+    'hot_game' =>   'Hot Game',
+    'developer_other_games' => 'Developers\' Other Games',
+    'hot_label' =>'Hot Label',
 
 
 

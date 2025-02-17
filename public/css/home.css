@@ -51,7 +51,7 @@
 .new-update-section .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
 .new-update-section .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
 .new-update-section .new-update-game-list{display: flex;column-gap: 19px;}
-.new-update-section .new-update-game-list .new-update-game-wrap{display: flex;flex-direction: column;}
+.new-update-section .new-update-game-list .new-update-game-wrap{display: flex;flex-direction: column;cursor: pointer;}
 .new-update-section .new-update-game-list .new-update-game-wrap .banner-image{width: 386px;height: 216px;margin-bottom: 15px;}
 .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap{display: flex;column-gap: 10px;}
 .new-update-section .new-update-game-list .new-update-game-wrap .new-update-small-wrap > img{width: 70px;height: 70px;}
@@ -70,10 +70,10 @@
 .game-category-list .category-tab .tab{display: flex;column-gap: 10px;margin-bottom: 30px;}
 .game-category-list .category-tab .tab .tablinks{border: 1px solid #e4e6e9;outline: none;border-radius: 17px;background: var(--bg-color);padding: 9px 15px;font-size: 14px;color: #a6a6a6;cursor: pointer;line-height: 14px;box-sizing: border-box;}
 .game-category-list .category-tab .tab .tablinks.active{background: #3CA8FF;color: #ffffff;}
-.game-category-list .category-tab .catTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;}
-.game-category-list .category-tab .catTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;}
-.game-category-list .category-tab .catTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
-.game-category-list .category-tab .catTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;}
+.game-category-list .category-tab .catTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;flex: 0 0 12%; max-width: 9%;}
+.game-category-list .category-tab .catTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;border-radius: 15px;}
+.game-category-list .category-tab .catTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;width: 100%;text-align: center;}
+.game-category-list .category-tab .catTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;text-align: center;}
 
 .topic-share-section{margin-top: 38px;}
 .topic-share-section .titleWrap h2{font-size: 24px;margin-bottom: 0;}
@@ -129,10 +129,10 @@
 .useful-application-section .useful-application-tab .tab{display: flex;column-gap: 10px;margin-bottom: 30px;}
 .useful-application-section .useful-application-tab .tab .tablinks{border: 1px solid #e4e6e9;outline: none;border-radius: 17px;background: var(--bg-color);padding: 9px 15px;font-size: 14px;color: #a6a6a6;cursor: pointer;line-height: 14px;box-sizing: border-box;}
 .useful-application-section .useful-application-tab .tab .tablinks.active{background: #3CA8FF;color: #ffffff;}
-.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;}
-.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;}
-.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
-.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;flex: 0 0 12%; max-width: 9%;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap > img{width: 110px;height: 110px;margin-bottom: 6px;border-radius: 15px;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;width: 100%;text-align: center;}
+.useful-application-section .useful-application-tab .usefulAppTabContent .gameWrap .gameUpdate {font-size: 12px;color: #9A9A9A;text-align: center;}
 
 .application-mix-section{margin-top: 40px;}
 .application-mix-section h2{font-size: 24px;margin-bottom: 21px;}

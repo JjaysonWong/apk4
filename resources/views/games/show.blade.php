@@ -3,8 +3,14 @@
 @section('title', $game->name)
 @section('styles')
     <style>
-        .testing>p {
-            text-align: left;
+        .appIntro>p:first-of-type,
+        .appIntro>p:nth-of-type(2) {
+            text-align: left !important;
+        }
+
+        .appIntro>p {
+            text-align: left !important;
+            line-height: 35px;
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/appDownload.css') }}">
@@ -13,7 +19,7 @@
 @section('content')
     <div class="nav-list">
         <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">{{ __('auth.homepage') }}</a>
-        <a href="{{ url('/games') }}" class="{{ request()->is('games') ? 'active' : '' }}">{{ __('auth.game') }}</a>
+        <a href="{{ url('/games') }}" class="{{ request()->is('games*') ? 'active' : '' }}">{{ __('auth.game') }}</a>
         <a href="{{ url('/application') }}"
             class="{{ request()->is('application') ? 'active' : '' }}">{{ __('auth.app') }}</a>
         <a href="{{ url('/info') }}" class="{{ request()->is('info') ? 'active' : '' }}">{{ __('auth.info') }}</a>
@@ -129,10 +135,10 @@
                     </div>
 
                     <div class="app-info">
-                        <div class="testing">{!! $game->introduce !!}</div>
+                        <div class="appIntro">{!! $game->introduce !!}</div>
                         <br>
 
-                        <h2>游戏简介</h2>
+                        {{-- <h2>游戏简介</h2>
                         <p>独具特色的NPC立绘，欧美魔幻风格的英雄原画——一袭红衣的精灵族酒馆老板娘，手持火枪的美女海盗头目，龇牙咧 嘴的狼人劫匪....还原欧美卡通独特的魔幻画风，带你翻开这场奇幻的冒险篇章</p>
                         <p>创造的含义是丰富的，可以是创造专属家园、自己的角色外观、DIY载具；可以是创造“想怎么玩就怎么玩”的个性化
                             游戏体验，没有“策划教你玩”，没有繁琐的课程表和巨大的数值压力；可以是和朋友们一起自然融入并逐渐享受奇妙 世界不应该只有战斗和生存，这些关乎“创造”的驱动，是星球这款产品，一直在做的努力和尝试
@@ -140,33 +146,38 @@
                         <p>在地下城与王国的世界中，跑图将会成为一件趣事。关卡，九大地图各具特色，考验脑力的密码锁，惊险刺激的玻璃桥，趣味横生的拼图和跑魂... 在这里的每一场冒险，都将充满奇趣与新鲜</p>
                         <h2>游戏版本优势</h2>
                         <p>正因如此，游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造、共
-                            同成长的初心。游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造 共同成长的初心</p>
+                            同成长的初心。游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造 共同成长的初心</p> --}}
 
                         <div class="update-info">
                             <div class="titleWrap">
-                                <h2>更新资料</h2>
-                                <p class="toggle-content">查看历史日志</p>
+                                <h2>{{ __('auth.update_info') }}</h2>
+                                <p class="toggle-content">{{ __('auth.check_log_history') }}</p>
                             </div>
                             <div class="update-content">
-                                <h2>游戏简介</h2>
-                                <p>独具特色的NPC立绘，欧美魔幻风格的英雄原画——一袭红衣的精灵族酒馆老板娘，手持火枪的美女海盗头目，龇牙咧
-                                    嘴的狼人劫匪....还原欧美卡通独特的魔幻画风，带你翻开这场奇幻的冒险篇章</p>
+                                <h2>{{ __('auth.game_overview') }}</h2>
+                                <p>{!! $game->description !!}</p>
+                                {{-- <p>独具特色的NPC立绘，欧美魔幻风格的英雄原画——一袭红衣的精灵族酒馆老板娘，手持火枪的美女海盗头目，龇牙咧
+                                    嘴的狼人劫匪....还原欧美卡通独特的魔幻画风，带你翻开这场奇幻的冒险篇章
+                                </p>
                                 <p>创造的含义是丰富的，可以是创造专属家园、自己的角色外观、DIY载具；可以是创造“想怎么玩就怎么玩”的个性化
                                     游戏体验，没有“策划教你玩”，没有繁琐的课程表和巨大的数值压力；可以是和朋友们一起自然融入并逐渐享受奇妙
-                                    世界不应该只有战斗和生存，这些关乎“创造”的驱动，是星球这款产品，一直在做的努力和尝试</p>
-                                <p>在地下城与王国的世界中，跑图将会成为一件趣事。关卡，九大地图各具特色，考验脑力的密码锁，惊险刺激的玻璃桥，趣味横生的拼图和跑魂... 在这里的每一场冒险，都将充满奇趣与新鲜
+                                    世界不应该只有战斗和生存，这些关乎“创造”的驱动，是星球这款产品，一直在做的努力和尝试
                                 </p>
-                                <h2>游戏版本优势</h2>
-                                <p>正因如此，游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造、共
-                                    同成长的初心。游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造 共同成长的初心</p>
-                                <p class="collapse-btn">收起</p>
+                                <p>在地下城与王国的世界中，跑图将会成为一件趣事。关卡，九大地图各具特色，考验脑力的密码锁，惊险刺激的玻璃桥，趣味横生的拼图和跑魂... 在这里的每一场冒险，都将充满奇趣与新鲜
+                                </p> --}}
+                                <h2>{{ __('auth.game_version_advantage') }}</h2>
+                                <p>{!! $game->description !!}</p>
+                                {{-- <p>正因如此，游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造、共
+                                    同成长的初心。游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造 共同成长的初心
+                                </p> --}}
+                                <p class="collapse-btn">{{ __('auth.close') }}</p>
                             </div>
-                            <p class="appVersion">版本1.0.9 / 2023-12-12 16:05:02</p>
-                            <p class="appUpdateInfo">千套牌组搭配，五大职业，十二种族，50+英雄为你带来无限套路！</p>
+                            <p class="appVersion">{!! $game->app_version !!} / {!! $game->uptime !!}</p>
+                            <p class="appUpdateInfo">{!! $game->description !!}</p>
                         </div>
 
                         <div class="detail-info">
-                            <h2>详细信息</h2>
+                            <h2>{{ __('auth.details_info') }}</h2>
                             <div class="detailWrap">
                                 <div>
                                     <h2>游戏大小</h2>
@@ -200,7 +211,7 @@
                         </div>
 
                         <div class="related-history-version">
-                            <h2>相关历史版本</h2>
+                            <h2>{{ __('auth.related_history_version') }}</h2>
                             <div class="downloadList">
                                 <div class="downloadWrap">
                                     <div class="titleWrap">
@@ -212,10 +223,10 @@
                                     </div>
                                     <div class="downloadButton">
                                         <img src="{{ asset('images/download/xiazai.png') }}" alt="Download Icon" />
-                                        <p>Download</p>
+                                        <p>{{ __('auth.download') }}</p>
                                     </div>
                                 </div>
-                                <div class="downloadWrap">
+                                {{-- <div class="downloadWrap">
                                     <div class="titleWrap">
                                         <p>矩阵临界：失控边缘最新版本 118.0.5993.48</p>
                                         <div class="dateMemory">
@@ -253,16 +264,16 @@
                                         <img src="{{ asset('images/download/xiazai.png') }}" alt="Download Icon" />
                                         <p>安装</p>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
 
                     <div class="similar-app-list">
                         <div class="titleWrap">
-                            <h2>类似游戏</h2>
-                            <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                                    alt="More Icon" /></p>
+                            <h2>{{ __('auth.similar_games') }}</h2>
+                            <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                                    src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                         </div>
                         <div class="appList">
                             <div class="appWrap">
@@ -344,9 +355,9 @@
 
                     <div class="related-info">
                         <div class="titleWrap">
-                            <h2>相关资讯</h2>
-                            <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                                    alt="More Icon" /></p>
+                            <h2>{{ __('auth.related_info') }}</h2>
+                            <a href="{{ url('/info') }}" class="more">{{ __('auth.more') }}<img
+                                    src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                         </div>
                         <div class="infoList">
                             <div class="infoWrap">
@@ -844,7 +855,7 @@
 
                 <div class="content-right">
                     <div class="related-topic">
-                        <h2>相关专题</h2>
+                        <h2>{{ __('auth.related_topic') }}</h2>
                         <div class="imgWrap">
                             <img src="{{ asset('images/download/relatedtopic.png') }}" alt="Topic Image" />
                             <p>升级快不花钱的传奇游戏</p>
@@ -853,9 +864,9 @@
 
                     <div class="hot-app">
                         <div class="titleWrap">
-                            <h2>热门游戏</h2>
-                            <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                                    alt="More Icon" /></p>
+                            <h2>{{ __('auth.hot_game') }}</h2>
+                            <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                                    src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                         </div>
                         <div class="app-list">
                             <div class="appWrap">
@@ -903,7 +914,7 @@
                                 </div>
                                 <div class="viewNow">{{ __('auth.view_now') }}</div>
                             </div>
-                            <div class="appWrap">
+                            {{-- <div class="appWrap">
                                 <img src="{{ asset('images/home/game7.png') }}" />
                                 <div class="appDetailWrap">
                                     <p class="appName">斗破苍穹：斗帝</p>
@@ -911,15 +922,15 @@
                                     <p class="dateUpdate">2023-06-06更新</p>
                                 </div>
                                 <div class="viewNow">{{ __('auth.view_now') }}</div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
                     <div class="creator-other-game">
                         <div class="titleWrap">
-                            <h2>开发者其他游戏</h2>
-                            <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                                    alt="More Icon" /></p>
+                            <h2>{{ __('auth.developer_other_games') }}</h2>
+                            <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                                    src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                         </div>
                         <div class="app-list">
                             <div class="appWrap">
@@ -979,42 +990,92 @@
                         </div>
                     </div>
 
+                    {{-- <div class="category-tab-section">
+                        <div class="container">
+                            <div class="category-tab">
+                                <div class="tab">
+                                    @php
+                                        $categories = [
+                                            'quanbu' => __('categories.all_categories'),
+                                            'jiaose' => __('categories.role_playing'),
+                                            'guanka' => __('categories.tower_defense'),
+                                            'dongzuo' => __('categories.action_competition'),
+                                            'xiuxian' => __('categories.casual_puzzle'),
+                                            'zhanzheng' => __('categories.war_strategy'),
+                                            'tiyu' => __('categories.sports_competition'),
+                                            'feixing' => __('categories.flight_shooting'),
+                                            'maoxian' => __('categories.adventure_puzzle'),
+                                            'shengcun' => __('categories.survival_adventure'),
+                                            'kapai' => __('categories.card_battle'),
+                                            'yinyue' => __('categories.music_dance'),
+                                            'chuanqi' => __('categories.legend_mobile'),
+                                            'jingying' => __('categories.simulation_management'),
+                                            'jieji' => __('categories.arcade_fighting'),
+                                            'chongwu' => __('categories.pet_cultivation'),
+                                            'saiche' => __('categories.racing_competition'),
+                                            'qita' => __('categories.other_games'),
+                                        ];
+                                    @endphp
+                
+                                    @foreach ($categories as $key => $value)
+                                        <button class="catTab tablinks {{ $loop->first ? 'active' : '' }}"
+                                            onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
                     <div class="hot-topic-section">
                         <div class="titleWrap">
-                            <h2>热门标签</h2>
-                            <p class="more">{{ __('auth.more') }}<img src="{{ asset('images/home/jiantou3.png') }}"
-                                    alt="More Icon" /></p>
+                            <h2>{{ __('auth.hot_label') }}</h2>
+                            <a href="{{ url('/games') }}" class="more">{{ __('auth.more') }}<img
+                                    src="{{ asset('images/home/jiantou3.png') }}" alt="More Icon" /></a>
                         </div>
                         <div class="hot-topic-listing">
-                            <div class="active">战争策略</div>
-                            <div>赛博朋克</div>
-                            <div>角色扮演</div>
-                            <div>卡牌对战</div>
-                            <div>传奇游戏</div>
-                            <div>枪战射击</div>
-                            <div>音乐舞蹈</div>
-                            <div>休闲益智</div>
-                            <div>冒险解谜</div>
+                            @php
+                                $categories = [
+                                    'all' => __('categories.all_categories'),
+                                    'rpg' => __('categories.role_playing'),
+                                    'tower_defense' => __('categories.tower_defense'),
+                                    'action' => __('categories.action_competition'),
+                                    'puzzle' => __('categories.casual_puzzle'),
+                                    'war' => __('categories.war_strategy'),
+                                    'sport' => __('categories.sports_competition'),
+                                    'shoot' => __('categories.flight_shooting'),
+                                    'adventure' => __('categories.adventure_puzzle'),
+                                    'survival' => __('categories.survival_adventure'),
+                                    'card' => __('categories.card_battle'),
+                                    'music' => __('categories.music_dance'),
+                                    'mobile' => __('categories.legend_mobile'),
+                                    'simulation' => __('categories.simulation_management'),
+                                    'arcade' => __('categories.arcade_fighting'),
+                                    'pet' => __('categories.pet_cultivation'),
+                                    'race' => __('categories.racing_competition'),
+                                    'other' => __('categories.other_games'),
+                                ];
+                                $first = true;
+                            @endphp
+                            @foreach ($categories as $key => $category)
+                                <div onclick="window.location.href='{{ route('game.category', ['category' => $key]) }}'"
+                                    class="{{ $first ? 'active' : '' }}" style="cursor: pointer;">
+                                    {{ $category }}
+                                </div>
+                                @php
+                                    $first = false;
+                                @endphp
+                            @endforeach
+                            {{-- @foreach ($categories as $key => $category)
+                                <a href="{{ url('/games') }}#{{ $key }}"
+                                    class="{{ $first ? 'active' : '' }}">{{ $category }}</a>
+                                @php
+                                    $first = false;
+                                @endphp
+                            @endforeach --}}
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- <br>
-            <p>{{ $game->description ?? 'No description available' }}</p>
 
-
-
-            <p><strong>Category:</strong> {{ $game->category ?? 'Unknown' }}</p>
-            <p><strong>Version:</strong> {{ $game->version ?? 'Unknown' }}</p>
-            <p><strong>Updated on:</strong>
-                {{ isset($game->updated_at) ? \Carbon\Carbon::parse($game->updated_at)->format('Y-m-d H:i:s') : 'Unknown' }}
-            </p> --}}
-
-            {{-- <p><strong>Introduce:</strong> {{ $game->introduce ?? 'Unknown' }}</p> --}}
-
-            {{-- <div class="testing">{!! $game->introduce !!}</div> --}}
-
-            {{-- <a href="{{ asset('apk/' . ($game->apk_file ?? '')) }}" class="btn btn-success">Download APK</a> --}}
         </div>
     </div>
 
