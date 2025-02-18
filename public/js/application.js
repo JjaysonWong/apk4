@@ -173,9 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update URL and reload page
     function updateURLAndReload(category, page = 1) {
         if (category === '0' || category === 0) {
-            window.location.href = `${window.location.origin}/pages/applications/${page}/`; // All Apps
+            window.location.href = `${window.location.origin}/applications/${page}/`; // All Apps
         } else {
-            window.location.href = `${window.location.origin}/pages/applications/app_${category}/${page}/`; // Specific category with page
+            window.location.href = `${window.location.origin}/applications/app_${category}/${page}/`; // Specific category with page
         }
     }
     

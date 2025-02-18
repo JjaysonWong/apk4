@@ -162,8 +162,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update URL and reload page
     function updateURLAndReload(category, page = 1) {
         let newUrl = category === "all"
-            ? `${window.location.origin}/pages/news/${page}`  // Ensure page number in URL
-            : `${window.location.origin}/pages/news/${category}/${page}`;
+            ? `${window.location.origin}/news/${page}`  // Ensure page number in URL
+            : `${window.location.origin}/news/${category}/${page}`;
         
         window.location.href = newUrl;
     }

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="../imgs/favicon.ico">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <script src="../js/main.js"></script>
-    <script src="../js/home.js"></script>
-    <script src="../js/swiper-bundle.min.js"></script>
+  <meta charset="UTF-8">
+    <link rel="icon" href="{{ asset('imgs/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        var assetBaseUrl = "{{ asset('') }}"; 
+    </script>
+    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <meta name="keywords" content=""/>
@@ -18,30 +21,30 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="yes" name="apple-touch-fullscreen"/>
     <link rel="canonical" href=""/>
-    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ asset('imgs/favicon.ico') }}" type="image/x-icon"/>
   </head>
   <body>
     <header>
         <div class="container">
-            <a href="./index"><img src="../imgs/logo.png" class="logo-image" alt="世界蓝 Logo"/></a>
+            <a href="./index"><img src="{{ asset('imgs/logo.png') }}" class="logo-image" alt="世界蓝 Logo"/></a>
             <ul>
                 <li class="active">
-                    <a href="./index"><img src="../imgs/header/home_icon.png" alt="Home Icon" /><p>首页</p></a>
+                    <a href="./index"><img src="{{ asset('imgs/header/home_icon.png') }}" alt="Home Icon" /><p>首页</p></a>
                 </li>
                 <li>
-                    <a href="./games"><img src="../imgs/header/game_icon.png" alt="Game Icon" /><p>手机游戏</p></a>
+                    <a href="./games"><img src="{{ asset('imgs/header/game_icon.png') }}" alt="Game Icon" /><p>手机游戏</p></a>
                 </li>
                 <li>
-                    <a href="./applications"><img src="../imgs/header/app_icon.png" alt="App Icon" /><p>软件应用</p></a>
+                    <a href="./applications"><img src="{{ asset('imgs/header/app_icon.png') }}" alt="App Icon" /><p>软件应用</p></a>
                 </li>
                 <li>
-                    <a href="./news"><img src="../imgs/header/news_icon.png" alt="News Icon" /><p>攻略教程</p></a>
+                    <a href="./news"><img src="{{ asset('imgs/header/news_icon.png') }}" alt="News Icon" /><p>攻略教程</p></a>
                 </li>
                 <li>
-                    <a href="./topics"><img src="../imgs/header/topic_icon.png" alt="Topic Icon" /><p>专题合集</p></a>
+                    <a href="./topics"><img src="{{ asset('imgs/header/topic_icon.png') }}" alt="Topic Icon" /><p>专题合集</p></a>
                 </li>
                 <li>
-                    <a href="./top"><img src="../imgs/header/top_icon.png" alt="Top Icon" /><p>排行榜</p></a>
+                    <a href="./top"><img src="{{ asset('imgs/header/top_icon.png') }}" alt="Top Icon" /><p>排行榜</p></a>
                 </li>
             </ul>
         </div>
@@ -70,7 +73,7 @@
                     <h2>最新软件</h2>
                     <a class="more">
                         <p>更多</p>
-                        <img src="../imgs/home/more.png"  alt="More Icon"/>
+                        <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                     </a>
                 </div>
                 <div class="newapp-list">
@@ -82,7 +85,7 @@
                     <h2>最新游戏</h2>
                     <a class="more">
                         <p>更多</p>
-                        <img src="../imgs/home/more.png"  alt="More Icon"/>
+                        <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                     </a>
                 </div>
                 <div class="newgame-list">
@@ -94,7 +97,7 @@
                     <h2>最新攻略</h2>
                     <a class="more">
                         <p>更多</p>
-                        <img src="../imgs/home/more.png"  alt="More Icon"/>
+                        <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                     </a>
                 </div>
                 <div class="main-panel">
@@ -116,14 +119,14 @@
                     <h2>最新专题</h2>
                     <a class="more">
                         <p>更多</p>
-                        <img src="../imgs/home/more.png"  alt="More Icon"/>
+                        <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                     </a>
                 </div> 
                 <div class="topic-tab-panel">
                     <div class="topic-tab-list">
                         <div class="tab">
-                          <div class="topicTab active" onclick="switchTopicTab(event, 'games')"><img src="../imgs/home/game_tab_icon.png"  alt="Game Tab Icon"/><span>手游</span></div>
-                          <div class="topicTab" onclick="switchTopicTab(event, 'apps')"><img src="../imgs/home/app_tab_icon.png"  alt="App Tab Icon"/><span>应用</span></div>
+                          <div class="topicTab active" onclick="switchTopicTab(event, 'games')"><img src="{{ asset('imgs/home/game_tab_icon.png') }}"  alt="Game Tab Icon"/><span>手游</span></div>
+                          <div class="topicTab" onclick="switchTopicTab(event, 'apps')"><img src="{{ asset('imgs/home/app_tab_icon.png') }}"  alt="App Tab Icon"/><span>应用</span></div>
                         </div>
                       </div>
                     <div id="games" class="topicContent">
@@ -158,11 +161,11 @@
                 <div class="left-panel">
                     <div class="top-download-panel">
                         <div class="hot-game-download-panel">
-                            <img class="title-img" src="../imgs/home/game-hot-title.png"  alt="Hot Game Download Title"/>
+                            <img class="title-img" src="{{ asset('imgs/home/game-hot-title.png') }}"  alt="Hot Game Download Title"/>
                             <div class="hot-game-top-download-list"></div>
                         </div>
                         <div class="player-hot-game-download-panel">
-                            <img class="title-img" src="../imgs/home/player-hot-title.png"  alt="PLayer Hot Game Download Title"/>
+                            <img class="title-img" src="{{ asset('imgs/home/player-hot-title.png') }}"  alt="PLayer Hot Game Download Title"/>
                             <div class="player-hot-game-top-download-list"></div>
                         </div>
                     </div>
@@ -174,7 +177,7 @@
                                 <h2>专题排行</h2>
                                 <a class="more">
                                     <p>更多</p>
-                                    <img src="../imgs/home/more.png"  alt="More Icon"/>
+                                    <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                                 </a>
                             </div>
                             <div class="topic-rank-list"></div>
@@ -185,7 +188,7 @@
                                 <h2>应用合集</h2>
                                 <a class="more">
                                     <p>更多</p>
-                                    <img src="../imgs/home/more.png"  alt="More Icon"/>
+                                    <img src="{{ asset('imgs/home/more.png') }}"  alt="More Icon"/>
                                 </a>
                             </div>
                             <div class="app-combination-list"></div>
@@ -208,7 +211,7 @@
                 </div>
             </div>
             <div class="logo">
-                <a href="./index"><img src="../imgs/logo_footer.png" class="logo-image" alt="世界蓝 Logo"/></a>
+                <a href="./index"><img src="{{ asset('imgs/logo_footer.png') }}" class="logo-image" alt="世界蓝 Logo"/></a>
             </div>
             <p class="copyright">Copyright © 2017-2024 leduse.com All Rights Reserved. 恒爱下载站 版权所有 鄂ICP备19015743号-3</p>
         </div>
