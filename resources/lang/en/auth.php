@@ -94,6 +94,7 @@ return [
     'hot_game' =>   'Hot Game',
     'developer_other_games' => 'Developers\' Other Games',
     'hot_label' =>'Hot Label',
+    'screenshot_preview' => 'Screenshot Preview',
 
 
 

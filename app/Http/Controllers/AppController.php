@@ -22,6 +22,23 @@ class AppController extends Controller
             $app->uptime = date('Y-m-d H:i:s', $app->uptime);
         }
 
+        $appId = $app->gameid ?? '';
+
+        $appScreenshot = DB::table('apk4_app_img')
+                  ->where('gameid', $appId)
+                  ->get()
+                  ->toArray();
+
+        if (!empty($appScreenshot)) {
+            $screenshots = [];
+
+            foreach ($appScreenshot as $value) {
+                $screenshots[] = env('IMG_DB') . $value->path;
+            }
+
+            $app->screenshots = $screenshots;
+        }
+        
         $app->app_version = $this->extractVersion($app->title);
         
         return view('apps.show', compact('app'));

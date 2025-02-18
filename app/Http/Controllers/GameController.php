@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-
 class GameController extends Controller
 {
     public function show($unionId)
@@ -21,6 +20,23 @@ class GameController extends Controller
 
         if (!empty($game->uptime)) {
             $game->uptime = date('Y-m-d H:i:s', $game->uptime);
+        }
+
+        $gameId = $game->gameid ?? '';
+
+        $gameScreenshot = DB::table('apk4_game_img')
+                  ->where('gameid', $gameId)
+                  ->get()
+                  ->toArray();
+
+        if (!empty($gameScreenshot)) {
+            $screenshots = [];
+
+            foreach ($gameScreenshot as $value) {
+            $screenshots[] = env('IMG_DB') . $value->path;
+            }
+
+            $game->screenshots = $screenshots;
         }
 
         $game->app_version = $this->extractVersion($game->title);

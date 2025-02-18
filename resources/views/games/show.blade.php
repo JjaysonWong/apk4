@@ -119,18 +119,16 @@
             <div class="downloadInfo">
                 <div class="content-left">
                     <div class="screenshot-slider">
-                        <h2>截图预览</h2>
+                        <h2>{{ __('auth.screenshot_preview') }}</h2>
                         <swiper-container class="mySwiper screenshotSwiper" space-between="15" slides-per-view="1.7"
                             navigation="true" init="false">
-                            <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
-                            </swiper-slide>
-                            <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
-                            </swiper-slide>
-                            <swiper-slide>
-                                <img src="{{ asset('images/download/screenshot1.png') }}" alt="Game Screenshot" />
-                            </swiper-slide>
+
+                            @foreach ($game->screenshots as $screenshot)
+                                <swiper-slide>
+                                    <img src="{{ Str::startsWith($screenshot, ['http://', 'https://']) ? $screenshot : env('IMG_DB') . $screenshot }}"
+                                        alt="Game Screenshot" />
+                                </swiper-slide>
+                            @endforeach
                         </swiper-container>
                     </div>
 

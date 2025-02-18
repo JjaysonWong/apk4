@@ -94,6 +94,7 @@ return [
     'hot_game' =>   '热门游戏',
     'developer_other_games' => '开发者其他游戏',
     'hot_label' =>'热门标签',
+    'screenshot_preview' => '截图预览',
 
 
 
