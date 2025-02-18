@@ -65,11 +65,11 @@
                 </div>
                 <div class="downloadButtonWrap">
                     <div class="ratingWrap">
-                        <p class="rating-score">{{ $game->game_score }}</p>
+                        <p class="rating-score">{{ $game->game_score ?? 0 }}</p>
                         <div class="starWrap">
                             <div class="stars">
                             </div>
-                            <p>4,063万条评价</p>
+                            <p>{{ rand(1000, 1000000) }}条评价</p>
                         </div>
                     </div>
                     <div class="buttonWrap">
@@ -100,7 +100,7 @@
                             9.0
                             <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
                         </p>
-                        <p>4,063万条评价</p>
+                        <p>{{ rand(1000, 1000000) }}条评价</p>
                     </div>
                     <div class="downloadTimeWrap">
                         <p>50亿+</p>
@@ -138,15 +138,7 @@
                         <div class="appIntro">{!! $game->introduce !!}</div>
                         <br>
 
-                        {{-- <h2>游戏简介</h2>
-                        <p>独具特色的NPC立绘，欧美魔幻风格的英雄原画——一袭红衣的精灵族酒馆老板娘，手持火枪的美女海盗头目，龇牙咧 嘴的狼人劫匪....还原欧美卡通独特的魔幻画风，带你翻开这场奇幻的冒险篇章</p>
-                        <p>创造的含义是丰富的，可以是创造专属家园、自己的角色外观、DIY载具；可以是创造“想怎么玩就怎么玩”的个性化
-                            游戏体验，没有“策划教你玩”，没有繁琐的课程表和巨大的数值压力；可以是和朋友们一起自然融入并逐渐享受奇妙 世界不应该只有战斗和生存，这些关乎“创造”的驱动，是星球这款产品，一直在做的努力和尝试
-                        </p>
-                        <p>在地下城与王国的世界中，跑图将会成为一件趣事。关卡，九大地图各具特色，考验脑力的密码锁，惊险刺激的玻璃桥，趣味横生的拼图和跑魂... 在这里的每一场冒险，都将充满奇趣与新鲜</p>
-                        <h2>游戏版本优势</h2>
-                        <p>正因如此，游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造、共
-                            同成长的初心。游戏正式改名为《创造吧！我们的星球》，这代表着我们研发努力的方向，也代表着我们希望和大家共同创造 共同成长的初心</p> --}}
+
 
                         <div class="update-info">
                             <div class="titleWrap">
@@ -1056,7 +1048,7 @@
                                 $first = true;
                             @endphp
                             @foreach ($categories as $key => $category)
-                                <div onclick="window.location.href='{{ route('game.category', ['category' => $key]) }}'"
+                                <div onclick="document.querySelectorAll('.hot-topic-listing div').forEach(el => el.classList.remove('active')); this.classList.add('active'); window.location.href='{{ route('game.category', ['category' => $key]) }}';"
                                     class="{{ $first ? 'active' : '' }}" style="cursor: pointer;">
                                     {{ $category }}
                                 </div>

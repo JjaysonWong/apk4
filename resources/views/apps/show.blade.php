@@ -65,11 +65,11 @@
                 </div>
                 <div class="downloadButtonWrap">
                     <div class="ratingWrap">
-                        <p class="rating-score">{{ $app->game_score }}</p>
+                        <p class="rating-score">{{ $app->game_score ?? 0 }}</p>
                         <div class="starWrap">
                             <div class="stars">
                             </div>
-                            <p>4,063万条评价</p>
+                            <p>{{ rand(1000, 1000000) }}条评价</p>
                         </div>
                     </div>
                     <div class="buttonWrap">
@@ -100,7 +100,7 @@
                             9.0
                             <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
                         </p>
-                        <p>4,063万条评价</p>
+                        <p>{{ rand(1000, 1000000) }}条评价</p>
                     </div>
                     <div class="downloadTimeWrap">
                         <p>50亿+</p>
@@ -1023,7 +1023,7 @@
                                 $first = true;
                             @endphp
                             @foreach ($categories as $key => $category)
-                                <div onclick="window.location.href='{{ route('app.category', ['category' => $key]) }}'"
+                                <div onclick="document.querySelectorAll('.hot-topic-listing div').forEach(el => el.classList.remove('active')); this.classList.add('active'); window.location.href='{{ route('app.category', ['category' => $key]) }}';"
                                     class="{{ $first ? 'active' : '' }}" style="cursor: pointer;">
                                     {{ $category }}
                                 </div>

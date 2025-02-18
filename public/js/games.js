@@ -146,8 +146,11 @@ function renderGames() {
         dateElement.textContent = item.date;
 
         const viewNow = document.createElement('div');
+        const translationContainer = document.getElementById('translation-container');
+        const translateText = translationContainer?.dataset.viewNow || 'View Now';
+
         viewNow.className = 'viewNow';
-        viewNow.textContent = Translate;
+        viewNow.textContent = translateText;
 
         const gameDetailWrap = document.createElement('div');
         gameDetailWrap.className = 'gameDetailWrap';

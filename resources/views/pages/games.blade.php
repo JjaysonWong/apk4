@@ -253,9 +253,9 @@
 
 @section('scripts')
     <script src="{{ asset('js/games.js') }}"></script>
-    <script>
-        var Translate = "{{ __('auth.view_now') }}";
-    </script>
+
+    <div id="translation-container" data-view-now="{{ __('auth.view_now') }}"></div>
+
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 
     <script>
