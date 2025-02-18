@@ -1,0 +1,179 @@
+.home-page{padding-bottom: 1.88rem;margin-top: 1.88rem;}
+.home-page .hotapp-panel{background-color: #ffffff;border-radius: 8px;padding: 1.56rem 1.56rem 1.86rem;}
+.home-page .hotapp-panel .hot-tab-list .tab{display: flex;column-gap: 2.19rem;padding: 0 0.94rem;align-items: center;margin-bottom: 1.13rem;height: 2.25rem;}
+.home-page .hotapp-panel .hot-tab-list .tab .hotTab{font-size: 1.13rem;color: #666666;transition: .3s all ease;position: relative;cursor: pointer;}
+.home-page .hotapp-panel .hot-tab-list .tab .hotTab span{position: relative;z-index: 1;}
+.home-page .hotapp-panel .hot-tab-list .tab .hotTab.active{font-size: 1.5rem;font-weight: bold;color: #2B2525;transition: .3s all ease;}
+.home-page .hotapp-panel .hot-tab-list .tab .hotTab.active::after{content: "";position: absolute;top: -0.19rem;right: -0.75rem;background: url(../imgs/home/circle.png);background-repeat: no-repeat;background-size: contain;width: 1.5rem;height: 1.5rem;}
+.home-page .hotapp-panel .hotAppContent{display: none;flex-wrap: wrap;row-gap: 1.5rem;justify-content: space-between;}
+.home-page .hotapp-panel .hotAppContent#hotApp{display: flex;}
+.home-page .hotapp-panel .hotAppContent .app-item{padding: 1.5rem 1.13rem 1.13rem;display: flex;background-color: #f9f9f9;border-radius: 12px;border: 1px solid #EAEAEA;box-sizing: border-box;flex-direction: column;align-items: center;flex: 0 0 15%;max-width: 15%;overflow: hidden;cursor: pointer;}
+.home-page .hotapp-panel .hotAppContent .app-item img{width: 5rem;height: auto;object-fit: contain;margin-bottom: 0.81rem;border-radius: 20px;}
+.home-page .hotapp-panel .hotAppContent .app-item h3{color: #404040;font-weight: normal;font-size: 1rem;margin-bottom: 0.38rem;text-align: center;white-space: nowrap;overflow: hidden;width: 100%;}
+.home-page .hotapp-panel .hotAppContent .app-item .details{width: 100%;overflow: hidden;}
+.home-page .hotapp-panel .hotAppContent .app-item .dateSizeWrap{display: flex;column-gap: 0.63rem;justify-content: center;}
+.home-page .hotapp-panel .hotAppContent .app-item .dateSizeWrap p{font-size: 0.88rem;color: #999999;position: relative;}
+.home-page .hotapp-panel .hotAppContent .app-item .dateSizeWrap p.size::after{content: ""; position: absolute; right: -0.31rem; height: 75%; width: 1px; background: #999999; top: 50%; transform: translateY(-50%);}
+.home-page .hotapp-panel .hotAppContent .app-item:nth-child(n+7):nth-child(-n+10){padding: 1.13rem 1.13rem 1.13rem 1.31rem;flex-direction: row;align-items: center;flex-wrap: nowrap;flex: 0 0 24%;max-width: 24%;}
+.home-page .hotapp-panel .hotAppContent .app-item:nth-child(n+7):nth-child(-n+10) img{width: 4rem;margin-bottom: 0;margin-right: 1.06rem;}
+.home-page .hotapp-panel .hotAppContent .app-item:nth-child(n+7):nth-child(-n+10) h3{margin-bottom: 0.81rem;text-align: left;}
+.home-page .hotapp-panel .hotAppContent .app-item:nth-child(n+7):nth-child(-n+10) .dateSizeWrap{column-gap: 1.75rem;justify-content: left;}
+.home-page .hotapp-panel .hotAppContent .app-item:nth-child(n+7):nth-child(-n+10) .dateSizeWrap p.size::after{right: -0.81rem;}
+
+.home-page .newapp-panel{margin-top: 1.63rem;background-color: #ffffff;border-radius: 8px;padding: 1.31rem 1.56rem 1.5rem;}
+.home-page .panel-header{display: flex;align-items: center;justify-content: space-between;}
+.home-page .panel-header h2{color: #333333;font-weight: bold;font-size: 1.5rem;}
+.home-page .panel-header .more{display: flex;align-items: center;column-gap: 0.31rem;cursor: pointer;}
+.home-page .panel-header .more p{font-size: 0.88rem;color: #999999;}
+.home-page .panel-header .more img{width: 0.88rem;height: auto;}
+.home-page .newapp-panel .panel-header{margin-bottom: 1.31rem;}
+.home-page .newapp-panel .newapp-list{display: flex;row-gap: 1.88rem;flex-wrap: wrap;justify-content: space-between;}
+.home-page .newapp-panel .newapp-list .app{flex: 0 0 18.3%;max-width: 18.3%;overflow: hidden;}
+.home-page .newapp-panel .newapp-list .app-item{display: flex;background-color: #f9f9f9;border-radius: 12px;box-sizing: border-box;flex-direction: column;align-items: center;padding: 1.5rem 2.06rem;cursor: pointer;}
+.home-page .newapp-panel .newapp-list .app-item .details{width: 100%;overflow: hidden;}
+.home-page .newapp-panel .newapp-list .app-item img{width: 5rem;height: auto;object-fit: contain;margin-bottom: 0.81rem;border-radius: 20px;}
+.home-page .newapp-panel .newapp-list .app-item h3{color: #404040;font-weight: normal;font-size: 1rem;margin-bottom: 0.38rem;text-align: center;white-space: nowrap;overflow: hidden;width: 100%;}
+.home-page .newapp-panel .newapp-list .app-item .dateSizeWrap{display: flex;column-gap: 0.94rem;justify-content: center;}
+.home-page .newapp-panel .newapp-list .app-item .dateSizeWrap p{font-size: 0.88rem;color: #999999;position: relative;}
+.home-page .newapp-panel .newapp-list .app .download-btn{width: 100%;display: flex;border: 1px solid #51C5FE;background: transparent;border-radius: 15px;height: 1.88rem;align-items: center;justify-content: center;column-gap: 0.38rem;margin-top: 0.75rem;cursor: pointer;}
+.home-page .newapp-panel .newapp-list .app .download-btn img{width: 1.19rem;height: auto;}
+.home-page .newapp-panel .newapp-list .app .download-btn p{color: #51C5FE;font-size: 0.88rem;}
+
+.home-page .newgame-panel{margin-top: 1.63rem;background-color: #ffffff;border-radius: 8px;padding: 1.31rem 1.56rem 1.5rem;}
+.home-page .panel-header{display: flex;align-items: center;justify-content: space-between;}
+.home-page .panel-header h2{color: #333333;font-weight: bold;font-size: 1.5rem;}
+.home-page .panel-header .more{display: flex;align-items: center;column-gap: 0.31rem;cursor: pointer;}
+.home-page .panel-header .more p{font-size: 0.88rem;color: #999999;}
+.home-page .panel-header .more img{width: 0.88rem;height: auto;}
+.home-page .newgame-panel .panel-header{margin-bottom: 1.31rem;}
+.home-page .newgame-panel .newgame-list{display: flex;row-gap: 1.88rem;flex-wrap: wrap;justify-content: space-between;}
+.home-page .newgame-panel .newgame-list .game{flex: 0 0 18.3%;max-width: 18.3%;overflow: hidden;}
+.home-page .newgame-panel .newgame-list .game-item{display: flex;background-color: #f9f9f9;border-radius: 12px;box-sizing: border-box;flex-direction: column;align-items: center;padding: 1.5rem 2.06rem;cursor: pointer;}
+.home-page .newgame-panel .newgame-list .game-item .details{width: 100%;overflow: hidden;}
+.home-page .newgame-panel .newgame-list .game-item img{width: 5rem;height: auto;object-fit: contain;margin-bottom: 0.81rem;border-radius: 20px;}
+.home-page .newgame-panel .newgame-list .game-item h3{color: #404040;font-weight: normal;font-size: 1rem;margin-bottom: 0.38rem;text-align: center;white-space: nowrap;overflow: hidden;width: 100%;}
+.home-page .newgame-panel .newgame-list .game-item .dateSizeWrap{display: flex;column-gap: 0.94rem;justify-content: center;}
+.home-page .newgame-panel .newgame-list .game-item .dateSizeWrap p{font-size: 0.88rem;color: #999999;position: relative;}
+.home-page .newgame-panel .newgame-list .game .download-btn{width: 100%;display: flex;border: 1px solid #51C5FE;background: transparent;border-radius: 15px;height: 1.88rem;align-items: center;justify-content: center;column-gap: 0.38rem;margin-top: 0.75rem;cursor: pointer;}
+.home-page .newgame-panel .newgame-list .game .download-btn img{width: 1.19rem;height: auto;}
+.home-page .newgame-panel .newgame-list .game .download-btn p{color: #51C5FE;font-size: 0.88rem;}
+
+.home-page .latest-news-panel{margin-top: 1.44rem;background-color: #ffffff;border-radius: 8px;padding: 1.31rem 1.5rem 1.56em;}
+.home-page .latest-news-panel .panel-header{margin-bottom: 1.31rem;}
+.home-page .latest-news-panel .main-panel{display: flex;justify-content: space-between;}
+.home-page .latest-news-panel .left-panel{display: flex;flex-direction: column;flex: 0 0 72%;max-width: 72%;}
+.home-page .latest-news-panel .right-panel{flex: 0 0 26%;max-width: 26%;}
+.home-page .latest-news-panel .left-panel .news{width: 100%;overflow: hidden;}
+.home-page .latest-news-panel .left-panel .news .news-item{display: flex;column-gap: 1.44rem;padding: 1.31rem 0;border-bottom: 1px solid #E5E5E5;border-radius: 0.5px;cursor: pointer;}
+.home-page .latest-news-panel .left-panel .news:first-child .news-item{padding-top: 0;}
+.home-page .latest-news-panel .left-panel .news:last-child .news-item{border-bottom: none;}
+.home-page .latest-news-panel .left-panel .news .news-item img{width: 12.94rem;height: 100%;border-radius: 8px;}
+.home-page .latest-news-panel .left-panel .news .news-item .details{display: flex;flex-direction: column;row-gap: 0.94rem;min-width: 0;}
+.home-page .latest-news-panel .left-panel .news .news-item .details h3{font-size: 1.25rem;color: #404040;margin-bottom: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100%;display: block;}
+.home-page .latest-news-panel .left-panel .news .news-item .details p{color: #999999;font-size: 0.88rem;}
+.home-page .latest-news-panel .left-panel .news .news-item .details .content{display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;}
+.home-page .latest-news-panel .right-panel .recommend-news h4{color: #1F2121;font-weight: bold;font-size: 1.13rem;margin-bottom: 0.81rem;}
+.home-page .latest-news-panel .right-panel .recommend-news .news .news-item{display: flex;column-gap: 1.25rem;padding: .7rem 0;border-bottom: 1px solid #E5E5E5;cursor: pointer;}
+.home-page .latest-news-panel .right-panel .recommend-news .news .news-item img{width: 5rem;height: auto;border-radius: 6px;}
+.home-page .latest-news-panel .right-panel .recommend-news .news .news-item h4{color: #1F2121;font-size: 1rem;font-weight: normal;display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;line-height: 1.5rem;}
+.home-page .latest-news-panel .right-panel .recommend-news .news:first-child .news-item{display: block;position: relative;column-gap: 0;padding: 0;border-bottom: none;}
+.home-page .latest-news-panel .right-panel .recommend-news .news:first-child .news-item img{width: 100%;height: auto;border-radius: 12px;}
+.home-page .latest-news-panel .right-panel .recommend-news .news:first-child .news-item h4{color: #ffffff;font-size: 1rem;font-weight: bold;position: absolute;width: 100%;bottom: 0.75rem;margin-bottom: 0;padding: 0 0.94rem;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: block;line-height: normal;}
+.home-page .latest-news-panel .right-panel .news-bottom-banner{margin-top: 1.5rem;display: grid;row-gap: 0.69rem;}
+.home-page .latest-news-panel .right-panel .news-bottom-banner img{width: 100%;border-radius: 8px;cursor: pointer;}
+
+.home-page .latest-topic-panel{margin-top: 1.5rem;background-color: #ffffff;border-radius: 8px;padding: 1.31rem 1.56rem 1.56em;}
+.home-page .latest-topic-panel .panel-header{margin-bottom: 1.31rem;}
+.home-page .latest-topic-panel .topic-tab-panel{display: flex;column-gap: 1.69rem;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list{width: 6.25rem;height: 15.63rem;background-color: #51C5FE;border-radius: 12px;padding: 0.94rem 0.81rem;} 
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab{display: flex;row-gap: 1.88rem;flex-direction: column;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab{border-radius: 12px;background-color: #74D1FE;height: 5.93rem;display: flex;flex-direction: column;justify-content: center;align-items: center;row-gap: 0.25rem;cursor: pointer;position: relative;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab img{width: 1.63rem;height: auto;filter: brightness(0) saturate(100%) invert(93%) sepia(11%) saturate(633%) hue-rotate(169deg) brightness(93%) contrast(115%);transition: .3s all ease;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab span{font-size: 1.13rem;font-weight: bold;color: #D4EFFC;transition: .3s all ease;white-space: nowrap;width: 100%;overflow: hidden;text-align: center;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab.active{background-color: #FFFFFF;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab.active img{width: 2.25rem;filter: brightness(0) saturate(100%) invert(62%) sepia(93%) saturate(749%) hue-rotate(171deg) brightness(102%) contrast(99%);transition: .3s all ease;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab.active span{color: #333333;transition: .3s all ease;}
+.home-page .latest-topic-panel .topic-tab-panel .topic-tab-list .tab .topicTab.active::after{content: "";position: absolute;right: -1.5rem;top: 50%;transform: translateY(-50%);border-width: 0.94rem;border-style: solid;border-color: transparent transparent transparent #ffffff;}
+.home-page .latest-topic-panel .topic-tab-panel .topicContent{display: none;width: 100%;}
+.home-page .latest-topic-panel .topic-tab-panel .topicContent#games{display: block;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-categories, .home-page .latest-topic-panel .topic-tab-panel .app-topic-categories{display: flex;justify-content: space-between;margin-bottom: 1.38rem;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-categories .topic, .home-page .latest-topic-panel .topic-tab-panel .app-topic-categories .topic{flex: 0 0 23.5%;max-width: 23.5%;position: relative;cursor: pointer;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-categories .topic .topic-item img, .home-page .latest-topic-panel .topic-tab-panel .app-topic-categories .topic .topic-item img{width: 100%;border-radius: 8px;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-categories .topic .topic-item h4, .home-page .latest-topic-panel .topic-tab-panel .app-topic-categories .topic .topic-item h4{position: absolute;bottom: 0;text-align: center;width: 100%;color: #ffffff;font-size: 1rem;background: rgba(0, 0, 0, 0.5);margin-bottom: 0;padding: 0.44rem 1rem;border-radius: 0 0 8px 8px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list{display: flex;row-gap: 0.94rem;flex-wrap: wrap;justify-content: space-between;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list .topic-item, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list .topic-item{flex: 0 0 31%;max-width: 31%;cursor: pointer;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list .topic-item .topic, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list .topic-item .topic{display: flex;justify-content: space-between;align-items: center;position: relative;padding-left: 3px;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list .topic-item .topic::before, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list .topic-item .topic::before{content: "";position: absolute;width: 4px;height: 4px;border-radius: 50%;background: #E5E5E5;top: 50%;transform: translateY(-50%);left: -3px;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list .topic-item .topic h4, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list .topic-item .topic h4 {margin-bottom: 0;color: #404040;font-size: 0.88rem;}
+.home-page .latest-topic-panel .topic-tab-panel .game-topic-list .topic-item .topic p, .home-page .latest-topic-panel .topic-tab-panel .app-topic-list .topic-item .topic p{color: #999999;font-size: 0.88rem;}
+
+.home-page .app-list-panel{margin-top: 1.5rem;border-radius: 8px;padding: 1.69rem 1.56rem;background: url(../imgs/home/game-tab-bg.png);background-repeat: no-repeat;background-size: cover;}
+.home-page .app-list-panel .app-tab-list .tab{display: flex;column-gap: 1.25rem;justify-content: center;}
+.home-page .app-list-panel .app-tab-list .tab .appTab{border-radius: 20px;background-color: #FFFFFF;text-align: center;font-size: 1rem;color: #999999;height: 2.5rem;width: 10rem;display: flex;align-items: center;justify-content: center;cursor: pointer;transition: .3s all ease;}
+.home-page .app-list-panel .app-tab-list .tab .appTab.active{background-color: #51C5FE;color: #FFFFFF;transition: .3s all ease;}
+.home-page .app-list-panel .appContent{display: none;margin-top: 1.57rem;}
+.home-page .app-list-panel .appContent#mobileGame{display: flex;}
+.home-page .app-list-panel .appContent .mobile-game-list, .home-page .app-list-panel .appContent .essential-app-list{display: flex;flex-wrap: wrap;row-gap: 1.5rem;justify-content: space-between;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item{display: flex;flex: 0 0 32%;max-width: 32%;background-color: #F9F9F9;border-radius: 12px;padding: 1.06rem 1.19rem;cursor: pointer;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item{display: flex;column-gap: 1.13rem;width: 100%;overflow: hidden;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item img, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item img{width: 4rem;height: auto;border-radius: 15px;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item .details, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item .details{display: flex;flex-direction: column;justify-content: space-between;padding: 0.3rem 0;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item .details h3, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item .details h3{margin-bottom: 0;font-size: 1rem;color: #404040;white-space: nowrap;overflow: hidden;width: 100%;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item .details .dateSizeWrap, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item .details .dateSizeWrap{display: flex;column-gap: 1.63rem;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item .details .dateSizeWrap p, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item .details .dateSizeWrap p{font-size: 0.88rem;color: #999999;position: relative;}
+.home-page .app-list-panel .appContent .mobile-game-list .mobileGame-item .game-item .details .dateSizeWrap p.size::after, .home-page .app-list-panel .appContent .essential-app-list .essentialGame-item .game-item .details .dateSizeWrap p.size::after{content: ""; position: absolute; right: -0.8rem; height: 75%; width: 1px; background: #999999; top: 50%; transform: translateY(-50%);}
+
+.home-page .download-and-rank-panel{margin-top: 1.88rem;display: flex;justify-content: space-between}
+.home-page .download-and-rank-panel .left-panel{flex: 0 0 68%;max-width: 68%;}
+.home-page .download-and-rank-panel .right-panel{flex: 0 0 30%;max-width: 30%;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel{display: flex;padding: 1.25rem 1.44rem 1.5rem;justify-content: space-between;background-color: #ffffff;border-radius: 5px;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel{border-radius: 12px;flex: 0 0 48.5%;max-width: 48.5%;background: url(../imgs/home/hot-game-download-panel-bg.png);background-repeat: no-repeat;background-size: cover;display: flex;flex-direction: column;align-items: center;padding-bottom: 1.69rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel{border-radius: 12px;flex: 0 0 48.5%;max-width: 48.5%;background: url(../imgs/home/player-hot-game-download-panel-bg.png);background-repeat: no-repeat;background-size: cover;display: flex;flex-direction: column;align-items: center;padding-bottom: 1.69rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .title-img{padding-top: 1.25rem;width: 90%;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .title-img{padding-top: 2.3rem;width: 90%;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list{display: flex;flex-direction: column;row-gap: 2.06rem;width: 100%;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games{display: flex;justify-content: space-between;padding: 0 0.69rem;align-items: center;margin-top: .5rem;background: #f3efed21;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games{margin-top: 1.8rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block{flex: 0 0 29%;max-width: 29%;position: relative;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item{background-color: #ffffff;padding: 0.63rem 0.63rem 1.7rem;border-radius: 10px;box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.02);display: flex;flex-direction: column;row-gap: 0.5rem;align-items: center;clip-path: polygon(0% 0%, 100% 0%, 100% 101%, 50% 89%, 0% 101%);overflow: hidden;cursor: pointer;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item img, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item img{width: 5rem;height: auto;border-radius: 15px;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item h3, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item h3{margin-bottom: 0;font-size: 1rem;color: #404040;font-weight: normal;white-space: nowrap;width: 100%;overflow: hidden;text-align: center;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.first, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.first{order: 2;flex: 0 0 36.5%;max-width: 36.5%;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.first .game-item, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.first .game-item{padding: 1.19rem 0.94rem 2.2rem;row-gap: 0.69rem;position: relative;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.second, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.second{order: 1;position: relative;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.third, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.third{order: 3;position: relative;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.first img, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.first img{width: 6rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.first::before, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.first::before{content: "";position: absolute;left: 50%;transform: translateX(-50%);top: -1.06rem;background: url(../imgs/home/crown_first.png);background-repeat: no-repeat;width: 3.44rem;height: 2.63rem;z-index: 1;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.second::before, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.second::before{content: "";position: absolute;left: 50%;transform: translateX(-50%);top: -0.75rem;background: url(../imgs/home/crown_second.png);background-repeat: no-repeat;width: 2.25rem;height: 1.69rem;z-index: 1;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .top-three-games .game-item-block.third::before, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .top-three-games .game-item-block.third::before{content: "";position: absolute;left: 50%;transform: translateX(-50%);top: -0.75rem;background: url(../imgs/home/crown_third.png);background-repeat: no-repeat;width: 2.25rem;height: 1.69rem;z-index: 1;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games {display: flex;flex-direction: column;row-gap: 1.31rem;padding: 0 0.94rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item{display: flex;align-items: center;cursor: pointer;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item .game-index, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item .game-index{width: 1.63rem;height: 1.63rem;display: flex;align-items: center;justify-content: center;font-size: 0.88rem;color: #666666;border-radius: 5px;background-color: #ECECEC;margin-right: 1.19rem;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item .details, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item .details{display: flex;align-items: center;flex-grow: 1;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item .details h3, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item .details h3{margin-bottom: 0;font-size: 1rem;color: #404040;width: 9.37rem;overflow: hidden;white-space: nowrap;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item .details p, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item .details p{font-size: 0.88rem;color: #999999;}
+.home-page .download-and-rank-panel .left-panel .top-download-panel .hot-game-download-panel .hot-game-top-download-list .remaining-games .game-item .details p.size, .home-page .download-and-rank-panel .left-panel .top-download-panel .player-hot-game-download-panel .player-hot-game-top-download-list .remaining-games .game-item .details p.size{margin-left: auto;margin-right: 1.56rem;}
+
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel{background-color: #ffffff;border-radius: 12px;padding: 1.13rem 1.44rem 1.5rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .panel-header h2{margin-bottom: 0;font-size: 1.13rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .panel-header{margin-bottom: 1.06rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list{display: flex;flex-direction: column;row-gap: 0.94rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item{display: flex;align-items: center;cursor: pointer;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item .topic-index{width: 1.5rem;height: 1.5rem;font-size: 1rem;color: #666666;display: flex;justify-content: center;align-items: center;background-color: #ECECEC;border-radius: 5px;margin-right: 0.63rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item h3{margin-bottom: 0;font-size: 1rem;color: #404040;font-weight: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;max-width: 13rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item p{color: #999999;font-size: 0.88rem;margin-left: auto;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item.first .topic-index{background:linear-gradient( 90deg, rgb(250,128,83) 0%, rgb(245,84,48) 100%);color: #ffffff;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item.second .topic-index{background:linear-gradient( 90deg, rgb(84,201,255) 0%, rgb(59,176,255) 64%, rgb(59,176,255) 100%);color: #ffffff;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .topic-rank-panel .topic-rank-list .topic-item.third .topic-index{background:linear-gradient( 90deg, rgb(93,245,169) 0%, rgb(86,227,157) 100%);color: #ffffff;}
+
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel{margin-top: 1rem;background-color: #ffffff;border-radius: 12px;padding: 1.13rem 1.44rem 1.5rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .panel-header h2{margin-bottom: 0;font-size: 1.13rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .panel-header{margin-bottom: 1.06rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list{display: flex;flex-direction: column;row-gap: 0.94rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item{display: flex;align-items: center;cursor: pointer;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item .app-index{width: 1.5rem;height: 1.5rem;font-size: 1rem;color: #666666;display: flex;justify-content: center;align-items: center;background-color: #ECECEC;border-radius: 5px;margin-right: 0.63rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item h3{margin-bottom: 0;font-size: 1rem;color: #404040;font-weight: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;max-width: 13rem;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item p{color: #999999;font-size: 0.88rem;margin-left: auto;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item.first .app-index{background:linear-gradient( 90deg, rgb(250,128,83) 0%, rgb(245,84,48) 100%);color: #ffffff;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item.second .app-index{background:linear-gradient( 90deg, rgb(84,201,255) 0%, rgb(59,176,255) 64%, rgb(59,176,255) 100%);color: #ffffff;}
+.home-page .download-and-rank-panel .right-panel .topic-and-app-panel .app-combination-panel .app-combination-list .app-item.third .app-index{background:linear-gradient( 90deg, rgb(93,245,169) 0%, rgb(86,227,157) 100%);color: #ffffff;}
