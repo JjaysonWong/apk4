@@ -130,16 +130,16 @@
                 init="false">
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
-                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game->union_id]) }}'"
+                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'"
                             style="cursor: pointer;">
-                            <img src="{{ Str::startsWith($game->icon, ['http://', 'https://']) ? $game->icon : env('IMG_DB') . $game->icon }}"
+                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : env('IMG_DB') . $game['icon'] }}"
                                 alt="Game Image" />
-                            <p class="gamename">{{ $game->name }}</p>
+                            <p class="gamename">{{ $game['name'] }}</p>
                             {{-- <p class="updatedTime">{{ date('Y-m-d', strtotime($game->uptime)) }} {{ __('auth.update') }} --}}
                             </p>
                             <div class="rating">
                                 <img src="{{ asset('images/download/star-fill.png') }}" alt="Star Fill" />
-                                <p>{{ number_format($game->game_score, 1) }}</p>
+                                <p>{{ number_format($game['game_score'], 1) }}</p>
                             </div>
                         </div>
                     </swiper-slide>
@@ -204,9 +204,9 @@
                             style="{{ $loop->first ? '' : 'display:none;' }}">
                             @foreach ($games['games'] as $game)
                                 <div class="gameWrap"
-                                    onclick="window.location.href='{{ route('game.show', ['union_id' => $game->union_id]) }}'">
-                                    <img src="{{ $game->icon }}" alt="Game Image" />
-                                    <p class="gameName">{{ $game->name }}</p>
+                                    onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'">
+                                    <img src="{{ $game['icon'] }}" alt="Game Image" />
+                                    <p class="gameName">{{ $game['name'] }}</p>
                                     <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }}
                                         {{ __('auth.update') }}</p>
                                 </div>
@@ -292,10 +292,10 @@
                             style="{{ $loop->first ? '' : 'display:none;' }}">
                             @foreach ($apps['apps'] as $app)
                                 <div class="gameWrap"
-                                    onclick="window.location.href='{{ route('app.show', ['union_id' => $app->union_id]) }}'">
-                                    <img src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                                    onclick="window.location.href='{{ route('app.show', ['union_id' => $app['union_id']]) }}'">
+                                    <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : env('IMG_DB') . $app['icon'] }}"
                                         alt="Game Image" />
-                                    <p class="gameName">{{ $app->name }}</p>
+                                    <p class="gameName">{{ $app['name'] }}</p>
                                     <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }}
                                         {{ __('auth.update') }}</p>
                                 </div>

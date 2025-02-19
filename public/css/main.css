@@ -23,7 +23,7 @@ h1{opacity: 0;position: absolute;z-index: -1;}
 .topbg{position: absolute;z-index: -1;width: 100%;}
 header{background: var(--bg-color);height: 70px;width: 100%;display: flex;align-items: center;}
 header .navbar-nav{flex-direction: row;align-items: center;column-gap: 30px;}
-header .navbar-nav .logo{margin-right: 42px;cursor: pointer;filter: brightness(0) saturate(100%)}
+header .navbar-nav .logo{width: 85px;cursor: pointer;padding-bottom: 10.5rem;margin-bottom: -9.5rem;}
 header .navbar-nav li a{color: var(--menu-text-color);font-size: 18px;position: relative;}
 header .navbar-nav li a:hover{text-decoration: none;}
 header .navbar-nav li.menu-item a:after { display: block; height: 3px; background: var(--nav-bottom-line-color); position: absolute; border-radius: 1.5px; content: ""; left: 4px; right: 4px; opacity: 0; bottom: -20px; -webkit-transition: opacity .2s ease-in-out, transform .2s ease-in-out; -moz-transition: opacity .2s ease-in-out, transform .2s ease-in-out; -ms-transition: opacity .2s ease-in-out, transform .2s ease-in-out; transform-origin: bottom; transform: scaleX(0.3) scaleY(0); }
@@ -92,7 +92,7 @@ footer .footer-bottom .languageDropdown .dropdown-toggle > img{margin-right: 7px
     header .menu-mobile .hamburgerMenu.change .bar1 { transform: translate(0, 0.9rem) rotate(-45deg);background-color: #555555;}
     header .menu-mobile .hamburgerMenu.change .bar2 {opacity: 0;}
     header .menu-mobile .hamburgerMenu.change .bar3 { transform: translate(0, -0.8rem) rotate(45deg); background-color: #555555;}
-    header .menu-mobile .logo{filter: brightness(0) saturate(100%);width: 10rem;}
+    header .menu-mobile .logo{width: 10rem;height: 100px;}
     header{height: 6.28rem;display: block;padding: 0 2.14rem;background: linear-gradient(90deg, rgba(65,133,244,0.5) 0%, rgba(38,255,175,0.5) 100%);}
     header .menu-mobile .searchIcon svg{width: 2.5rem;height: 2.5rem;}
     header .menu-mobile .mobile-header-right{display: flex;column-gap: 2.92rem;align-items: center;}
@@ -146,7 +146,7 @@ footer .footer-bottom .languageDropdown .dropdown-toggle > img{margin-right: 7px
 }
 
 @media (min-width: 1025px) and (max-width: 1439px) {
-    header .navbar-nav .logo{width: 150px;height: auto;margin-right: 20px;}
+    header .navbar-nav .logo{width: 85px;}
     header .navbar-nav{column-gap: 20px;}
     header .navbar-nav .languageDropdown{margin-left: 20px;}
 }

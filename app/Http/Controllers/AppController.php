@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Models\Apk4AppList;
+use App\Models\Apk4AppImg;
 
 class AppController extends Controller
 {
     public function show($unionId)
     {
-        $app= DB::table('apk4_app_list')
-                ->where('union_id', $unionId)
-                ->first();
+        $app = Apk4AppList::where('union_id', $unionId)->first();
 
         if (!$app) {
             abort(404);
@@ -24,19 +24,18 @@ class AppController extends Controller
 
         $appId = $app->gameid ?? '';
 
-        $appScreenshot = DB::table('apk4_app_img')
-                  ->where('gameid', $appId)
-                  ->get()
-                  ->toArray();
+        $appScreenshot = Apk4AppImg::where('gameid', $appId)->get()->toArray() ?? [];
 
         if (!empty($appScreenshot)) {
             $screenshots = [];
 
             foreach ($appScreenshot as $value) {
-                $screenshots[] = env('IMG_DB') . $value->path;
+            $screenshots[] = env('IMG_DB') . $value['path'];
             }
 
             $app->screenshots = $screenshots;
+        } else {
+            $app->screenshots = [];
         }
         
         $app->app_version = $this->extractVersion($app->title);

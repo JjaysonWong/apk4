@@ -118,20 +118,22 @@
             </div>
             <div class="downloadInfo">
                 <div class="content-left">
-                    <div class="screenshot-slider">
-                        <h2>{{ __('auth.screenshot_preview') }}</h2>
-                        <swiper-container class="mySwiper screenshotSwiper" space-between="15" slides-per-view="1.7"
-                            navigation="true" init="false">
+                    @if (!empty($app->screenshots))
+                        <div class="screenshot-slider">
+                            <h2>{{ __('auth.screenshot_preview') }}</h2>
+                            <swiper-container class="mySwiper screenshotSwiper" space-between="15" slides-per-view="1.7"
+                                navigation="true" init="false">
 
-                            @foreach ($app->screenshots as $screenshot)
-                                <swiper-slide>
-                                    <img src="{{ Str::startsWith($screenshot, ['http://', 'https://']) ? $screenshot : env('IMG_DB') . $screenshot }}"
-                                        alt="App Screenshot" />
-                                </swiper-slide>
-                            @endforeach
+                                @foreach ($app->screenshots as $screenshot)
+                                    <swiper-slide>
+                                        <img src="{{ Str::startsWith($screenshot, ['http://', 'https://']) ? $screenshot : env('IMG_DB') . $screenshot }}"
+                                            alt="App Screenshot" />
+                                    </swiper-slide>
+                                @endforeach
 
-                        </swiper-container>
-                    </div>
+                            </swiper-container>
+                        </div>
+                    @endif
 
                     <div class="app-info">
                         <div class="appIntro">{!! $app->introduce !!}</div>
