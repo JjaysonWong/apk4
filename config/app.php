@@ -122,6 +122,7 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+    'img_db' => env('IMG_DB', 'https://yuncuncu.s3.ap-northeast-2.amazonaws.com/'),
 
     /*
     |--------------------------------------------------------------------------

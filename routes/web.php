@@ -58,9 +58,9 @@ Route::get('/checkdb', function () {
 // language switcher
 Route::get('/change-language/{locale}', function ($locale) {
     
-    if (in_array($locale, ['en', 'zh'])) { 
+    if (in_array($locale, ['en', 'zh'])) {
         Session::put('locale', $locale);
-        App::setLocale($locale);
     }
-    return back();
+
+    return response()->json(['success' => true]);
 })->name('change.language');

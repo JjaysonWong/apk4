@@ -14,7 +14,7 @@ class GameController extends Controller
     {
         return view('pages.games');
     }
-    
+
     public function show($unionId)
     {
         $game = Apk4GameList::with('screenshots')->where('union_id', $unionId)->first();
@@ -33,7 +33,7 @@ class GameController extends Controller
             $screenshots = [];
 
             foreach ($gameScreenshot as $value) {
-                $screenshots[] = env('IMG_DB') . $value['path'];
+                $screenshots[] = config('app.img_db') . $value['path'];
             }
 
             $game->screenshots = $screenshots;

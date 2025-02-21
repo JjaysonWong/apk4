@@ -34,7 +34,7 @@ class AppController extends Controller
             $screenshots = [];
 
             foreach ($appScreenshot as $value) {
-            $screenshots[] = env('IMG_DB') . $value['path'];
+                $screenshots[] = config('app.img_db') . $value['path'];
             }
 
             $app->screenshots = $screenshots;
