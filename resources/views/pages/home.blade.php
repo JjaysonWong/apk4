@@ -84,7 +84,7 @@
                                                     <p>{{ $index + 1 }}</p>
                                                 </div>
                                             @endif
-                                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : env('IMG_DB') . $game['icon'] }}"
+                                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : config('app.img_db') . $game['icon'] }}"
                                                 alt="Game Image" />
                                             <p>{{ $game['name'] }}</p>
                                         </div>
@@ -108,7 +108,7 @@
                                                 </div>
                                             @endif
 
-                                            <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : env('IMG_DB') . $app['icon'] }}"
+                                            <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : config('app.img_db') . $app['icon'] }}"
                                                 alt="App Image" />
                                             <p>{{ $app['name'] }}</p>
                                         </div>
@@ -132,7 +132,7 @@
                     <swiper-slide>
                         <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'"
                             style="cursor: pointer;">
-                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : env('IMG_DB') . $game['icon'] }}"
+                            <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : config('app.img_db') . $game['icon'] }}"
                                 alt="Game Image" />
                             <p class="gamename">{{ $game['name'] }}</p>
                             {{-- <p class="updatedTime">{{ date('Y-m-d', strtotime($game->uptime)) }} {{ __('auth.update') }} --}}
@@ -293,7 +293,7 @@
                             @foreach ($apps['apps'] as $app)
                                 <div class="gameWrap"
                                     onclick="window.location.href='{{ route('app.show', ['union_id' => $app['union_id']]) }}'">
-                                    <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : env('IMG_DB') . $app['icon'] }}"
+                                    <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : config('app.img_db') . $app['icon'] }}"
                                         alt="Game Image" />
                                     <p class="gameName">{{ $app['name'] }}</p>
                                     <p class="gameUpdate">{{ now()->subDays(rand(1, 365))->toDateString() }}

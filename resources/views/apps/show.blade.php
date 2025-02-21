@@ -46,7 +46,7 @@
             </div>
             <div class="banner-download">
                 <img class="appImage"
-                    src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                    src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : config('app.img_db') . $app->icon }}"
                     alt="App Image" />
                 <div class="detailWrap">
                     <div class="name">{{ $app->name }}</div>
@@ -87,7 +87,7 @@
             <div class="banner-download-mobile">
                 <div class="topWrap">
                     <img class="appImage"
-                        src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : env('IMG_DB') . $app->icon }}"
+                        src="{{ Str::startsWith($app->icon, ['http://', 'https://']) ? $app->icon : config('app.img_db') . $app->icon }}"
                         alt="App Image" />
                     <div class="detailWrap">
                         <div class="name">{{ $app->name }}</div>
@@ -126,7 +126,7 @@
 
                                 @foreach ($app->screenshots as $screenshot)
                                     <swiper-slide>
-                                        <img src="{{ Str::startsWith($screenshot, ['http://', 'https://']) ? $screenshot : env('IMG_DB') . $screenshot }}"
+                                        <img src="{{ Str::startsWith($screenshot, ['http://', 'https://']) ? $screenshot : config('app.img_db') . $screenshot }}"
                                             alt="App Screenshot" />
                                     </swiper-slide>
                                 @endforeach
