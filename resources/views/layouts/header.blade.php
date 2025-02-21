@@ -46,7 +46,28 @@
                             <i class="dev_top_lang_icon"></i> {{ __('auth.' . app()->getLocale()) }} <b
                                 class="minicaret"></b>
                         </a>
+                        @php
+                            $languages = ['en' => __('auth.en'), 'zh' => __('auth.zh')];
+                            $currentLocale = app()->getLocale();
+                        @endphp
+
                         <ul class="dropdownList">
+                            @foreach ($languages as $langCode => $langName)
+                                <li class="{{ $currentLocale === $langCode ? 'chosen' : '' }}"
+                                    onclick="changeLanguage('{{ $langCode }}', this)">
+                                    <a
+                                        style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
+                                        <span>{{ $langName }}</span>
+                                        @if ($currentLocale === $langCode)
+                                            <span>✅</span>
+                                        @endif
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+
+                        {{-- <ul class="dropdownList">
                             <li class="{{ app()->getLocale() === 'zh' ? 'chosen' : '' }}"
                                 onclick="changeLanguage('zh', this)">
                                 <a>{{ __('auth.zh') }}</a>
@@ -55,7 +76,7 @@
                                 onclick="changeLanguage('en', this)">
                                 <a>{{ __('auth.en') }}</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                 </div>
             </div>
