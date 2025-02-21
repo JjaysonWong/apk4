@@ -12,7 +12,7 @@ class AppController extends Controller
 {
     public function show($unionId)
     {
-        $app = Apk4AppList::where('union_id', $unionId)->first();
+        $app = Apk4AppList::with('screenshots')->where('union_id', $unionId)->first();
 
         if (!$app) {
             abort(404);
@@ -22,9 +22,8 @@ class AppController extends Controller
             $app->uptime = date('Y-m-d H:i:s', $app->uptime);
         }
 
-        $appId = $app->gameid ?? '';
+        $appScreenshot = $app->screenshots->toArray();
 
-        $appScreenshot = Apk4AppImg::where('gameid', $appId)->get()->toArray() ?? [];
 
         if (!empty($appScreenshot)) {
             $screenshots = [];

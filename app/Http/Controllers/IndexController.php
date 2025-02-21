@@ -23,16 +23,12 @@ class IndexController extends Controller
 
         $topAppList = Apk4AppList::orderBy('game_score', 'desc')->limit(16)->get()->toArray();
 
-        $personalizedRecommendation = Apk4GameList::orderBy('game_score', 'desc')
-                        ->limit(16)
-                        ->get()
-                        ->map(function ($game) {
-                        if (!empty($game->uptime)) {
-                            $game->uptime = date('Y-m-d', strtotime($game->uptime));
-                        }
-                        return $game;
-                        })
-                        ->toArray();
+        $personalizedRecommendation = collect($topGameList)->map(function ($game) {
+            if (!empty($game['uptime'])) {
+                $game['uptime'] = date('Y-m-d', strtotime($game['uptime']));
+            }
+            return $game;
+        })->toArray();
 
         // $categories = collect(config('categories.categories'))
         //             ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])

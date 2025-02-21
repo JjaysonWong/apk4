@@ -39,4 +39,9 @@ class Apk4GameImg extends Model
 		'addtime',
 		'addadmin'
 	];
+
+	public function game()
+    {
+        return $this->belongsTo(Apk4GameList::class, 'gameid', 'id');
+    }
 }

@@ -39,4 +39,9 @@ class Apk4AppImg extends Model
 		'addtime',
 		'addadmin'
 	];
+
+	public function app()
+    {
+        return $this->belongsTo(Apk4AppList::class, 'gameid', 'id');
+    }
 }

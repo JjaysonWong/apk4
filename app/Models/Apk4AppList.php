@@ -177,4 +177,9 @@ class Apk4AppList extends Model
 		'is_360',
 		'unique_id'
 	];
+
+	public function screenshots()
+    {
+        return $this->hasMany(Apk4AppImg::class, 'gameid', 'id');
+    }
 }

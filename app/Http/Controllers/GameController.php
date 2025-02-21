@@ -12,7 +12,7 @@ class GameController extends Controller
 {
     public function show($unionId)
     {
-        $game = Apk4GameList::where('union_id', $unionId)->first();
+        $game = Apk4GameList::with('screenshots')->where('union_id', $unionId)->first();
 
         if (!$game) {
             abort(404);
@@ -22,10 +22,7 @@ class GameController extends Controller
             $game->uptime = date('Y-m-d H:i:s', $game->uptime);
         }
 
-        $gameId = $game->gameid ?? '';
-        
-        
-        $gameScreenshot = Apk4GameImg::where('gameid', $gameId)->get()->toArray();
+        $gameScreenshot = $game->screenshots->toArray();
 
         if (!empty($gameScreenshot)) {
             $screenshots = [];
