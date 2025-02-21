@@ -96,41 +96,16 @@ class IndexController extends Controller
 
 
         return view('pages.home', [
-            'topGameList' => $topGameList,
-            'topAppList' => $topAppList,
+            'topGameList'                => $topGameList,
+            'topAppList'                 => $topAppList,
             'personalizedRecommendation' => $personalizedRecommendation,
-            'newUpdateGameList' => $formattedUpdateGameList,
-            'applicationCategories' => $applicationCategories,
-            'hotRank' => $hotRank,
-            'hotAppRank' => $hotAppRank,
-            'dbGameCategory' => $dbGameCategory,
-            'dbAppCategory' => $dbAppCategory,
-            'games' => config('games.games'),
+            'newUpdateGameList'          => $formattedUpdateGameList,
+            'applicationCategories'      => $applicationCategories,
+            'hotRank'                    => $hotRank,
+            'hotAppRank'                 => $hotAppRank,
+            'dbGameCategory'             => $dbGameCategory,
+            'dbAppCategory'              => $dbAppCategory,
+            'games'                      => config('games.games'),
         ]);
-    }
-
-    public function games()
-    {
-        return view('pages.games');
-    }
-
-    public function application()
-    {
-        return view('pages.application');
-    }
-
-    public function info()
-    {
-        return view('pages.info');
-    }
-
-    public function topic()
-    {
-        return view('pages.topic');
-    }
-    
-    public function rank()
-    {
-        return view('pages.rank');
     }
 }

@@ -10,6 +10,11 @@ use App\Models\Apk4AppImg;
 
 class AppController extends Controller
 {
+    public function application()
+    {
+        return view('pages.application');
+    }
+
     public function show($unionId)
     {
         $app = Apk4AppList::with('screenshots')->where('union_id', $unionId)->first();

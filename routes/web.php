@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\RankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,18 +25,24 @@ use App\Http\Controllers\AppController;
 
 Route::get('/', [IndexController::class, 'index']);
 
+// Game Routes
+Route::prefix('games')->name('game.')->group(function () {
+    Route::get('/', [GameController::class, 'games'])->name('index');
+    Route::get('/{union_id?}', [GameController::class, 'show'])->name('show');
+    Route::get('/category/{category}', [GameController::class, 'showGameCategory'])->name('category');
+});
 
-Route::get('/games', [IndexController::class, 'games'])->name('index.game');
-Route::get('/application', [IndexController::class, 'application']);
-Route::get('/info', [IndexController::class, 'info']);
-Route::get('/topic', [IndexController::class, 'topic']);
-Route::get('/rank', [IndexController::class, 'rank']);
+// Application Routes
+Route::prefix('application')->name('app.')->group(function () {
+    Route::get('/', [AppController::class, 'application'])->name('index');
+    Route::get('/{union_id?}', [AppController::class, 'show'])->name('show');
+    Route::get('/category/{category}', [AppController::class, 'showAppCategory'])->name('category');
+});
 
-Route::get('/games/{union_id?}', [GameController::class, 'show'])->name('game.show');
-Route::get('/games/category/{category}', [GameController::class, 'showGameCategory'])->name('game.category');
 
-Route::get('/application/{union_id?}', [AppController::class, 'show'])->name('app.show');
-Route::get('/application/category/{category}', [AppController::class, 'showAppCategory'])->name('app.category');
+Route::get('/info', [InfoController::class, 'info'])->name('info.show');
+Route::get('/topic', [TopicController::class, 'topic'])->name('topic.show');
+Route::get('/rank', [RankController::class, 'rank'])->name('rank.show');
 
 // sample route to test database connection
 Route::get('/checkdb', function () {

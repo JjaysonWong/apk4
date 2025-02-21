@@ -10,6 +10,11 @@ use App\Models\Apk4GameImg;
 
 class GameController extends Controller
 {
+    public function games()
+    {
+        return view('pages.games');
+    }
+    
     public function show($unionId)
     {
         $game = Apk4GameList::with('screenshots')->where('union_id', $unionId)->first();
