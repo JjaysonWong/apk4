@@ -184,9 +184,15 @@
                         $activeCategory = $appCategories ?? 'all';
                     @endphp
 
-                    @foreach ($categories as $key => $value)
+                    {{-- @foreach ($categories as $key => $value)
                         <button class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}"
                             onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
+                    @endforeach --}}
+                    @foreach ($categories as $key => $value)
+                        <a href="{{ route('app.category', ['category' => $key]) }}"
+                            class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}">
+                            {{ $value }}
+                        </a>
                     @endforeach
                 </div>
             </div>
