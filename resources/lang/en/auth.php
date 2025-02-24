@@ -95,6 +95,7 @@ return [
     'developer_other_games' => 'Developers\' Other Games',
     'hot_label' =>'Hot Label',
     'screenshot_preview' => 'Screenshot Preview',
+    'new' => 'New',
 
 
 

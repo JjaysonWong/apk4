@@ -111,6 +111,16 @@
                                 </div>
                             </div>
                         </swiper-slide>
+                        <swiper-slide>
+                            <div class="bannerWrap">
+                                <img class="banner" src="{{ asset('images/topic/mobileBanner2.png') }}"
+                                    alt="Banner Image" />
+                                <div class="contentWrap">
+                                    <p class="topicTitle">出击速度很快的动作</p>
+                                    <p class="topicUpdate">2023-12-08更新</p>
+                                </div>
+                            </div>
+                        </swiper-slide>
                     </swiper-container>
                 </div>
             </div>
@@ -167,31 +177,5 @@
             end: "{{ __('pagination.end') }}"
         };
     </script>
-    <script>
-        const swiperEl = document.querySelector('swiper-container')
-
-        Object.assign(swiperEl, {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            breakpoints: {
-                320: {
-                    slidesPerView: 1.5,
-                    spaceBetween: 20,
-                },
-                375: {
-                    slidesPerView: 1.7,
-                    spaceBetween: 20,
-                },
-                525: {
-                    slidesPerView: 2.3,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 3.2,
-                    spaceBetween: 20,
-                },
-            },
-        })
-        swiperEl.initialize();
-    </script>
+    <script src="{{ asset('js/topic-blade.js') }}"></script>
 @endsection

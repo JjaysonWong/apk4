@@ -32,50 +32,28 @@
         <div class="top-banner-slider">
             <swiper-container class="mySwiper topBannerSwiper" space-between="20" slides-per-view="3" navigation="true"
                 init="false">
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="newIconWrap">
-                            <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
-                            <p>NEW</p>
+                @for ($i = 1; $i < 5; $i++)
+                    @php
+                        $imageIndex = $i == 4 ? 1 : $i;
+                    @endphp
+                    <swiper-slide>
+                        <div class="imgWrap">
+                            @if ($i === 1)
+                                <div class="newIconWrap">
+                                    <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
+                                    <p>{{ __('auth.new') }}</p>
+                                </div>
+                            @endif
+                            <div class="overlayImage">
+                                <div class="overlay"></div>
+                                <img class="bannerImage" src="{{ asset('images/games/topBanner' . $imageIndex . '.png') }}"
+                                    alt="App Banner" />
+                            </div>
+                            <p class="bannerTitle">凡人修仙传：人界篇</p>
+                            <div class="viewButton">{{ __('auth.view_now') }}</div>
                         </div>
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner1.png') }}" alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner2.png') }}" alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner3.png') }}" alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage" src="{{ asset('images/games/topBanner1.png') }}" alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
+                    </swiper-slide>
+                @endfor
             </swiper-container>
         </div>
 
@@ -260,81 +238,8 @@
 
 @section('scripts')
     <script src="{{ asset('js/games.js') }}"></script>
-
     <div id="translation-container" data-view-now="{{ __('auth.view_now') }}"></div>
-
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
-
-    <script>
-        const swiperEl = document.querySelector('.topBannerSwiper')
-
-        const params = {
-            injectStyles: [
-                `   .swiper{
-                    position:static;
-                    }
-                    .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
-                        opacity:0;
-                    }
-                    .swiper-button-next, .swiper-button-prev{
-                        width:40px;
-                        height:40px;
-                        border-radius: 50%;
-                        background: #ffffff; 
-                        box-shadow: 0 3px 6px #999999
-                    }
-                    .swiper-button-next svg, .swiper-button-prev svg{
-                        width:10px;
-                        height:18px;
-                        color:#9b9b9b;
-                        stroke: #9b9b9b;
-                        stroke-width: 1.5px
-                    }
-                    .swiper-button-prev{
-                        left:-20px;
-                    }
-                    .swiper-button-next{
-                        right:-20px;
-                    }
-                    @media (max-width: 1024px) {
-                        .swiper-button-next, .swiper-button-prev{
-                            display:none;
-                        }
-                    }
-                `
-            ],
-        }
-        Object.assign(swiperEl, params, {
-            slidesPerView: 3,
-            spaceBetween: 20,
-            breakpoints: {
-                320: {
-                    slidesPerView: 1.4,
-                    spaceBetween: 20,
-                },
-                375: {
-                    slidesPerView: 1.2,
-                    spaceBetween: 20,
-                },
-                525: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 20,
-                },
-                1025: {
-                    slidesPerView: 2.7,
-                    spaceBetween: 20,
-                },
-                1440: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-            },
-        })
-        swiperEl.initialize();
-    </script>
+    <script src="{{ asset('js/games-blade.js') }}"></script>
 
 @endsection

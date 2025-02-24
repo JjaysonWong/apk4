@@ -662,9 +662,9 @@ function updatePagination(tabId, currentPage, totalPages) {
 
     pagination.innerHTML = `
         <button class="first-page" ${currentPage === 1 ? 'disabled' : ''}>${window.translations.firstPage}</button>
-        <button class="prev-page pagination-button" ${currentPage === 1 ? 'disabled' : ''}>${isSmall ? '<' : window.translations.prevPage}</button>
+        <button class="prev-page pagination-button" ${currentPage === 1 ? 'disabled' : ''}>${isSmallScreen ? '<' : window.translations.prevPage}</button>
         ${pageNumbers.join('')}
-        <button class="next-page pagination-button" ${currentPage === totalPages ? 'disabled' : ''}>${isSmall ? '>' : window.translations.nextPage}</button>
+        <button class="next-page pagination-button" ${currentPage === totalPages ? 'disabled' : ''}>${isSmallScreen ? '>' : window.translations.nextPage}</button>
         <button class="last-page" ${currentPage === totalPages ? 'disabled' : ''}>${window.translations.lastPage}</button>
     `;
 }
