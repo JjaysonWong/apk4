@@ -32,126 +32,54 @@
         <div class="top-banner-slider">
             <swiper-container class="mySwiper topBannerSwiper" space-between="20" slides-per-view="3" navigation="true"
                 init="false">
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="newIconWrap">
-                            <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
-                            <p>NEW</p>
+
+                @foreach ($topFourApps as $topApp)
+                    <swiper-slide>
+                        <div class="imgWrap">
+                            @if ($loop->first)
+                                <div class="newIconWrap">
+                                    <img src="{{ asset('images/home/newIcon.png') }}" alt="New Icon" />
+                                    <p>{{ __('auth.new') }}</p>
+                                </div>
+                            @endif
+                            <div class="overlayImage">
+                                <div class="overlay"></div>
+
+                                <img class="bannerImage"
+                                    src="{{ Str::startsWith($topApp['icon'], ['http://', 'https://']) ? $topApp['icon'] : config('app.img_db') . $topApp['icon'] }}"
+                                    alt="App Banner" />
+
+                            </div>
+                            <p class="bannerTitle">{{ $topApp['name'] }}</p>
+                            <a href="{{ route('app.show', ['union_id' => $topApp['union_id']]) }}"
+                                class="viewButton">{{ __('auth.view_now') }}</a>
                         </div>
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage"
-                                src="{{ asset('images/applications/topBanner1.png') }}"alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage"
-                                src="{{ asset('images/applications/topBanner2.png') }}"alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage"
-                                src="{{ asset('images/applications/topBanner3.png') }}"alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="imgWrap">
-                        <div class="overlayImage">
-                            <div class="overlay"></div>
-                            <img class="bannerImage"
-                                src="{{ asset('images/applications/topBanner1.png') }}"alt="App Banner" />
-                        </div>
-                        <p class="bannerTitle">凡人修仙传：人界篇</p>
-                        <div class="viewButton">{{ __('auth.view_now') }}</div>
-                    </div>
-                </swiper-slide>
+                    </swiper-slide>
+                @endforeach
             </swiper-container>
         </div>
 
+        {{-- 精选推荐 --}}
         <div class="app-recommend-section">
             <h2>{{ __('auth.selected_app_recommend') }}</h2>
             <div class="recommend-app-list">
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app1.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">异度神剑2</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
+                @foreach ($recommendedApps as $reApp)
+                    <div class="appWrap">
+                        <div class="appDetailWrap">
+                            <img src="{{ Str::startsWith($reApp['icon'], ['http://', 'https://']) ? $reApp['icon'] : config('app.img_db') . $reApp['icon'] }}"
+                                alt="{{ $reApp['name'] }}" />
+                            <div class="details">
+                                <p class="appName">{{ $reApp['name'] }}</p>
+                                <p class="appCategory">{{ __('categories.' . $categories) }}</p>
+                                <p class="appUpdate">{{ date('Y-m-d', $reApp['uptime']) }}</p>
+                            </div>
+                        </div>
+                        <div class="viewNowButton">
+                            <a
+                                href="{{ route('app.show', ['union_id' => $reApp['union_id']]) }}">{{ __('auth.view_now') }}</a>
                         </div>
                     </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app2.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">仓鼠点心工厂</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
-                        </div>
-                    </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app3.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">哒哒嗒哒</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
-                        </div>
-                    </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app4.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">斗破苍穹：斗帝</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
-                        </div>
-                    </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app5.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">镇魂街：武神觉醒</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
-                        </div>
-                    </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
-                <div class="appWrap">
-                    <div class="appDetailWrap">
-                        <img src="{{ asset('images/applications/app6.png') }}" alt="App Image" />
-                        <div class="details">
-                            <p class="appName">侏罗纪军团</p>
-                            <p class="appCategory">战斗策略</p>
-                            <p class="appUpdate">2023-06-06更新</p>
-                        </div>
-                    </div>
-                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -160,38 +88,10 @@
         <div class="container">
             <div class="category-tab">
                 <div class="tab">
-                    @php
-                        $categories = [
-                            'all' => __('categories.all_categories'),
-                            'rpg' => __('categories.role_playing'),
-                            'tower_defense' => __('categories.tower_defense'),
-                            'action' => __('categories.action_competition'),
-                            'puzzle' => __('categories.casual_puzzle'),
-                            'war' => __('categories.war_strategy'),
-                            'sport' => __('categories.sports_competition'),
-                            'shoot' => __('categories.flight_shooting'),
-                            'adventure' => __('categories.adventure_puzzle'),
-                            'survival' => __('categories.survival_adventure'),
-                            'card' => __('categories.card_battle'),
-                            'music' => __('categories.music_dance'),
-                            'mobile' => __('categories.legend_mobile'),
-                            'simulation' => __('categories.simulation_management'),
-                            'arcade' => __('categories.arcade_fighting'),
-                            'pet' => __('categories.pet_cultivation'),
-                            'race' => __('categories.racing_competition'),
-                            'other' => __('categories.other_games'),
-                        ];
-                        $activeCategory = $appCategories ?? 'all';
-                    @endphp
-
-                    {{-- @foreach ($categories as $key => $value)
-                        <button class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}"
-                            onclick="switchTab(event, '{{ $key }}')">{{ $value }}</button>
-                    @endforeach --}}
-                    @foreach ($categories as $key => $value)
-                        <a href="{{ route('app.category', ['category' => $key]) }}"
-                            class="catTab tablinks {{ $key == $activeCategory ? 'active' : '' }}">
-                            {{ $value }}
+                    @foreach ($appCategories as $index => $category)
+                        <a href="{{ route('app.category', ['category' => $category]) }}"
+                            class="catTab tablinks {{ $category == $categories || ($categories == null && $category == 'all') ? 'active' : '' }}">
+                            {{ __('categories.' . $category) }}
                         </a>
                     @endforeach
                 </div>
@@ -204,57 +104,27 @@
             <div id="all" class="catTabcontent">
                 <!-- Content for 全部分类 -->
             </div>
-            <div id="rpg" class="catTabcontent">
-                <!-- Content for 角色扮演 -->
+            <div id="{{ $categories }}" class="catTabcontent">
+                <!-- Content for {{ $categories }} -->
+                @foreach ($fullAppList[$categories] as $app)
+                    <div class="gameWrap">
+                        <a href="{{ route('app.show', ['union_id' => $app['union_id']]) }}">
+                            <img src="{{ Str::startsWith($app['icon'], ['http://', 'https://']) ? $app['icon'] : config('app.img_db') . $app['icon'] }}"
+                                alt="{{ $app['name'] }}">
+                        </a>
+                        <div class="gameDetailWrap">
+                            <p class="gameName">{{ $app['name'] }}</p>
+                            <p class="gameType">{{ $app['type'] }}</p>
+                            <p class="gameUpdate">{{ date('Y-m-d', $app['uptime']) }}</p>
+                        </div>
+                        <div class="viewNow">
+                            <a href="{{ route('app.show', ['union_id' => $app['union_id']]) }}">{{ __('auth.view_now') }}
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div id="tower_defense" class="catTabcontent">
-                <!-- Content for 关卡塔防 -->
-            </div>
-            <div id="action" class="catTabcontent">
-                <!-- Content for 动作竞技 -->
-            </div>
-            <div id="puzzle" class="catTabcontent">
-                <!-- Content for 休闲益智 -->
-            </div>
-            <div id="war" class="catTabcontent">
-                <!-- Content for 战争策略 -->
-            </div>
-            <div id="sport" class="catTabcontent">
-                <!-- Content for 体育竞技 -->
-            </div>
-            <div id="shoot" class="catTabcontent">
-                <!-- Content for 飞行射击 -->
-            </div>
-            <div id="adventure" class="catTabcontent">
-                <!-- Content for 冒险解谜 -->
-            </div>
-            <div id="survival" class="catTabcontent">
-                <!-- Content for 生存冒险 -->
-            </div>
-            <div id="card" class="catTabcontent">
-                <!-- Content for 卡牌对战 -->
-            </div>
-            <div id="music" class="catTabcontent">
-                <!-- Content for 音乐舞蹈 -->
-            </div>
-            <div id="mobile" class="catTabcontent">
-                <!-- Content for 传奇手游 -->
-            </div>
-            <div id="simulation" class="catTabcontent">
-                <!-- Content for 模拟经营 -->
-            </div>
-            <div id="arcade" class="catTabcontent">
-                <!-- Content for 街机格斗 -->
-            </div>
-            <div id="pet" class="catTabcontent">
-                <!-- Content for 宠物养成 -->
-            </div>
-            <div id="race" class="catTabcontent">
-                <!-- Content for 赛车竞赛 -->
-            </div>
-            <div id="other" class="catTabcontent">
-                <!-- Content for 其他游戏 -->
-            </div>
+
             <div id="pagination" class="pagination"></div>
         </div>
     </div>
@@ -262,7 +132,7 @@
 
 
 @section('scripts')
-    <script src="{{ asset('js/applications.js') }}"></script>
+    {{-- <script src="{{ asset('js/applications.js') }}"></script> --}}
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('js/application-blade.js') }}"></script>
 @endsection

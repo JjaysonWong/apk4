@@ -48,6 +48,8 @@ return [
     'hot_free' => 'Hot & Free',   
     'most_anticipated' => 'Most Anticipated',   
     'most_downloaded' => 'Most Downloaded',
+    'most_download' => 'Most Download',
+
     'view_now'  => 'View Now',
     'application_tab' => 'Application',   
     'software_collection'   => 'Software Collection', 
@@ -89,13 +91,16 @@ return [
     'related_history_version' => 'Related History Version',
     'download' => 'Download',
     'similar_games' => 'Similar Games',
+    'similar_apps'  => 'Similar Apps',
     'related_info' => 'Related Info',
     'related_topic' => 'Related Topic',
     'hot_game' =>   'Hot Game',
+    'hot_app' =>   'Hot App',
     'developer_other_games' => 'Developers\' Other Games',
     'hot_label' =>'Hot Label',
     'screenshot_preview' => 'Screenshot Preview',
     'new' => 'New',
+    'recommended_game' => 'Recommended Game',
 
 
 

@@ -78,6 +78,15 @@ document.addEventListener("DOMContentLoaded", function() {
     if (firstUsefulAppTab) {
         firstUsefulAppTab.click();
     }
+
+    var firstHotGameTab = document.querySelector(".hot-game-tab");
+    if (firstHotGameTab) {
+        firstHotGameTab.click();
+    }
+    var firstHotAppTab = document.querySelector(".hot-app-tab");
+    if (firstHotAppTab) {
+        firstHotAppTab.click();
+    }
 });
 
 function switchHotAppTab(evt, tabName) {
@@ -94,7 +103,7 @@ function switchHotAppTab(evt, tabName) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active", "firstHotAppTab");
     }
-
+    console.log(tabName);
     // Show the selected tab and add "active" class to the clicked tab
     document.getElementById(tabName).style.display = "flex";
     evt.currentTarget.classList.add("active");

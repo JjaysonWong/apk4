@@ -4,9 +4,9 @@
 .top-banner-slider swiper-slide .imgWrap .newIconWrap > img{width: 57px;height: 27px;}
 .top-banner-slider swiper-slide .imgWrap .newIconWrap > p{font-size: 12px;color: var(--bg-color);position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);font-weight: bold;}
 .top-banner-slider swiper-slide .imgWrap .overlayImage {position: relative;z-index: 1;}
-.top-banner-slider swiper-slide .imgWrap .overlayImage .overlay{height: 216px;width: 100%;position: absolute;z-index: 1;background: #000000;border-radius: 20px;opacity: .1;}
-.top-banner-slider swiper-slide .imgWrap .bannerImage{width: 100%;height: auto;}
-.top-banner-slider swiper-slide .imgWrap .bannerTitle{font-size: 14px;color: #ffffff;position: absolute;bottom: 10px;left: 16px;z-index: 2;}
+.top-banner-slider swiper-slide .imgWrap .overlayImage .overlay{height: 216px;width: 100%;position: absolute;z-index: 1;border-radius: 20px;opacity: .1;}
+.top-banner-slider swiper-slide .imgWrap .bannerImage{width: 100%;height: 300px; border-radius: 20px;}
+.top-banner-slider swiper-slide .imgWrap .bannerTitle{font-size: 14px;color: #ffffff;position: absolute;bottom: 20px;left: 20px;z-index: 2;}
 .top-banner-slider swiper-slide .imgWrap .viewButton{background: #3D7CFF;border-radius: 14px;color: #ffffff;font-size: 14px;height: 28px;display: flex;align-items: center;justify-content: center;padding: 0 22px;position: absolute;right: 10px;bottom: 10px;cursor: pointer;z-index: 2;line-height: 26px;} 
 
 .game-recommend-section {margin-top: 24px;margin-bottom: 32px;}
@@ -28,13 +28,11 @@
 .category-tab-section .category-tab .tab .catTab.active{background: #3D7CFF;color: #ffffff;transition: .3s all ease;font-weight: bold;}
 
 .category-game-list{margin-top: 30px;}
-.category-game-list .catTabcontent{display: none;}
-.category-game-list .catTabcontent#quanbu{display: flex;}
-.category-game-list .catTabcontent{column-gap: 45px;row-gap: 35px;flex-wrap: wrap;}
-.category-game-list .catTabcontent .gameWrap{display: flex;flex-direction: column;align-items: center;row-gap: 6px;cursor: pointer;}
-.category-game-list .catTabcontent .gameWrap .gameDetailWrap{display: flex;justify-content: center;row-gap: 6px;flex-direction: column;align-items: center;}
-.category-game-list .catTabcontent .gameWrap img{width: 110px;height: 110px;}
-.category-game-list .catTabcontent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
+.category-game-list .catTabcontent{row-gap: 35px;flex-wrap: wrap;display: flex;column-gap: 35px;}
+.category-game-list .catTabcontent .gameWrap{display: flex;flex-direction: column;align-items: center;row-gap: 6px;cursor: pointer;flex: 0 0 9.9%; max-width: 9.9%;}
+.category-game-list .catTabcontent .gameWrap .gameDetailWrap{display: flex;justify-content: center;row-gap: 6px;flex-direction: column;align-items: center;width: 100%;}
+.category-game-list .catTabcontent .gameWrap img{width: 100%;height: auto;border-radius: 15px;}
+.category-game-list .catTabcontent .gameWrap .gameName{font-size: 14px;color: var(--text-black);overflow: hidden;white-space: nowrap;width: 100%; text-align: center;}
 .category-game-list .catTabcontent .gameWrap .gameUpdate{font-size: 12px;color: #9A9A9A;}
 .category-game-list .catTabcontent .gameWrap .gameType, .category-game-list .catTabcontent .gameWrap .viewNow{display: none;}
 

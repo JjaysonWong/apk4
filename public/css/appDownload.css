@@ -14,7 +14,7 @@
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap{display: flex;column-gap: 34px;margin-bottom: 18px;}
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap > p{font-size: 30px;color: #333335;position: relative;}
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap > p::after {content: ""; height: 85%; width: 2px; background: rgba(153, 153, 153, 0.35); position: absolute; right: -17px; top: 50%; transform: translateY(-50%);}
-.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap{display: flex;flex-direction: column;row-gap: 6px;}
+.downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap{display: flex;flex-direction: column;row-gap: 6px;justify-content: center;}
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap p{font-size: 14px;color: var(--text-gray);}
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars {display: flex;column-gap: 3px;height: 14px;align-items: center;}
 .downloadPage .banner-download .downloadButtonWrap .ratingWrap .starWrap .stars .star{background: url(../images/download/star.png);background-repeat: no-repeat;width: 16px;height: 14px;background-size: contain;}
@@ -56,12 +56,12 @@
 .downloadPage .app-info .related-history-version{margin-top: 26px;}
 .downloadPage .app-info .related-history-version > h2{font-size: 20px;color: var(--text-black);}
 .downloadPage .app-info .related-history-version .downloadList{display: flex;flex-direction: column;}
-.downloadPage .app-info .related-history-version .downloadList .downloadWrap{display: flex;align-items: center;justify-content: space-between;padding: 10px 0 15px;border-bottom: 1px solid #E6E9ED;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap{display: flex;align-items: center;justify-content: space-between;padding: 20px 0 15px;border-bottom: 1px solid #E6E9ED;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap{display: flex;flex-direction: column;row-gap: 5px;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap > p{font-size: 14px;color: #333333;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory{display: flex;column-gap: 20px;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .titleWrap .dateMemory p{font-size: 12px;color: var(--text-gray);}
-.downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton{display: flex;column-gap: 5px;justify-content: center;align-items: center;background: #22F2A7;border-radius: 10px;width: 102px;height: 28px;cursor: pointer;}
+.downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton{display: flex;column-gap: 5px;justify-content: center;align-items: center;background: #22F2A7;border-radius: 10px;width: 120px;height: 35px;cursor: pointer;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton img{width: 12px;height: 12px;}
 .downloadPage .app-info .related-history-version .downloadList .downloadWrap .downloadButton p{font-size: 12px;color: var(--bg-color);margin-top: -2px;}
 
@@ -70,10 +70,10 @@
 .downloadPage  .similar-app-list .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
 .downloadPage  .similar-app-list .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
 .downloadPage  .similar-app-list .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
-.downloadPage  .similar-app-list .appList{display: flex;column-gap: 33px;justify-content: center;}
+.downloadPage  .similar-app-list .appList{display: flex;justify-content: space-between;}
 .downloadPage  .similar-app-list .appList .appWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;}
-.downloadPage  .similar-app-list .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;}
-.downloadPage  .similar-app-list .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: nowrap;}
+.downloadPage  .similar-app-list .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;border-radius: 15px;}
+.downloadPage  .similar-app-list .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: normal;width: 100%; text-align: center;}
 .downloadPage  .similar-app-list .appList .appWrap .dateUpdate{color: #9A9A9A;font-size: 12px;}
 .downloadPage .similar-app-list .mobileStarWrap{display: none;}
 
@@ -97,10 +97,10 @@
 .downloadPage .good-app-recommend .titleWrap{display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
 .downloadPage .good-app-recommend .titleWrap p{cursor: pointer;color: #719fff;font-size: 14px;}
 .downloadPage .good-app-recommend .titleWrap img{filter: brightness(0) saturate(100%) invert(55%) sepia(38%) saturate(659%) hue-rotate(184deg) brightness(102%) contrast(103%);width: 15px;height: 9px;}
-.downloadPage .good-app-recommend .appList{display: flex;column-gap: 33px;justify-content: center;}
+.downloadPage .good-app-recommend .appList{display: flex;justify-content: space-between;}
 .downloadPage .good-app-recommend .appList .appWrap{display: flex;flex-direction: column;justify-content: center;align-items: center;}
-.downloadPage .good-app-recommend .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;}
-.downloadPage .good-app-recommend .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: nowrap;}
+.downloadPage .good-app-recommend .appList .appWrap img{width: 110px;height: 110px;margin-bottom: 7px;border-radius: 15px;}
+.downloadPage .good-app-recommend .appList .appWrap .name{font-size: 14px;color: var(--text-black);margin-bottom: 5px;overflow: hidden;white-space: normal;width: 100%; text-align: center;}
 .downloadPage .good-app-recommend .appList .appWrap .dateUpdate{color: #9A9A9A;font-size: 12px;}
 .downloadPage .good-app-recommend .mobileStarWrap{display: none;}
 
@@ -187,7 +187,7 @@
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap{display: flex;column-gap: 11px;align-items: center;}
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap > img {width: 70px;height: 70px;}
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap{display: flex;flex-direction: column;}
-.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .appName{font-size: 14px;color: var(--text-black);margin-bottom: 4px;overflow: hidden;white-space: nowrap;}
+.downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .appName{font-size: 14px;color: var(--text-black);margin-bottom: 4px;overflow: hidden;}
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .appType{font-size: 12px;color: var(--text-gray);margin-bottom: 8px;}
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .appDetailWrap .dateUpdate{font-size: 12px;color: var(--text-gray);}
 .downloadPage .downloadInfo .content-right .hot-app .app-list .appWrap .viewNow{margin-left: auto;width: 72px;height: 28px;display: flex;justify-content: center;align-items: center;cursor: pointer;font-size: 12px;color: var(--text-gray);border-radius: 14px;background: #f9f9f9;border: 1px solid #e2e2e2;}

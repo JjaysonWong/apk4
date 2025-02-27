@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Models\Apk4GameList;
 use App\Models\Apk4AppList;
+use App\Models\Apk4Category;
 
 class IndexController extends Controller
 {
@@ -38,18 +39,46 @@ class IndexController extends Controller
                                 ->mapWithKeys(fn($key) => [$key => __('categories.' . str_replace('1', '', $key))])
                                 ->toArray();
     
-        $hotRank = collect(config('categories.hot_rank'))
-                ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])
+        // $hotRank = collect(config('categories.hot_rank'))
+        //         ->mapWithKeys(fn($key) => [$key => __('categories.' . $key)])
+        //         ->toArray();
+
+        $hotGameRank['hot_free'] = $hotGameRank['most_anticipated'] = $hotGameRank['most_download'] = Apk4GameList::orderBy('game_score', 'desc')
+                ->limit(9)
+                ->get()
                 ->toArray();
-    
-        $hotAppRank = collect(config('categories.hot_app_rank'))
-                    ->mapWithKeys(fn($key) => [$key => __('categories.' . str_replace('1', '', $key))])
-                    ->toArray();
+
+        
+        foreach ($hotGameRank as &$hotGameValue) {
+            foreach ($hotGameValue as &$value) {
+                $category = Apk4Category::find($value['type']);
+                $category = $category->catalog;
+                $value['category'] = $category;
+            }
+        }
+
+        // $hotAppRank = collect(config('categories.hot_app_rank'))
+        //             ->mapWithKeys(fn($key) => [$key => __('categories.' . str_replace('1', '', $key))])
+        //             ->toArray();
+
+        $hotAppRank['hot_free'] = $hotAppRank['most_anticipated'] = $hotAppRank['most_download'] = Apk4AppList::orderBy('game_score', 'desc')
+                ->limit(9)
+                ->get()
+                ->toArray();
+
+        
+        foreach ($hotAppRank as &$hotAppValue) {
+            foreach ($hotAppValue as &$value) {
+                $category = Apk4Category::find($value['type']);
+                $category = $category->catalog;
+                $value['category'] = $category;
+            }
+        }
         
         $newUpdateGameList = Apk4GameList::whereIn('id', [269, 9442, 14280])
             ->orderBy('game_score', 'desc')
             ->limit(16)
-            ->get(['union_id', 'name', 'keywords'])
+            ->get(['union_id', 'name', 'keywords','description'])
             ->toArray();
 
         $formattedUpdateGameList = [];
@@ -59,7 +88,8 @@ class IndexController extends Controller
             $formattedUpdateGameList[$index] = [
                 'name' => $game['name'],
                 'union_id' => $game['union_id'],
-                'keywords' => $game['keywords']
+                'keywords' => $game['keywords'],
+                'description' => $game['description']
             ];
             $index++;
         }
@@ -67,6 +97,7 @@ class IndexController extends Controller
 
         $dbGameCategory = Apk4GameList::join('apk4_category', 'apk4_category.id', '=', 'apk4_game_list.type')
             ->select('apk4_category.catalog', 'apk4_game_list.name', 'apk4_game_list.union_id', 'apk4_game_list.icon')
+            ->where('apk4_category.classify', 1)
             ->orderBy('apk4_game_list.id', 'asc')
             ->get()
             ->groupBy('catalog')
@@ -93,15 +124,15 @@ class IndexController extends Controller
                 ];
                 return $carry;
             }, []);
-
-
+        
+        
         return view('pages.home', [
             'topGameList'                => $topGameList,
             'topAppList'                 => $topAppList,
             'personalizedRecommendation' => $personalizedRecommendation,
             'newUpdateGameList'          => $formattedUpdateGameList,
             'applicationCategories'      => $applicationCategories,
-            'hotRank'                    => $hotRank,
+            'hotGameRank'                => $hotGameRank,
             'hotAppRank'                 => $hotAppRank,
             'dbGameCategory'             => $dbGameCategory,
             'dbAppCategory'              => $dbAppCategory,

@@ -48,6 +48,8 @@ return [
     'hot_free' => '热门免费',   
     'most_anticipated' => '最受期待',   
     'most_downloaded' => '下载最多',
+    'most_download' => '下载最多',
+
     'view_now'  => '查看',   
     'application_tab' => '应用安利', 
     'software_collection'   => '软件合集', 
@@ -84,18 +86,21 @@ return [
     'check_log_history' => '查看历史日志',
     'close' => '收起',
     'game_overview'  => '游戏简介', 
-    'game_advantage_version' => '游戏版本优势',
+    'game_version_advantage' => '游戏版本优势',
     'details_info' => '详细信息',
     'related_history_version' => '相关历史版本',
     'download' => '下载',
     'similar_games' => '类似游戏',
+    'similar_apps'  => '类似应用',
     'related_info' => '相关资讯',
     'related_topic' => '相关专题',
     'hot_game' =>   '热门游戏',
+    'hot_app' =>   '热门应用',
     'developer_other_games' => '开发者其他游戏',
     'hot_label' =>'热门标签',
     'screenshot_preview' => '截图预览',
     'new' => '最新',
+    'recommended_game' => '好游安利',
 
 
 

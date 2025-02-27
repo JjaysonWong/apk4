@@ -111,6 +111,7 @@
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap{ flex: 0 0 auto; width: 30%; height: max-content;display: flex;align-items: center;}
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent#remenmianfei{display: flex;}
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap{display: flex;}
+.hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .details{width: 10rem;}
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameNumber{color: #666666;font-size: 16px;padding-left: 10px;margin-right: 22px;}
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap > img{width: 70px;height: 70px;margin-right: 10px;}
 .hot-game-rank .hot-game-rank-tab .hotGameTabContent .gameWrap .gameDetailWrap .gameName{font-size: 16px;color: var(--text-black);overflow: hidden;white-space: nowrap;}
@@ -167,6 +168,7 @@
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap{ flex: 0 0 auto; width: 30%; height: max-content;display: flex;align-items: center;}
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent#remenmianfei1{display: flex;}
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap{display: flex;}
+.hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .details{width: 10rem;}
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameNumber{color: #666666;font-size: 16px;padding-left: 10px;margin-right: 22px;}
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap > img{width: 70px;height: 70px;margin-right: 10px;}
 .hot-app-rank .hot-app-rank-tab .hotAppTabContent .gameWrap .gameDetailWrap .gameName{font-size: 16px;color: var(--text-black);overflow: hidden;white-space: nowrap;}

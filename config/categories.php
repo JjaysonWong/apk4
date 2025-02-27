@@ -32,14 +32,14 @@ return [
     ],
 
     'hot_rank' => [
-        'remenmianfei',
-        'zuisouqidai',
-        'xiazaizuiduo',
+        'hot_free',
+        'most_anticipated',
+        'most_download',
     ],
 
     'hot_app_rank' => [
-        'remenmianfei1',
-        'zuisouqidai1',
-        'xiazaizuiduo1',
+        'hot_free',
+        'most_anticipated',
+        'most_download',
     ],
 ];

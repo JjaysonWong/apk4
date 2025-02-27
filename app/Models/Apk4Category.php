@@ -42,7 +42,7 @@ class Apk4Category extends Model
 		'status' => 'bool',
 		'addadmin' => 'int',
 		'upadmin' => 'int',
-		'classify' => 'bool',
+		'classify' => 'int',
 		'is404' => 'int'
 	];
 

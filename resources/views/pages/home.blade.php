@@ -75,7 +75,7 @@
                             <swiper-container class="mySwiper top-game-swiper" space-between="10" slides-per-view="3.3">
                                 @foreach ($topGameList as $index => $game)
                                     <swiper-slide>
-                                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'"
+                                        <div onclick="window.open('{{ route('game.show', ['union_id' => $game['union_id']]) }}', '_blank')"
                                             style="cursor: pointer;">
                                             @if ($index < 4)
                                                 <div class="crownWrap">
@@ -98,7 +98,7 @@
                                 slides-per-view="3.3">
                                 @foreach ($topAppList as $index => $app)
                                     <swiper-slide>
-                                        <div onclick="window.location.href='{{ route('app.show', ['union_id' => $app['union_id']]) }}'"
+                                        <div onclick="window.open('{{ route('app.show', ['union_id' => $app['union_id']]) }}', '_blank')"
                                             style="cursor: pointer;">
                                             @if ($index < 4)
                                                 <div class="crownWrap">
@@ -130,7 +130,7 @@
                 init="false">
                 @foreach ($personalizedRecommendation as $game)
                     <swiper-slide>
-                        <div onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'"
+                        <div onclick="window.open('{{ route('game.show', ['union_id' => $game['union_id']]) }}', '_blank')"
                             style="cursor: pointer;">
                             <img src="{{ Str::startsWith($game['icon'], ['http://', 'https://']) ? $game['icon'] : config('app.img_db') . $game['icon'] }}"
                                 alt="Game Image" />
@@ -163,8 +163,8 @@
                         @endphp
                         <div class="new-update-game-wrap">
 
-                            <div
-                                onclick="window.location.href='{{ route('game.show', ['union_id' => $game['union_id']]) }}'">
+                            <div onclick="window.open('{{ route('game.show', ['union_id' => $game['union_id']]) }}', '_blank')"
+                                style="cursor: pointer;">
                                 <img class="banner-image" src="{{ asset('images/home/newUpdateGame' . $i . '.png') }}"
                                     alt="Game Image" />
                                 <div class="new-update-small-wrap">
@@ -173,7 +173,7 @@
                                     <div class="new-update-small-detail">
                                         <h4>{{ $game['name'] }}</h4>
                                         <p class="dateUpdate">{{ $randomDate }} {{ __('auth.update') }}</p>
-                                        <p>{{ $game['keywords'] }}</p>
+                                        <p>{{ $game['description'] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -244,27 +244,33 @@
                 </div>
                 <div class="hot-game-rank-tab">
                     <div class="tab">
-                        <button class="hot-game-tab tablinks active"
-                            onclick="switchHotGameTab(event, 'remenmianfei', '1')">{{ __('auth.hot_free') }}</button>
-                        <button class="hot-game-tab tablinks"
-                            onclick="switchHotGameTab(event, 'zuisouqidai', '2')">{{ __('auth.most_anticipated') }}</button>
-                        <button class="hot-game-tab tablinks"
-                            onclick="switchHotGameTab(event, 'xiazaizuiduo', '3')">{{ __('auth.most_downloaded') }}</button>
+                        @foreach ($hotGameRank as $hotGameKey => $hotGameValue)
+                            @if ($loop->index < 3)
+                                <button class="hot-game-tab tablinks {{ $loop->first ? 'active' : '' }}"
+                                    onclick="switchHotGameTab(event, '{{ $hotGameKey }}')">{{ __('auth.' . $hotGameKey) }}</button>
+                            @endif
+                        @endforeach
                     </div>
-                    @foreach ($hotRank as $hotRankKey => $hotRankName)
-                        <div id="{{ $hotRankKey }}" class="hotGameTabContent">
-                            @for ($i = 1; $i <= 9; $i++)
+
+                    @foreach ($hotGameRank as $hotGameKey => $hotGameValue)
+                        <div id="{{ $hotGameKey }}" class="hotGameTabContent">
+                            @for ($i = 0; $i <= 8; $i++)
                                 <div class="gameWrap">
-                                    <div class="gameNumber">{{ $i }}</div>
+                                    <div class="gameNumber">{{ $i + 1 }}</div>
                                     <div class="gameDetailWrap">
-                                        <img src="{{ asset('images/home/hotrank' . $i . '.png') }}" alt="Game Image" />
+                                        <img src="{{ $hotGameValue[$i]['icon'] }}" alt="Game Image" />
                                         <div class="details">
-                                            <p class="gameName">游戏名称 {{ $hotRankName }} {{ $i }}</p>
-                                            <p class="gameCategory">游戏类别</p>
-                                            <p class="gameUpdate">2023-06-06{{ __('auth.update') }}</p>
+                                            <p class="gameName">{{ $hotGameValue[$i]['name'] }}</p>
+                                            <p class="gameCategory">
+                                                {{ __('categories.' . $hotGameValue[$i]['category']) }}</p>
+                                            <p class="gameUpdate">
+                                                {{ date('Y-m-d', $hotGameValue[$i]['uptime']) }}{{ __('auth.update') }}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="viewNowButton">{{ __('auth.view_now') }}</div>
+                                    <div class="viewNowButton"
+                                        onclick="window.open('{{ route('game.show', ['union_id' => $hotGameValue[$i]['union_id']]) }}', '_blank')">
+                                        {{ __('auth.view_now') }}</div>
                                 </div>
                             @endfor
                         </div>
@@ -327,28 +333,33 @@
                 </div>
                 <div class="hot-app-rank-tab">
                     <div class="tab">
-                        <button class="hot-app-tab tablinks active"
-                            onclick="switchHotAppTab(event, 'remenmianfei1', '1')">{{ __('categories.remenmianfei') }}</button>
-                        <button class="hot-app-tab tablinks"
-                            onclick="switchHotAppTab(event, 'zuisouqidai1', '2')">{{ __('categories.zuisouqidai') }}</button>
-                        <button class="hot-app-tab tablinks"
-                            onclick="switchHotAppTab(event, 'xiazaizuiduo1', '3')">{{ __('categories.xiazaizuiduo') }}</button>
+                        @foreach ($hotAppRank as $hotAppKey => $hotAppValue)
+                            @if ($loop->index < 3)
+                                <button class="hot-app-tab tablinks {{ $loop->first ? 'active' : '' }}"
+                                    onclick="switchHotAppTab(event, '{{ $hotAppKey }}_app')">{{ __('auth.' . $hotAppKey) }}</button>
+                            @endif
+                        @endforeach
                     </div>
-                    @foreach ($hotAppRank as $hotAppRankKey => $hotAppRankName)
-                        <div id="{{ $hotAppRankKey }}" class="hotAppTabContent">
-                            @for ($i = 1; $i <= 9; $i++)
+
+                    @foreach ($hotAppRank as $hotAppRankKey => $hotAppRankValue)
+                        <div id="{{ $hotAppRankKey }}_app" class="hotAppTabContent">
+                            @for ($i = 0; $i <= 8; $i++)
                                 <div class="gameWrap">
-                                    <div class="gameNumber">{{ $i }}</div>
+                                    <div class="gameNumber">{{ $i + 1 }}</div>
                                     <div class="gameDetailWrap">
-                                        <img src="{{ asset('images/home/app' . $i . '.png') }}" alt="Game Image" />
+                                        <img src="{{ $hotAppRankValue[$i]['icon'] }}" alt="Game Image" />
                                         <div class="details">
-                                            <p class="gameName">{{ __('auth.game_name') }} {{ $hotAppRankName }}
-                                                {{ $i }}</p>
-                                            <p class="gameCategory">{{ __('auth.game_category') }}</p>
-                                            <p class="gameUpdate">2023-06-06{{ __('auth.update') }}</p>
+                                            <p class="gameName">{{ $hotAppRankValue[$i]['name'] }}</p>
+                                            <p class="gameCategory">
+                                                {{ __('categories.' . $hotAppRankValue[$i]['category']) }}</p>
+                                            <p class="gameUpdate">
+                                                {{ date('Y-m-d', $hotAppRankValue[$i]['uptime']) }}{{ __('auth.update') }}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="viewNowButton">{{ __('auth.more') }}</div>
+                                    <div class="viewNowButton"
+                                        onclick="window.open('{{ route('app.show', ['union_id' => $hotAppRankValue[$i]['union_id']]) }}', '_blank')">
+                                        {{ __('auth.view_now') }}</div>
                                 </div>
                             @endfor
                         </div>
