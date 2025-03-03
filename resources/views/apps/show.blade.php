@@ -274,7 +274,7 @@
                         <div class="appList">
                             @foreach ($recommendedApps as $recommendApp)
                                 <div class="appWrap">
-                                    <a href="{{ route('game.show', ['union_id' => $recommendApp['union_id']]) }}">
+                                    <a href="{{ route('app.show', ['union_id' => $recommendApp['union_id']]) }}">
                                         <img src="{{ Str::startsWith($recommendApp['icon'], ['http://', 'https://']) ? $recommendApp['icon'] : config('app.img_db') . $recommendApp['icon'] }}"
                                             alt="App Image" />
                                     </a>
